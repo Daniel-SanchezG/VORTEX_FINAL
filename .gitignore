@@ -172,3 +172,4 @@ venv/
 
 # PyPI configuration file
 .pypirc
+venv/
