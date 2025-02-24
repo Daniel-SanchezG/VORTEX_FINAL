@@ -1,0 +1,14 @@
+Experiment Information
+=====================
+
+Timestamp: 20250219_154334
+Input file: /home/dsg/vortex/PRODUCTION/DATA/raw/input_data.xlsx
+Minimum class size: 10
+Validation split: 0.1
+Number of training samples: 2256
+Number of validation samples: 178
+
+Model Configuration
+===================
+Random state (preprocessing): 786
+Random state (training): 123

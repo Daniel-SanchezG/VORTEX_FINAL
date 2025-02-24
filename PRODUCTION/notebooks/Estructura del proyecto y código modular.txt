@@ -1,0 +1,227 @@
+# Estructura de directorios recomendada
+project_root/
+│
+├── data/                      # Datos sin procesar y procesados
+│   ├── raw/                  # Datos originales sin modificar
+│   └── processed/            # Datos procesados
+│
+├── src/                      # Código fuente
+│   ├── __init__.py
+│   ├── preprocessing/        # Módulos de preprocesamiento
+│   │   ├── __init__.py
+│   │   └── data_processor.py
+│   │
+│   ├── training/            # Módulos de entrenamiento
+│   │   ├── __init__.py
+│   │   └── model.py
+│   │
+│   ├── visualization/       # Módulos de visualización
+│   │   ├── __init__.py
+│   │   └── plots.py
+│   │
+│   └── utils/              # Utilidades comunes
+│       ├── __init__.py
+│       └── helpers.py
+│
+├── notebooks/              # Jupyter notebooks
+│   ├── 01_exploration.ipynb
+│   ├── 02_preprocessing.ipynb
+│   └── 03_model_training.ipynb
+│
+│
+├── config/               # Archivos de configuración
+│   └── config.yaml
+│
+├── requirements.txt      # Dependencias del proyecto
+├── setup.py             # Script de instalación
+└── README.md            # Documentación principal
+
+# Ejemplo de implementación modular:
+
+# src/preprocessing/data_processor.py
+from typing import Dict, List, Optional
+import pandas as pd
+import numpy as np
+
+class DataProcessor:
+    """Clase para el preprocesamiento de datos XRF."""
+    
+    def __init__(self, atomic_weights: Dict[str, float]):
+        """
+        Inicializa el procesador de datos.
+        
+        Args:
+            atomic_weights: Diccionario de pesos atómicos por elemento
+        """
+        self.atomic_weights = atomic_weights
+        
+    def clean_data(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Limpia y prepara los datos iniciales.
+        
+        Args:
+            df: DataFrame con datos crudos
+            
+        Returns:
+            DataFrame limpio
+        """
+        # Eliminar columnas con +/-
+        df = df.loc[:, ~df.columns.str.startswith('+/-')]
+        
+        # Reemplazar valores problemáticos
+        df = df.replace('#DIV/0!', float('nan'))
+        
+        return df
+        
+    def convert_to_atomic_percentages(self, df: pd.DataFrame) -> pd.DataFrame:
+        """
+        Convierte valores a porcentajes atómicos.
+        
+        Args:
+            df: DataFrame con valores elementales
+            
+        Returns:
+            DataFrame con porcentajes atómicos
+        """
+        df_converted = df.copy()
+        
+        # Convertir a porcentajes atómicos
+        for element, weight in self.atomic_weights.items():
+            if element in df.columns:
+                df_converted[element] = df_converted[element] / weight
+                
+        # Calcular suma y normalizar
+        df_converted['Σ'] = df_converted.sum(axis=1) 
+        for col in df_converted.columns:
+            if col != 'Σ':
+                df_converted[col] = df_converted[col] / df_converted['Σ'] * 100
+                
+        return df_converted
+
+# src/training/model.py
+from typing import Tuple, Optional
+import pandas as pd
+from sklearn.base import BaseEstimator
+from sklearn.model_selection import train_test_split
+from pycaret.classification import *
+
+class ModelTrainer:
+    """Clase para entrenamiento y evaluación del modelo."""
+    
+    def __init__(
+        self,
+        random_state: int = 42,
+        test_size: float = 0.2
+    ):
+        self.random_state = random_state
+        self.test_size = test_size
+        self.model = None
+        
+    def prepare_data(
+        self, 
+        X: pd.DataFrame,
+        y: pd.Series
+    ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
+        """
+        Prepara los datos para entrenamiento.
+        
+        Args:
+            X: Features
+            y: Target variable
+            
+        Returns:
+            X_train, X_test, y_train, y_test
+        """
+        return train_test_split(
+            X, y,
+            test_size=self.test_size,
+            random_state=self.random_state
+        )
+        
+    def train(
+        self,
+        X: pd.DataFrame,
+        y: pd.Series,
+        **kwargs
+    ) -> BaseEstimator:
+        """
+        Entrena el modelo.
+        
+        Args:
+            X: Features de entrenamiento
+            y: Target variable
+            **kwargs: Parámetros adicionales para setup de pycaret
+            
+        Returns:
+            Modelo entrenado
+        """
+        # Configurar ambiente de entrenamiento
+        setup(
+            data=pd.concat([X, y], axis=1),
+            target=y.name,
+            session_id=self.random_state,
+            **kwargs
+        )
+        
+        # Crear y calibrar modelo
+        self.model = create_model('rf', class_weight="balanced")
+        self.model = calibrate_model(self.model)
+        
+        return self.model
+        
+    def evaluate(self, X_test: pd.DataFrame, y_test: pd.Series) -> dict:
+        """
+        Evalúa el modelo en datos de prueba.
+        
+        Args:
+            X_test: Features de prueba
+            y_test: Target variable de prueba
+            
+        Returns:
+            Métricas de evaluación
+        """
+        if self.model is None:
+            raise ValueError("Modelo no entrenado. Llama a train() primero.")
+            
+        predictions = predict_model(self.model, data=X_test)
+        return classification_report(y_test, predictions['prediction_label'])
+
+# src/utils/helpers.py
+from typing import Dict
+import pandas as pd
+import yaml
+
+def load_config(path: str) -> Dict:
+    """Carga configuración desde archivo YAML."""
+    with open(path, 'r') as f:
+        return yaml.safe_load(f)
+        
+def save_results(results: Dict, path: str):
+    """Guarda resultados en formato apropiado."""
+    pd.DataFrame(results).to_csv(path)
+
+# Ejemplo de uso:
+if __name__ == "__main__":
+    # Cargar configuración
+    config = load_config('config/config.yaml')
+    
+    # Inicializar procesador
+    processor = DataProcessor(atomic_weights=config['atomic_weights'])
+    
+    # Cargar y procesar datos
+    raw_data = pd.read_excel(config['data_path'])
+    processed_data = processor.clean_data(raw_data)
+    atomic_percentages = processor.convert_to_atomic_percentages(processed_data)
+    
+    # Preparar datos para entrenamiento
+    X = atomic_percentages.drop(['Site', 'Σ'], axis=1)
+    y = atomic_percentages['Site']
+    
+    # Entrenar modelo
+    trainer = ModelTrainer()
+    X_train, X_test, y_train, y_test = trainer.prepare_data(X, y)
+    model = trainer.train(X_train, y_train)
+    
+    # Evaluar y guardar resultados
+    results = trainer.evaluate(X_test, y_test)
+    save_results(results, 'results/evaluation_metrics.csv')

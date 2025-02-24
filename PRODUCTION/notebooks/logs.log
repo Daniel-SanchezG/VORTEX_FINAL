@@ -1,0 +1,1771 @@
+2025-02-19 12:11:24,672:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-19 12:11:24,672:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-19 12:11:24,672:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-19 12:11:24,673:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-19 13:11:15,915:INFO:PyCaret ClassificationExperiment
+2025-02-19 13:11:15,916:INFO:Logging name: clf-default-name
+2025-02-19 13:11:15,916:INFO:ML Usecase: MLUsecase.CLASSIFICATION
+2025-02-19 13:11:15,917:INFO:version 3.3.2
+2025-02-19 13:11:15,917:INFO:Initializing setup()
+2025-02-19 13:11:15,917:INFO:self.USI: 307e
+2025-02-19 13:11:15,917:INFO:self._variable_keys: {'y_train', 'y', 'fold_shuffle_param', 'data', 'memory', '_ml_usecase', 'fold_groups_param', 'gpu_n_jobs_param', 'exp_name_log', '_available_plots', 'logging_param', 'n_jobs_param', 'X', 'fold_generator', 'target_param', 'exp_id', 'log_plots_param', 'gpu_param', 'USI', 'pipeline', 'html_param', 'is_multiclass', 'fix_imbalance', 'idx', 'seed', 'y_test', 'X_test', 'X_train'}
+2025-02-19 13:11:15,917:INFO:Checking environment
+2025-02-19 13:11:15,917:INFO:python_version: 3.10.12
+2025-02-19 13:11:15,917:INFO:python_build: ('main', 'Jan 15 2024 21:14:33')
+2025-02-19 13:11:15,917:INFO:machine: x86_64
+2025-02-19 13:11:15,917:INFO:platform: Linux-5.15.0-131-generic-x86_64-with-glibc2.31
+2025-02-19 13:11:15,918:INFO:Memory: svmem(total=7813279744, available=1241440256, percent=84.1, used=5532532736, free=396541952, active=1948180480, inactive=4858413056, buffers=73564160, cached=1810640896, shared=642027520, slab=318103552)
+2025-02-19 13:11:15,919:INFO:Physical Core: 2
+2025-02-19 13:11:15,919:INFO:Logical Core: 4
+2025-02-19 13:11:15,919:INFO:Checking libraries
+2025-02-19 13:11:15,919:INFO:System:
+2025-02-19 13:11:15,919:INFO:    python: 3.10.12 (main, Jan 15 2024, 21:14:33) [GCC 9.4.0]
+2025-02-19 13:11:15,919:INFO:executable: /home/dsg/vortex/venv/bin/python3
+2025-02-19 13:11:15,919:INFO:   machine: Linux-5.15.0-131-generic-x86_64-with-glibc2.31
+2025-02-19 13:11:15,919:INFO:PyCaret required dependencies:
+2025-02-19 13:11:16,693:INFO:                 pip: 23.3.2
+2025-02-19 13:11:16,693:INFO:          setuptools: 65.5.0
+2025-02-19 13:11:16,693:INFO:             pycaret: 3.3.2
+2025-02-19 13:11:16,693:INFO:             IPython: 8.20.0
+2025-02-19 13:11:16,693:INFO:          ipywidgets: 8.1.1
+2025-02-19 13:11:16,693:INFO:                tqdm: 4.66.1
+2025-02-19 13:11:16,693:INFO:               numpy: 1.24.4
+2025-02-19 13:11:16,693:INFO:              pandas: 1.5.3
+2025-02-19 13:11:16,693:INFO:              jinja2: 3.1.3
+2025-02-19 13:11:16,693:INFO:               scipy: 1.10.1
+2025-02-19 13:11:16,693:INFO:              joblib: 1.3.2
+2025-02-19 13:11:16,694:INFO:             sklearn: 1.2.2
+2025-02-19 13:11:16,694:INFO:                pyod: 1.1.2
+2025-02-19 13:11:16,694:INFO:            imblearn: 0.12.3
+2025-02-19 13:11:16,694:INFO:   category_encoders: 2.6.3
+2025-02-19 13:11:16,694:INFO:            lightgbm: 4.2.0
+2025-02-19 13:11:16,694:INFO:               numba: 0.58.1
+2025-02-19 13:11:16,694:INFO:            requests: 2.31.0
+2025-02-19 13:11:16,694:INFO:          matplotlib: 3.6.0
+2025-02-19 13:11:16,694:INFO:          scikitplot: 0.3.7
+2025-02-19 13:11:16,694:INFO:         yellowbrick: 1.5
+2025-02-19 13:11:16,694:INFO:              plotly: 5.18.0
+2025-02-19 13:11:16,694:INFO:    plotly-resampler: Not installed
+2025-02-19 13:11:16,694:INFO:             kaleido: 0.2.1
+2025-02-19 13:11:16,694:INFO:           schemdraw: 0.15
+2025-02-19 13:11:16,695:INFO:         statsmodels: 0.14.1
+2025-02-19 13:11:16,695:INFO:              sktime: 0.21.1
+2025-02-19 13:11:16,695:INFO:               tbats: 1.1.3
+2025-02-19 13:11:16,695:INFO:            pmdarima: 2.0.4
+2025-02-19 13:11:16,695:INFO:              psutil: 5.9.7
+2025-02-19 13:11:16,695:INFO:          markupsafe: 2.1.3
+2025-02-19 13:11:16,695:INFO:             pickle5: Not installed
+2025-02-19 13:11:16,695:INFO:         cloudpickle: 2.2.1
+2025-02-19 13:11:16,695:INFO:         deprecation: 2.1.0
+2025-02-19 13:11:16,695:INFO:              xxhash: 3.4.1
+2025-02-19 13:11:16,695:INFO:           wurlitzer: 3.0.3
+2025-02-19 13:11:16,695:INFO:PyCaret optional dependencies:
+2025-02-19 13:11:18,084:INFO:                shap: 0.44.0
+2025-02-19 13:11:18,084:INFO:           interpret: 0.5.0
+2025-02-19 13:11:18,084:INFO:                umap: 0.5.5
+2025-02-19 13:11:18,084:INFO:     ydata_profiling: 4.6.0
+2025-02-19 13:11:18,084:INFO:  explainerdashboard: 0.4.5
+2025-02-19 13:11:18,085:INFO:             autoviz: 0.1.804
+2025-02-19 13:11:18,085:INFO:           fairlearn: 0.7.0
+2025-02-19 13:11:18,085:INFO:          deepchecks: Not installed
+2025-02-19 13:11:18,085:INFO:             xgboost: 1.6.2
+2025-02-19 13:11:18,085:INFO:            catboost: 1.2.2
+2025-02-19 13:11:18,085:INFO:              kmodes: 0.12.2
+2025-02-19 13:11:18,085:INFO:             mlxtend: 0.23.1
+2025-02-19 13:11:18,085:INFO:       statsforecast: 1.5.0
+2025-02-19 13:11:18,085:INFO:        tune_sklearn: 0.5.0
+2025-02-19 13:11:18,085:INFO:                 ray: 2.9.0
+2025-02-19 13:11:18,085:INFO:            hyperopt: 0.2.7
+2025-02-19 13:11:18,085:INFO:              optuna: 3.5.0
+2025-02-19 13:11:18,085:INFO:               skopt: 0.9.0
+2025-02-19 13:11:18,085:INFO:              mlflow: 1.30.1
+2025-02-19 13:11:18,085:INFO:              gradio: 3.50.2
+2025-02-19 13:11:18,085:INFO:             fastapi: 0.109.0
+2025-02-19 13:11:18,085:INFO:             uvicorn: 0.25.0
+2025-02-19 13:11:18,085:INFO:              m2cgen: 0.10.0
+2025-02-19 13:11:18,085:INFO:           evidently: 0.2.8
+2025-02-19 13:11:18,085:INFO:               fugue: 0.8.6
+2025-02-19 13:11:18,085:INFO:           streamlit: Not installed
+2025-02-19 13:11:18,085:INFO:             prophet: Not installed
+2025-02-19 13:11:18,085:INFO:None
+2025-02-19 13:11:18,085:INFO:Set up data.
+2025-02-19 13:11:18,108:INFO:Set up folding strategy.
+2025-02-19 13:11:18,108:INFO:Set up train/test split.
+2025-02-19 13:11:18,120:INFO:Set up index.
+2025-02-19 13:11:18,120:INFO:Assigning column types.
+2025-02-19 13:11:18,124:INFO:Engine successfully changes for model 'lr' to 'sklearn'.
+2025-02-19 13:11:18,171:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2025-02-19 13:11:18,175:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-19 13:11:18,208:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:18,257:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:18,464:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2025-02-19 13:11:18,465:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-19 13:11:18,491:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:18,494:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:18,495:INFO:Engine successfully changes for model 'knn' to 'sklearn'.
+2025-02-19 13:11:18,539:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-19 13:11:18,565:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:18,568:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:18,621:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-19 13:11:18,647:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:18,650:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:18,651:INFO:Engine successfully changes for model 'rbfsvm' to 'sklearn'.
+2025-02-19 13:11:18,722:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:18,725:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:18,797:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:18,800:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:18,803:INFO:Preparing preprocessing pipeline...
+2025-02-19 13:11:18,805:INFO:Set up label encoding.
+2025-02-19 13:11:18,805:INFO:Set up simple imputation.
+2025-02-19 13:11:18,848:INFO:Finished creating preprocessing pipeline.
+2025-02-19 13:11:18,854:INFO:Pipeline: Pipeline(memory=FastMemory(location=/tmp/joblib),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb'...
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='mean'))),
+                ('categorical_imputer',
+                 TransformerWrapper(exclude=None, include=[],
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='most_frequent')))],
+         verbose=False)
+2025-02-19 13:11:18,854:INFO:Creating final display dataframe.
+2025-02-19 13:11:18,955:INFO:Setup _display_container:                     Description                   Value
+0                    Session id                     123
+1                        Target                    Site
+2                   Target type              Multiclass
+3                Target mapping  CT: 0, PCM: 1, PDLC: 2
+4           Original data shape              (2256, 46)
+5        Transformed data shape              (2256, 46)
+6   Transformed train set shape              (1804, 46)
+7    Transformed test set shape               (452, 46)
+8              Numeric features                      45
+9                    Preprocess                    True
+10              Imputation type                  simple
+11           Numeric imputation                    mean
+12       Categorical imputation                    mode
+13               Fold Generator         StratifiedKFold
+14                  Fold Number                      10
+15                     CPU Jobs                      -1
+16                      Use GPU                   False
+17               Log Experiment                   False
+18              Experiment Name        clf-default-name
+19                          USI                    307e
+2025-02-19 13:11:19,087:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:19,091:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:19,196:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-19 13:11:19,200:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-19 13:11:19,202:INFO:setup() successfully completed in 3.29s...............
+2025-02-19 13:11:27,987:INFO:Initializing create_model()
+2025-02-19 13:11:27,994:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=rf, fold=None, round=4, cross_validation=True, predict=True, fit_kwargs=None, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=True, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, error_score=0.0, kwargs={'class_weight': 'balanced', 'criterion': 'entropy'})
+2025-02-19 13:11:27,994:INFO:Checking exceptions
+2025-02-19 13:11:28,072:INFO:Importing libraries
+2025-02-19 13:11:28,073:INFO:Copying training dataset
+2025-02-19 13:11:28,088:INFO:Defining folds
+2025-02-19 13:11:28,088:INFO:Declaring metric variables
+2025-02-19 13:11:28,095:INFO:Importing untrained model
+2025-02-19 13:11:28,110:INFO:Random Forest Classifier Imported successfully
+2025-02-19 13:11:28,131:INFO:Starting cross validation
+2025-02-19 13:11:28,135:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-19 13:11:36,671:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,678:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,681:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,685:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,689:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,696:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,719:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,720:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,728:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,728:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,736:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:36,736:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,195:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,202:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,206:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,209:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,212:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,219:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,245:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,256:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,269:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,280:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,286:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,296:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:38,994:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:39,002:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:39,009:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:39,012:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:39,019:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:39,026:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:11:39,040:INFO:Calculating mean and std
+2025-02-19 13:11:39,042:INFO:Creating metrics dataframe
+2025-02-19 13:11:39,058:INFO:Finalizing model
+2025-02-19 13:11:39,674:INFO:Uploading results into container
+2025-02-19 13:11:39,676:INFO:Uploading model into container now
+2025-02-19 13:11:39,699:INFO:_master_model_container: 1
+2025-02-19 13:11:39,699:INFO:_display_container: 2
+2025-02-19 13:11:39,700:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-19 13:11:39,700:INFO:create_model() successfully completed......................................
+2025-02-19 13:12:02,317:INFO:Initializing tune_model()
+2025-02-19 13:12:02,319:INFO:tune_model(estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=None, round=4, n_iter=10, custom_grid={'criterion': ['entropy']}, optimize=F1, custom_scorer=None, search_library=scikit-learn, search_algorithm=None, early_stopping=False, early_stopping_max_iters=10, choose_better=True, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=True, return_train_score=False, kwargs={}, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>)
+2025-02-19 13:12:02,320:INFO:Checking exceptions
+2025-02-19 13:12:02,371:INFO:Copying training dataset
+2025-02-19 13:12:02,377:INFO:Checking base model
+2025-02-19 13:12:02,378:INFO:Base model : Random Forest Classifier
+2025-02-19 13:12:02,384:INFO:Declaring metric variables
+2025-02-19 13:12:02,390:INFO:Defining Hyperparameters
+2025-02-19 13:12:02,565:INFO:custom_grid: {'actual_estimator__criterion': ['entropy']}
+2025-02-19 13:12:02,565:INFO:Tuning with n_jobs=-1
+2025-02-19 13:12:02,566:INFO:Initializing RandomizedSearchCV
+2025-02-19 13:12:02,575:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/model_selection/_search.py:318: UserWarning: The total space of parameters 1 is smaller than n_iter=10. Running 1 iterations. For exhaustive searches, use GridSearchCV.
+  warnings.warn(
+
+2025-02-19 13:12:03,913:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:03,937:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:03,996:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:04,163:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:05,371:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:05,384:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:05,423:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:05,761:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:06,285:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:06,328:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:06,342:INFO:best_params: {'actual_estimator__criterion': 'entropy'}
+2025-02-19 13:12:06,343:INFO:Hyperparameter search completed
+2025-02-19 13:12:06,343:INFO:SubProcess create_model() called ==================================
+2025-02-19 13:12:06,344:INFO:Initializing create_model()
+2025-02-19 13:12:06,344:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7f3c71b67b50>, model_only=True, return_train_score=False, error_score=0.0, kwargs={'criterion': 'entropy'})
+2025-02-19 13:12:06,346:INFO:Checking exceptions
+2025-02-19 13:12:06,346:INFO:Importing libraries
+2025-02-19 13:12:06,347:INFO:Copying training dataset
+2025-02-19 13:12:06,358:INFO:Defining folds
+2025-02-19 13:12:06,358:INFO:Declaring metric variables
+2025-02-19 13:12:06,367:INFO:Importing untrained model
+2025-02-19 13:12:06,367:INFO:Declaring custom model
+2025-02-19 13:12:06,379:INFO:Random Forest Classifier Imported successfully
+2025-02-19 13:12:06,396:INFO:Starting cross validation
+2025-02-19 13:12:06,398:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-19 13:12:07,893:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:07,901:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:07,918:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,106:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,106:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,115:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,121:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,130:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,132:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,133:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,139:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:08,146:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,266:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,274:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,313:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,442:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,450:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,462:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,558:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,568:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,570:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,588:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,599:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:09,601:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,232:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,239:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,247:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,312:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,321:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,330:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:10,341:INFO:Calculating mean and std
+2025-02-19 13:12:10,343:INFO:Creating metrics dataframe
+2025-02-19 13:12:10,362:INFO:Finalizing model
+2025-02-19 13:12:11,041:INFO:Uploading results into container
+2025-02-19 13:12:11,042:INFO:Uploading model into container now
+2025-02-19 13:12:11,043:INFO:_master_model_container: 2
+2025-02-19 13:12:11,043:INFO:_display_container: 3
+2025-02-19 13:12:11,044:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-19 13:12:11,044:INFO:create_model() successfully completed......................................
+2025-02-19 13:12:11,181:INFO:SubProcess create_model() end ==================================
+2025-02-19 13:12:11,181:INFO:choose_better activated
+2025-02-19 13:12:11,189:INFO:SubProcess create_model() called ==================================
+2025-02-19 13:12:11,192:INFO:Initializing create_model()
+2025-02-19 13:12:11,192:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, error_score=0.0, kwargs={})
+2025-02-19 13:12:11,193:INFO:Checking exceptions
+2025-02-19 13:12:11,197:INFO:Importing libraries
+2025-02-19 13:12:11,197:INFO:Copying training dataset
+2025-02-19 13:12:11,204:INFO:Defining folds
+2025-02-19 13:12:11,204:INFO:Declaring metric variables
+2025-02-19 13:12:11,205:INFO:Importing untrained model
+2025-02-19 13:12:11,205:INFO:Declaring custom model
+2025-02-19 13:12:11,206:INFO:Random Forest Classifier Imported successfully
+2025-02-19 13:12:11,207:INFO:Starting cross validation
+2025-02-19 13:12:11,209:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-19 13:12:12,687:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,704:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,713:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,716:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,729:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,732:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,806:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,825:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,833:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,923:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,936:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:12,957:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,219:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,230:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,237:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,444:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,454:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,461:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,521:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,529:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,536:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,559:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,565:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:14,571:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,312:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,322:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,328:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,455:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,473:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,487:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:12:15,493:INFO:Calculating mean and std
+2025-02-19 13:12:15,493:INFO:Creating metrics dataframe
+2025-02-19 13:12:15,497:INFO:Finalizing model
+2025-02-19 13:12:16,015:INFO:Uploading results into container
+2025-02-19 13:12:16,016:INFO:Uploading model into container now
+2025-02-19 13:12:16,016:INFO:_master_model_container: 3
+2025-02-19 13:12:16,016:INFO:_display_container: 4
+2025-02-19 13:12:16,017:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-19 13:12:16,017:INFO:create_model() successfully completed......................................
+2025-02-19 13:12:16,158:INFO:SubProcess create_model() end ==================================
+2025-02-19 13:12:16,159:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False) result for F1 is 0.9711
+2025-02-19 13:12:16,160:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False) result for F1 is 0.9711
+2025-02-19 13:12:16,161:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False) is best model
+2025-02-19 13:12:16,162:INFO:choose_better completed
+2025-02-19 13:12:16,162:INFO:Original model was better than the tuned model, hence it will be returned. NOTE: The display metrics are for the tuned model (not the original one).
+2025-02-19 13:12:16,186:INFO:_master_model_container: 3
+2025-02-19 13:12:16,186:INFO:_display_container: 3
+2025-02-19 13:12:16,188:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-19 13:12:16,188:INFO:tune_model() successfully completed......................................
+2025-02-19 13:12:56,910:INFO:Initializing calibrate_model()
+2025-02-19 13:12:56,914:INFO:calibrate_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), method=sigmoid, calibrate_fold=5, fold=None, round=4, fit_kwargs=None, groups=None, verbose=True, return_train_score=False)
+2025-02-19 13:12:56,914:INFO:Checking exceptions
+2025-02-19 13:12:56,918:INFO:Preloading libraries
+2025-02-19 13:12:56,918:INFO:Preparing display monitor
+2025-02-19 13:12:56,959:INFO:Getting model name
+2025-02-19 13:12:56,960:INFO:Base model : Random Forest Classifier
+2025-02-19 13:12:56,979:INFO:Importing untrained CalibratedClassifierCV
+2025-02-19 13:12:56,979:INFO:SubProcess create_model() called ==================================
+2025-02-19 13:12:56,986:INFO:Initializing create_model()
+2025-02-19 13:12:56,986:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=CalibratedClassifierCV(cv=5, ensemble=True,
+                       estimator=RandomForestClassifier(bootstrap=True,
+                                                        ccp_alpha=0.0,
+                                                        class_weight='balanced',
+                                                        criterion='entropy',
+                                                        max_depth=None,
+                                                        max_features='sqrt',
+                                                        max_leaf_nodes=None,
+                                                        max_samples=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        monotonic_cst=None,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        oob_score=False,
+                                                        random_state=123,
+                                                        verbose=0,
+                                                        warm_start=False),
+                       method='sigmoid', n_jobs=None), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7f3c719de740>, model_only=True, return_train_score=False, error_score=0.0, kwargs={})
+2025-02-19 13:12:56,987:INFO:Checking exceptions
+2025-02-19 13:12:56,987:INFO:Importing libraries
+2025-02-19 13:12:56,987:INFO:Copying training dataset
+2025-02-19 13:12:57,000:INFO:Defining folds
+2025-02-19 13:12:57,000:INFO:Declaring metric variables
+2025-02-19 13:12:57,010:INFO:Importing untrained model
+2025-02-19 13:12:57,011:INFO:Declaring custom model
+2025-02-19 13:12:57,021:INFO:Random Forest Classifier Imported successfully
+2025-02-19 13:12:57,034:INFO:Starting cross validation
+2025-02-19 13:12:57,036:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-19 13:13:03,033:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,040:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,047:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,096:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,103:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,109:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,211:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,218:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,224:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,637:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,684:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:03,693:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:08,724:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:08,736:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:08,739:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:08,744:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:08,747:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:08,755:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:09,331:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:09,338:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:09,344:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:09,608:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:09,615:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:09,622:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,721:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,727:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,734:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,813:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,817:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,821:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:12,828:INFO:Calculating mean and std
+2025-02-19 13:13:12,829:INFO:Creating metrics dataframe
+2025-02-19 13:13:12,838:INFO:Finalizing model
+2025-02-19 13:13:15,349:INFO:Uploading results into container
+2025-02-19 13:13:15,350:INFO:Uploading model into container now
+2025-02-19 13:13:15,351:INFO:_master_model_container: 4
+2025-02-19 13:13:15,351:INFO:_display_container: 4
+2025-02-19 13:13:15,354:INFO:CalibratedClassifierCV(cv=5, ensemble=True,
+                       estimator=RandomForestClassifier(bootstrap=True,
+                                                        ccp_alpha=0.0,
+                                                        class_weight='balanced',
+                                                        criterion='entropy',
+                                                        max_depth=None,
+                                                        max_features='sqrt',
+                                                        max_leaf_nodes=None,
+                                                        max_samples=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        monotonic_cst=None,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        oob_score=False,
+                                                        random_state=123,
+                                                        verbose=0,
+                                                        warm_start=False),
+                       method='sigmoid', n_jobs=None)
+2025-02-19 13:13:15,354:INFO:create_model() successfully completed......................................
+2025-02-19 13:13:15,489:INFO:SubProcess create_model() end ==================================
+2025-02-19 13:13:15,529:INFO:_master_model_container: 4
+2025-02-19 13:13:15,529:INFO:_display_container: 4
+2025-02-19 13:13:15,531:INFO:CalibratedClassifierCV(cv=5, ensemble=True,
+                       estimator=RandomForestClassifier(bootstrap=True,
+                                                        ccp_alpha=0.0,
+                                                        class_weight='balanced',
+                                                        criterion='entropy',
+                                                        max_depth=None,
+                                                        max_features='sqrt',
+                                                        max_leaf_nodes=None,
+                                                        max_samples=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        monotonic_cst=None,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        oob_score=False,
+                                                        random_state=123,
+                                                        verbose=0,
+                                                        warm_start=False),
+                       method='sigmoid', n_jobs=None)
+2025-02-19 13:13:15,531:INFO:calibrate_model() successfully completed......................................
+2025-02-19 13:13:22,020:INFO:Initializing finalize_model()
+2025-02-19 13:13:22,021:INFO:finalize_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=CalibratedClassifierCV(cv=5, ensemble=True,
+                       estimator=RandomForestClassifier(bootstrap=True,
+                                                        ccp_alpha=0.0,
+                                                        class_weight='balanced',
+                                                        criterion='entropy',
+                                                        max_depth=None,
+                                                        max_features='sqrt',
+                                                        max_leaf_nodes=None,
+                                                        max_samples=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        monotonic_cst=None,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        oob_score=False,
+                                                        random_state=123,
+                                                        verbose=0,
+                                                        warm_start=False),
+                       method='sigmoid', n_jobs=None), fit_kwargs=None, groups=None, model_only=False, experiment_custom_tags=None)
+2025-02-19 13:13:22,032:INFO:Finalizing CalibratedClassifierCV(cv=5, ensemble=True,
+                       estimator=RandomForestClassifier(bootstrap=True,
+                                                        ccp_alpha=0.0,
+                                                        class_weight='balanced',
+                                                        criterion='entropy',
+                                                        max_depth=None,
+                                                        max_features='sqrt',
+                                                        max_leaf_nodes=None,
+                                                        max_samples=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        monotonic_cst=None,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        oob_score=False,
+                                                        random_state=123,
+                                                        verbose=0,
+                                                        warm_start=False),
+                       method='sigmoid', n_jobs=None)
+2025-02-19 13:13:22,059:INFO:Initializing create_model()
+2025-02-19 13:13:22,060:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=CalibratedClassifierCV(cv=5, ensemble=True,
+                       estimator=RandomForestClassifier(bootstrap=True,
+                                                        ccp_alpha=0.0,
+                                                        class_weight='balanced',
+                                                        criterion='entropy',
+                                                        max_depth=None,
+                                                        max_features='sqrt',
+                                                        max_leaf_nodes=None,
+                                                        max_samples=None,
+                                                        min_impurity_decrease=0.0,
+                                                        min_samples_leaf=1,
+                                                        min_samples_split=2,
+                                                        min_weight_fraction_leaf=0.0,
+                                                        monotonic_cst=None,
+                                                        n_estimators=100,
+                                                        n_jobs=-1,
+                                                        oob_score=False,
+                                                        random_state=123,
+                                                        verbose=0,
+                                                        warm_start=False),
+                       method='sigmoid', n_jobs=None), fold=None, round=4, cross_validation=False, predict=False, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=False, metrics=None, display=None, model_only=False, return_train_score=False, error_score=0.0, kwargs={})
+2025-02-19 13:13:22,060:INFO:Checking exceptions
+2025-02-19 13:13:22,067:INFO:Importing libraries
+2025-02-19 13:13:22,068:INFO:Copying training dataset
+2025-02-19 13:13:22,069:INFO:Defining folds
+2025-02-19 13:13:22,069:INFO:Declaring metric variables
+2025-02-19 13:13:22,070:INFO:Importing untrained model
+2025-02-19 13:13:22,071:INFO:Declaring custom model
+2025-02-19 13:13:22,076:INFO:Random Forest Classifier Imported successfully
+2025-02-19 13:13:22,080:INFO:Cross validation set to False
+2025-02-19 13:13:22,080:INFO:Fitting Model
+2025-02-19 13:13:24,923:INFO:Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb', 'Mo', 'Ru',...
+                                                                         class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         max_depth=None,
+                                                                         max_features='sqrt',
+                                                                         max_leaf_nodes=None,
+                                                                         max_samples=None,
+                                                                         min_impurity_decrease=0.0,
+                                                                         min_samples_leaf=1,
+                                                                         min_samples_split=2,
+                                                                         min_weight_fraction_leaf=0.0,
+                                                                         monotonic_cst=None,
+                                                                         n_estimators=100,
+                                                                         n_jobs=-1,
+                                                                         oob_score=False,
+                                                                         random_state=123,
+                                                                         verbose=0,
+                                                                         warm_start=False),
+                                        method='sigmoid', n_jobs=None))],
+         verbose=False)
+2025-02-19 13:13:24,923:INFO:create_model() successfully completed......................................
+2025-02-19 13:13:25,059:INFO:_master_model_container: 4
+2025-02-19 13:13:25,059:INFO:_display_container: 4
+2025-02-19 13:13:25,077:INFO:Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb', 'Mo', 'Ru',...
+                                                                         class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         max_depth=None,
+                                                                         max_features='sqrt',
+                                                                         max_leaf_nodes=None,
+                                                                         max_samples=None,
+                                                                         min_impurity_decrease=0.0,
+                                                                         min_samples_leaf=1,
+                                                                         min_samples_split=2,
+                                                                         min_weight_fraction_leaf=0.0,
+                                                                         monotonic_cst=None,
+                                                                         n_estimators=100,
+                                                                         n_jobs=-1,
+                                                                         oob_score=False,
+                                                                         random_state=123,
+                                                                         verbose=0,
+                                                                         warm_start=False),
+                                        method='sigmoid', n_jobs=None))],
+         verbose=False)
+2025-02-19 13:13:25,077:INFO:finalize_model() successfully completed......................................
+2025-02-19 13:13:33,133:INFO:Initializing predict_model()
+2025-02-19 13:13:33,134:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb', 'Mo', 'Ru',...
+                                                                         class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         max_depth=None,
+                                                                         max_features='sqrt',
+                                                                         max_leaf_nodes=None,
+                                                                         max_samples=None,
+                                                                         min_impurity_decrease=0.0,
+                                                                         min_samples_leaf=1,
+                                                                         min_samples_split=2,
+                                                                         min_weight_fraction_leaf=0.0,
+                                                                         monotonic_cst=None,
+                                                                         n_estimators=100,
+                                                                         n_jobs=-1,
+                                                                         oob_score=False,
+                                                                         random_state=123,
+                                                                         verbose=0,
+                                                                         warm_start=False),
+                                        method='sigmoid', n_jobs=None))],
+         verbose=False), probability_threshold=None, encoded_labels=False, raw_score=False, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f3c69eb7010>)
+2025-02-19 13:13:33,134:INFO:Checking exceptions
+2025-02-19 13:13:33,134:INFO:Preloading libraries
+2025-02-19 13:13:33,137:INFO:Set up data.
+2025-02-19 13:13:33,162:INFO:Set up index.
+2025-02-19 13:13:33,660:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:33,674:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:33,687:WARNING:/home/dsg/vortex/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-19 13:13:58,663:INFO:Initializing save_model()
+2025-02-19 13:13:58,664:INFO:save_model(model=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb', 'Mo', 'Ru',...
+                                                                         class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         max_depth=None,
+                                                                         max_features='sqrt',
+                                                                         max_leaf_nodes=None,
+                                                                         max_samples=None,
+                                                                         min_impurity_decrease=0.0,
+                                                                         min_samples_leaf=1,
+                                                                         min_samples_split=2,
+                                                                         min_weight_fraction_leaf=0.0,
+                                                                         monotonic_cst=None,
+                                                                         n_estimators=100,
+                                                                         n_jobs=-1,
+                                                                         oob_score=False,
+                                                                         random_state=123,
+                                                                         verbose=0,
+                                                                         warm_start=False),
+                                        method='sigmoid', n_jobs=None))],
+         verbose=False), model_name=/home/dsg/vortex/PRODUCTION/outputs/models/VortexCalibrated, prep_pipe_=Pipeline(memory=FastMemory(location=/tmp/joblib),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb'...
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='mean'))),
+                ('categorical_imputer',
+                 TransformerWrapper(exclude=None, include=[],
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='most_frequent')))],
+         verbose=False), verbose=True, use_case=MLUsecase.CLASSIFICATION, kwargs={})
+2025-02-19 13:13:58,664:INFO:Adding model into prep_pipe
+2025-02-19 13:13:58,664:WARNING:Only Model saved as it was a pipeline.
+2025-02-19 13:13:59,074:INFO:/home/dsg/vortex/PRODUCTION/outputs/models/VortexCalibrated.pkl saved in current working directory
+2025-02-19 13:13:59,082:INFO:Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb', 'Mo', 'Ru',...
+                                                                         class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         max_depth=None,
+                                                                         max_features='sqrt',
+                                                                         max_leaf_nodes=None,
+                                                                         max_samples=None,
+                                                                         min_impurity_decrease=0.0,
+                                                                         min_samples_leaf=1,
+                                                                         min_samples_split=2,
+                                                                         min_weight_fraction_leaf=0.0,
+                                                                         monotonic_cst=None,
+                                                                         n_estimators=100,
+                                                                         n_jobs=-1,
+                                                                         oob_score=False,
+                                                                         random_state=123,
+                                                                         verbose=0,
+                                                                         warm_start=False),
+                                        method='sigmoid', n_jobs=None))],
+         verbose=False)
+2025-02-19 13:13:59,082:INFO:save_model() successfully completed......................................
+2025-02-20 15:30:04,660:INFO:Initializing evaluate_model()
+2025-02-20 15:30:04,666:INFO:evaluate_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=None, fit_kwargs=None, plot_kwargs=None, feature_name=None, groups=None)
+2025-02-20 15:30:05,030:INFO:Initializing plot_model()
+2025-02-20 15:30:05,030:INFO:plot_model(plot=pipeline, fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), verbose=False, display=None, display_format=None, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot_kwargs=None, save=False, scale=1, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, system=True)
+2025-02-20 15:30:05,031:INFO:Checking exceptions
+2025-02-20 15:30:05,279:INFO:Preloading libraries
+2025-02-20 15:30:05,500:INFO:Copying training dataset
+2025-02-20 15:30:05,501:INFO:Plot type: pipeline
+2025-02-20 15:30:06,484:INFO:Visual Rendered Successfully
+2025-02-20 15:30:12,284:INFO:plot_model() successfully completed......................................
+2025-02-20 15:30:15,419:INFO:Initializing plot_model()
+2025-02-20 15:30:15,420:INFO:plot_model(plot=calibration, fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), verbose=False, display=None, display_format=None, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), feature_name=None, fit_kwargs={}, groups=None, label=False, plot_kwargs=None, save=False, scale=1, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f3c7153cbe0>, system=True)
+2025-02-20 15:30:15,420:INFO:Checking exceptions
+2025-02-24 13:01:03,903:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:01:03,904:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:01:03,904:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:01:03,904:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:27:48,737:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:27:48,738:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:27:48,738:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:27:48,738:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-24 13:39:44,853:INFO:PyCaret ClassificationExperiment
+2025-02-24 13:39:44,853:INFO:Logging name: clf-default-name
+2025-02-24 13:39:44,854:INFO:ML Usecase: MLUsecase.CLASSIFICATION
+2025-02-24 13:39:44,854:INFO:version 3.3.2
+2025-02-24 13:39:44,854:INFO:Initializing setup()
+2025-02-24 13:39:44,854:INFO:self.USI: 1cc1
+2025-02-24 13:39:44,854:INFO:self._variable_keys: {'y_test', 'is_multiclass', 'gpu_param', 'logging_param', 'y', 'data', 'log_plots_param', 'fix_imbalance', 'fold_groups_param', 'target_param', 'X_test', 'exp_name_log', 'seed', 'html_param', 'exp_id', 'X', 'gpu_n_jobs_param', 'memory', 'X_train', '_ml_usecase', 'idx', 'fold_shuffle_param', 'n_jobs_param', 'y_train', 'pipeline', 'fold_generator', '_available_plots', 'USI'}
+2025-02-24 13:39:44,855:INFO:Checking environment
+2025-02-24 13:39:44,855:INFO:python_version: 3.10.12
+2025-02-24 13:39:44,855:INFO:python_build: ('main', 'Jan 15 2024 21:14:33')
+2025-02-24 13:39:44,855:INFO:machine: x86_64
+2025-02-24 13:39:44,855:INFO:platform: Linux-5.15.0-131-generic-x86_64-with-glibc2.31
+2025-02-24 13:39:44,855:INFO:Memory: svmem(total=7813271552, available=754515968, percent=90.3, used=6200209408, free=134909952, active=3268632576, inactive=3735105536, buffers=72732672, cached=1405419520, shared=572035072, slab=346071040)
+2025-02-24 13:39:44,857:INFO:Physical Core: 2
+2025-02-24 13:39:44,857:INFO:Logical Core: 4
+2025-02-24 13:39:44,858:INFO:Checking libraries
+2025-02-24 13:39:44,858:INFO:System:
+2025-02-24 13:39:44,858:INFO:    python: 3.10.12 (main, Jan 15 2024, 21:14:33) [GCC 9.4.0]
+2025-02-24 13:39:44,858:INFO:executable: /home/dsg/vortex/venv/bin/python3
+2025-02-24 13:39:44,858:INFO:   machine: Linux-5.15.0-131-generic-x86_64-with-glibc2.31
+2025-02-24 13:39:44,858:INFO:PyCaret required dependencies:
+2025-02-24 13:39:45,954:INFO:                 pip: 25.0.1
+2025-02-24 13:39:45,954:INFO:          setuptools: 75.8.0
+2025-02-24 13:39:45,955:INFO:             pycaret: 3.3.2
+2025-02-24 13:39:45,955:INFO:             IPython: 8.20.0
+2025-02-24 13:39:45,955:INFO:          ipywidgets: 8.1.1
+2025-02-24 13:39:45,955:INFO:                tqdm: 4.66.1
+2025-02-24 13:39:45,955:INFO:               numpy: 1.24.4
+2025-02-24 13:39:45,955:INFO:              pandas: 2.0.3
+2025-02-24 13:39:45,955:INFO:              jinja2: 3.1.3
+2025-02-24 13:39:45,955:INFO:               scipy: 1.10.1
+2025-02-24 13:39:45,955:INFO:              joblib: 1.3.2
+2025-02-24 13:39:45,955:INFO:             sklearn: 1.4.2
+2025-02-24 13:39:45,955:INFO:                pyod: 2.0.3
+2025-02-24 13:39:45,955:INFO:            imblearn: 0.13.0
+2025-02-24 13:39:45,956:INFO:   category_encoders: 2.6.3
+2025-02-24 13:39:45,956:INFO:            lightgbm: 4.2.0
+2025-02-24 13:39:45,956:INFO:               numba: 0.58.1
+2025-02-24 13:39:45,956:INFO:            requests: 2.32.3
+2025-02-24 13:39:45,956:INFO:          matplotlib: 3.6.0
+2025-02-24 13:39:45,956:INFO:          scikitplot: 0.3.7
+2025-02-24 13:39:45,956:INFO:         yellowbrick: 1.5
+2025-02-24 13:39:45,956:INFO:              plotly: 5.18.0
+2025-02-24 13:39:45,956:INFO:    plotly-resampler: Not installed
+2025-02-24 13:39:45,956:INFO:             kaleido: 0.2.1
+2025-02-24 13:39:45,956:INFO:           schemdraw: 0.15
+2025-02-24 13:39:45,956:INFO:         statsmodels: 0.14.1
+2025-02-24 13:39:45,956:INFO:              sktime: 0.26.0
+2025-02-24 13:39:45,957:INFO:               tbats: 1.1.3
+2025-02-24 13:39:45,957:INFO:            pmdarima: 2.0.4
+2025-02-24 13:39:45,957:INFO:              psutil: 5.9.7
+2025-02-24 13:39:45,957:INFO:          markupsafe: 2.1.3
+2025-02-24 13:39:45,957:INFO:             pickle5: Not installed
+2025-02-24 13:39:45,957:INFO:         cloudpickle: 3.1.1
+2025-02-24 13:39:45,957:INFO:         deprecation: 2.1.0
+2025-02-24 13:39:45,957:INFO:              xxhash: 3.4.1
+2025-02-24 13:39:45,957:INFO:           wurlitzer: 3.0.3
+2025-02-24 13:39:45,957:INFO:PyCaret optional dependencies:
+2025-02-24 13:39:47,152:INFO:                shap: 0.44.0
+2025-02-24 13:39:47,152:INFO:           interpret: 0.5.0
+2025-02-24 13:39:47,152:INFO:                umap: 0.5.5
+2025-02-24 13:39:47,152:INFO:     ydata_profiling: 4.6.0
+2025-02-24 13:39:47,152:INFO:  explainerdashboard: 0.4.5
+2025-02-24 13:39:47,153:INFO:             autoviz: 0.1.804
+2025-02-24 13:39:47,153:INFO:           fairlearn: 0.7.0
+2025-02-24 13:39:47,153:INFO:          deepchecks: Not installed
+2025-02-24 13:39:47,153:INFO:             xgboost: 1.6.2
+2025-02-24 13:39:47,153:INFO:            catboost: 1.2.2
+2025-02-24 13:39:47,153:INFO:              kmodes: 0.12.2
+2025-02-24 13:39:47,153:INFO:             mlxtend: 0.23.1
+2025-02-24 13:39:47,153:INFO:       statsforecast: 1.5.0
+2025-02-24 13:39:47,153:INFO:        tune_sklearn: 0.5.0
+2025-02-24 13:39:47,153:INFO:                 ray: 2.9.0
+2025-02-24 13:39:47,153:INFO:            hyperopt: 0.2.7
+2025-02-24 13:39:47,153:INFO:              optuna: 3.5.0
+2025-02-24 13:39:47,153:INFO:               skopt: 0.9.0
+2025-02-24 13:39:47,153:INFO:              mlflow: 2.20.2
+2025-02-24 13:39:47,153:INFO:              gradio: 3.50.2
+2025-02-24 13:39:47,153:INFO:             fastapi: 0.109.0
+2025-02-24 13:39:47,153:INFO:             uvicorn: 0.25.0
+2025-02-24 13:39:47,153:INFO:              m2cgen: 0.10.0
+2025-02-24 13:39:47,153:INFO:           evidently: 0.4.40
+2025-02-24 13:39:47,153:INFO:               fugue: 0.8.7
+2025-02-24 13:39:47,153:INFO:           streamlit: Not installed
+2025-02-24 13:39:47,153:INFO:             prophet: Not installed
+2025-02-24 13:39:47,153:INFO:None
+2025-02-24 13:39:47,153:INFO:Set up data.
+2025-02-24 13:39:47,173:INFO:Set up folding strategy.
+2025-02-24 13:39:47,173:INFO:Set up train/test split.
+2025-02-24 13:39:47,186:INFO:Set up index.
+2025-02-24 13:39:47,186:INFO:Assigning column types.
+2025-02-24 13:39:47,199:INFO:Engine successfully changes for model 'lr' to 'sklearn'.
+2025-02-24 13:39:47,250:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2025-02-24 13:39:47,266:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-24 13:39:47,318:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:47,540:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:47,754:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2025-02-24 13:39:47,755:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-24 13:39:47,788:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:47,790:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:47,791:INFO:Engine successfully changes for model 'knn' to 'sklearn'.
+2025-02-24 13:39:47,840:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-24 13:39:47,875:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:47,878:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:47,935:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-24 13:39:47,963:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:47,966:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:47,967:INFO:Engine successfully changes for model 'rbfsvm' to 'sklearn'.
+2025-02-24 13:39:48,051:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:48,054:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:48,139:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:48,142:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:48,149:INFO:Preparing preprocessing pipeline...
+2025-02-24 13:39:48,154:INFO:Set up simple imputation.
+2025-02-24 13:39:48,206:INFO:Finished creating preprocessing pipeline.
+2025-02-24 13:39:48,211:INFO:Pipeline: Pipeline(memory=FastMemory(location=/tmp/joblib),
+         steps=[('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb', 'Mo', 'Ru', 'Pd', ...],
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='mean'))),
+                ('categorical_imputer',
+                 TransformerWrapper(exclude=None, include=[],
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='most_frequent')))],
+         verbose=False)
+2025-02-24 13:39:48,211:INFO:Creating final display dataframe.
+2025-02-24 13:39:48,395:INFO:Setup _display_container:                     Description             Value
+0                    Session id               123
+1                        Target            target
+2                   Target type            Binary
+3           Original data shape        (3008, 45)
+4        Transformed data shape        (3008, 45)
+5   Transformed train set shape        (2406, 45)
+6    Transformed test set shape         (602, 45)
+7              Numeric features                44
+8                    Preprocess              True
+9               Imputation type            simple
+10           Numeric imputation              mean
+11       Categorical imputation              mode
+12               Fold Generator   StratifiedKFold
+13                  Fold Number                10
+14                     CPU Jobs                -1
+15                      Use GPU             False
+16               Log Experiment             False
+17              Experiment Name  clf-default-name
+18                          USI              1cc1
+2025-02-24 13:39:48,509:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:48,512:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:48,590:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-24 13:39:48,593:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-24 13:39:48,595:INFO:setup() successfully completed in 3.75s...............
+2025-02-24 13:40:04,069:INFO:Initializing create_model()
+2025-02-24 13:40:04,070:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, estimator=rf, fold=None, round=4, cross_validation=True, predict=True, fit_kwargs=None, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=True, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, error_score=0.0, kwargs={'class_weight': 'balanced', 'criterion': 'entropy'})
+2025-02-24 13:40:04,070:INFO:Checking exceptions
+2025-02-24 13:40:04,172:INFO:Importing libraries
+2025-02-24 13:40:04,172:INFO:Copying training dataset
+2025-02-24 13:40:04,202:INFO:Defining folds
+2025-02-24 13:40:04,202:INFO:Declaring metric variables
+2025-02-24 13:40:04,215:INFO:Importing untrained model
+2025-02-24 13:40:04,225:INFO:Random Forest Classifier Imported successfully
+2025-02-24 13:40:04,241:INFO:Starting cross validation
+2025-02-24 13:40:04,243:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-24 13:40:15,632:INFO:Calculating mean and std
+2025-02-24 13:40:15,636:INFO:Creating metrics dataframe
+2025-02-24 13:40:15,646:INFO:Finalizing model
+2025-02-24 13:40:16,178:INFO:Uploading results into container
+2025-02-24 13:40:16,180:INFO:Uploading model into container now
+2025-02-24 13:40:16,212:INFO:_master_model_container: 1
+2025-02-24 13:40:16,212:INFO:_display_container: 2
+2025-02-24 13:40:16,213:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-24 13:40:16,213:INFO:create_model() successfully completed......................................
+2025-02-24 13:41:01,673:INFO:Initializing get_config()
+2025-02-24 13:41:01,673:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, variable=X_train)
+2025-02-24 13:41:01,674:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-24 13:41:01,674:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-24 13:41:01,702:INFO:Variable:  returned as              Al         Si          P         S        Cl         K  \
+1862  30.955795  12.305014  47.175522  1.272196  4.239949  0.550797   
+1007  26.598495  44.512703  23.700123  0.698848  1.560488  0.005569   
+491   31.002651  47.294113   3.255272  0.546221  2.319646  1.352146   
+76    12.663952  16.044582  19.020967  0.895467  1.721645  0.005868   
+65    31.561382  12.320998  45.596313  0.837272  3.237814  0.004839   
+...         ...        ...        ...       ...       ...       ...   
+1834  41.845741  11.789660  41.465248  0.204760  1.078603  0.768368   
+2111  17.922436  50.479286  24.950190  0.372501  1.626069  0.005652   
+2106  22.718927  29.973293  22.273211  5.382915  1.417478  2.852591   
+181    7.488332  44.780788   1.961926  3.064835  1.601068  1.126585   
+515   31.331371   0.933490  45.707378  0.048694  2.330050  0.004869   
+
+             Ca        Sc        Ti         V  ...        Sb        Te  \
+1862   0.640791  0.004688  0.099072  0.309742  ...  0.000469  0.000469   
+1007   0.141045  0.005569  0.331709  0.005569  ...  0.006678  0.000557   
+491    7.447508  0.006239  1.119688  0.210028  ...  0.000624  0.000624   
+76    42.822647  0.005868  0.740013  0.184550  ...  0.000587  0.000587   
+65     0.648396  0.004839  0.482634  0.004839  ...  0.000484  0.000484   
+...         ...       ...       ...       ...  ...       ...       ...   
+1834   0.169890  0.004877  0.322674  0.087103  ...  0.008166  0.000488   
+2111   0.675272  0.005652  0.463521  0.019183  ...  0.001235  0.000565   
+2106   0.170338  0.005762  0.619536  0.104889  ...  0.010001  0.000576   
+181    0.125815  0.007214  0.665208  0.092186  ...  0.000721  0.000721   
+515   13.240234  0.004869  0.246590  0.004869  ...  0.015357  0.000487   
+
+            Ba        Ta         W        Au        Hg        Tl        Pb  \
+1862  0.000469  0.000469  0.000469  0.000469  0.000469  0.000469  0.000010   
+1007  0.000557  0.003693  0.000557  0.000557  0.000557  0.000557  0.000010   
+491   0.264073  0.000624  0.000624  0.000624  0.000624  0.000624  0.000010   
+76    0.415363  0.000587  0.000587  0.000587  0.000587  0.000587  0.000010   
+65    0.000484  0.006525  0.000484  0.000484  0.000484  0.000484  0.000010   
+...        ...       ...       ...       ...       ...       ...       ...   
+1834  0.000627  0.000505  0.000488  0.000488  0.000488  0.000494  0.000010   
+2111  0.000565  0.000849  0.000565  0.000565  0.000565  0.000565  0.000010   
+2106  0.038282  0.003133  0.000576  0.000576  0.000576  0.000576  0.000010   
+181   0.297732  0.000721  0.000721  0.000721  0.000721  0.000721  0.000139   
+515   0.133428  0.013536  0.000487  0.000487  0.000487  0.001644  0.000010   
+
+            Th  
+1862  0.000469  
+1007  0.000557  
+491   0.000624  
+76    0.000587  
+65    0.000484  
+...        ...  
+1834  0.000488  
+2111  0.000565  
+2106  0.000576  
+181   0.000721  
+515   0.000487  
+
+[2406 rows x 44 columns]
+2025-02-24 13:41:01,702:INFO:get_config() successfully completed......................................
+2025-02-24 13:49:20,079:INFO:Initializing get_config()
+2025-02-24 13:49:20,081:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, variable=X_train)
+2025-02-24 13:49:20,082:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-24 13:49:20,083:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-24 13:49:20,120:INFO:Variable:  returned as              Al         Si          P         S        Cl         K  \
+1862  30.955795  12.305014  47.175522  1.272196  4.239949  0.550797   
+1007  26.598495  44.512703  23.700123  0.698848  1.560488  0.005569   
+491   31.002651  47.294113   3.255272  0.546221  2.319646  1.352146   
+76    12.663952  16.044582  19.020967  0.895467  1.721645  0.005868   
+65    31.561382  12.320998  45.596313  0.837272  3.237814  0.004839   
+...         ...        ...        ...       ...       ...       ...   
+1834  41.845741  11.789660  41.465248  0.204760  1.078603  0.768368   
+2111  17.922436  50.479286  24.950190  0.372501  1.626069  0.005652   
+2106  22.718927  29.973293  22.273211  5.382915  1.417478  2.852591   
+181    7.488332  44.780788   1.961926  3.064835  1.601068  1.126585   
+515   31.331371   0.933490  45.707378  0.048694  2.330050  0.004869   
+
+             Ca        Sc        Ti         V  ...        Sb        Te  \
+1862   0.640791  0.004688  0.099072  0.309742  ...  0.000469  0.000469   
+1007   0.141045  0.005569  0.331709  0.005569  ...  0.006678  0.000557   
+491    7.447508  0.006239  1.119688  0.210028  ...  0.000624  0.000624   
+76    42.822647  0.005868  0.740013  0.184550  ...  0.000587  0.000587   
+65     0.648396  0.004839  0.482634  0.004839  ...  0.000484  0.000484   
+...         ...       ...       ...       ...  ...       ...       ...   
+1834   0.169890  0.004877  0.322674  0.087103  ...  0.008166  0.000488   
+2111   0.675272  0.005652  0.463521  0.019183  ...  0.001235  0.000565   
+2106   0.170338  0.005762  0.619536  0.104889  ...  0.010001  0.000576   
+181    0.125815  0.007214  0.665208  0.092186  ...  0.000721  0.000721   
+515   13.240234  0.004869  0.246590  0.004869  ...  0.015357  0.000487   
+
+            Ba        Ta         W        Au        Hg        Tl        Pb  \
+1862  0.000469  0.000469  0.000469  0.000469  0.000469  0.000469  0.000010   
+1007  0.000557  0.003693  0.000557  0.000557  0.000557  0.000557  0.000010   
+491   0.264073  0.000624  0.000624  0.000624  0.000624  0.000624  0.000010   
+76    0.415363  0.000587  0.000587  0.000587  0.000587  0.000587  0.000010   
+65    0.000484  0.006525  0.000484  0.000484  0.000484  0.000484  0.000010   
+...        ...       ...       ...       ...       ...       ...       ...   
+1834  0.000627  0.000505  0.000488  0.000488  0.000488  0.000494  0.000010   
+2111  0.000565  0.000849  0.000565  0.000565  0.000565  0.000565  0.000010   
+2106  0.038282  0.003133  0.000576  0.000576  0.000576  0.000576  0.000010   
+181   0.297732  0.000721  0.000721  0.000721  0.000721  0.000721  0.000139   
+515   0.133428  0.013536  0.000487  0.000487  0.000487  0.001644  0.000010   
+
+            Th  
+1862  0.000469  
+1007  0.000557  
+491   0.000624  
+76    0.000587  
+65    0.000484  
+...        ...  
+1834  0.000488  
+2111  0.000565  
+2106  0.000576  
+181   0.000721  
+515   0.000487  
+
+[2406 rows x 44 columns]
+2025-02-24 13:49:20,120:INFO:get_config() successfully completed......................................
+2025-02-24 13:50:21,925:INFO:Initializing get_config()
+2025-02-24 13:50:21,927:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, variable=X_train)
+2025-02-24 13:50:21,927:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-24 13:50:21,928:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-24 13:50:21,967:INFO:Variable:  returned as              Al         Si          P         S        Cl         K  \
+1862  30.955795  12.305014  47.175522  1.272196  4.239949  0.550797   
+1007  26.598495  44.512703  23.700123  0.698848  1.560488  0.005569   
+491   31.002651  47.294113   3.255272  0.546221  2.319646  1.352146   
+76    12.663952  16.044582  19.020967  0.895467  1.721645  0.005868   
+65    31.561382  12.320998  45.596313  0.837272  3.237814  0.004839   
+...         ...        ...        ...       ...       ...       ...   
+1834  41.845741  11.789660  41.465248  0.204760  1.078603  0.768368   
+2111  17.922436  50.479286  24.950190  0.372501  1.626069  0.005652   
+2106  22.718927  29.973293  22.273211  5.382915  1.417478  2.852591   
+181    7.488332  44.780788   1.961926  3.064835  1.601068  1.126585   
+515   31.331371   0.933490  45.707378  0.048694  2.330050  0.004869   
+
+             Ca        Sc        Ti         V  ...        Sb        Te  \
+1862   0.640791  0.004688  0.099072  0.309742  ...  0.000469  0.000469   
+1007   0.141045  0.005569  0.331709  0.005569  ...  0.006678  0.000557   
+491    7.447508  0.006239  1.119688  0.210028  ...  0.000624  0.000624   
+76    42.822647  0.005868  0.740013  0.184550  ...  0.000587  0.000587   
+65     0.648396  0.004839  0.482634  0.004839  ...  0.000484  0.000484   
+...         ...       ...       ...       ...  ...       ...       ...   
+1834   0.169890  0.004877  0.322674  0.087103  ...  0.008166  0.000488   
+2111   0.675272  0.005652  0.463521  0.019183  ...  0.001235  0.000565   
+2106   0.170338  0.005762  0.619536  0.104889  ...  0.010001  0.000576   
+181    0.125815  0.007214  0.665208  0.092186  ...  0.000721  0.000721   
+515   13.240234  0.004869  0.246590  0.004869  ...  0.015357  0.000487   
+
+            Ba        Ta         W        Au        Hg        Tl        Pb  \
+1862  0.000469  0.000469  0.000469  0.000469  0.000469  0.000469  0.000010   
+1007  0.000557  0.003693  0.000557  0.000557  0.000557  0.000557  0.000010   
+491   0.264073  0.000624  0.000624  0.000624  0.000624  0.000624  0.000010   
+76    0.415363  0.000587  0.000587  0.000587  0.000587  0.000587  0.000010   
+65    0.000484  0.006525  0.000484  0.000484  0.000484  0.000484  0.000010   
+...        ...       ...       ...       ...       ...       ...       ...   
+1834  0.000627  0.000505  0.000488  0.000488  0.000488  0.000494  0.000010   
+2111  0.000565  0.000849  0.000565  0.000565  0.000565  0.000565  0.000010   
+2106  0.038282  0.003133  0.000576  0.000576  0.000576  0.000576  0.000010   
+181   0.297732  0.000721  0.000721  0.000721  0.000721  0.000721  0.000139   
+515   0.133428  0.013536  0.000487  0.000487  0.000487  0.001644  0.000010   
+
+            Th  
+1862  0.000469  
+1007  0.000557  
+491   0.000624  
+76    0.000587  
+65    0.000484  
+...        ...  
+1834  0.000488  
+2111  0.000565  
+2106  0.000576  
+181   0.000721  
+515   0.000487  
+
+[2406 rows x 44 columns]
+2025-02-24 13:50:21,968:INFO:get_config() successfully completed......................................
+2025-02-24 13:51:03,942:INFO:Initializing get_config()
+2025-02-24 13:51:03,942:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, variable=X_train)
+2025-02-24 13:51:03,943:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-24 13:51:03,944:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-24 13:51:03,988:INFO:Variable:  returned as              Al         Si          P         S        Cl         K  \
+1862  30.955795  12.305014  47.175522  1.272196  4.239949  0.550797   
+1007  26.598495  44.512703  23.700123  0.698848  1.560488  0.005569   
+491   31.002651  47.294113   3.255272  0.546221  2.319646  1.352146   
+76    12.663952  16.044582  19.020967  0.895467  1.721645  0.005868   
+65    31.561382  12.320998  45.596313  0.837272  3.237814  0.004839   
+...         ...        ...        ...       ...       ...       ...   
+1834  41.845741  11.789660  41.465248  0.204760  1.078603  0.768368   
+2111  17.922436  50.479286  24.950190  0.372501  1.626069  0.005652   
+2106  22.718927  29.973293  22.273211  5.382915  1.417478  2.852591   
+181    7.488332  44.780788   1.961926  3.064835  1.601068  1.126585   
+515   31.331371   0.933490  45.707378  0.048694  2.330050  0.004869   
+
+             Ca        Sc        Ti         V  ...        Sb        Te  \
+1862   0.640791  0.004688  0.099072  0.309742  ...  0.000469  0.000469   
+1007   0.141045  0.005569  0.331709  0.005569  ...  0.006678  0.000557   
+491    7.447508  0.006239  1.119688  0.210028  ...  0.000624  0.000624   
+76    42.822647  0.005868  0.740013  0.184550  ...  0.000587  0.000587   
+65     0.648396  0.004839  0.482634  0.004839  ...  0.000484  0.000484   
+...         ...       ...       ...       ...  ...       ...       ...   
+1834   0.169890  0.004877  0.322674  0.087103  ...  0.008166  0.000488   
+2111   0.675272  0.005652  0.463521  0.019183  ...  0.001235  0.000565   
+2106   0.170338  0.005762  0.619536  0.104889  ...  0.010001  0.000576   
+181    0.125815  0.007214  0.665208  0.092186  ...  0.000721  0.000721   
+515   13.240234  0.004869  0.246590  0.004869  ...  0.015357  0.000487   
+
+            Ba        Ta         W        Au        Hg        Tl        Pb  \
+1862  0.000469  0.000469  0.000469  0.000469  0.000469  0.000469  0.000010   
+1007  0.000557  0.003693  0.000557  0.000557  0.000557  0.000557  0.000010   
+491   0.264073  0.000624  0.000624  0.000624  0.000624  0.000624  0.000010   
+76    0.415363  0.000587  0.000587  0.000587  0.000587  0.000587  0.000010   
+65    0.000484  0.006525  0.000484  0.000484  0.000484  0.000484  0.000010   
+...        ...       ...       ...       ...       ...       ...       ...   
+1834  0.000627  0.000505  0.000488  0.000488  0.000488  0.000494  0.000010   
+2111  0.000565  0.000849  0.000565  0.000565  0.000565  0.000565  0.000010   
+2106  0.038282  0.003133  0.000576  0.000576  0.000576  0.000576  0.000010   
+181   0.297732  0.000721  0.000721  0.000721  0.000721  0.000721  0.000139   
+515   0.133428  0.013536  0.000487  0.000487  0.000487  0.001644  0.000010   
+
+            Th  
+1862  0.000469  
+1007  0.000557  
+491   0.000624  
+76    0.000587  
+65    0.000484  
+...        ...  
+1834  0.000488  
+2111  0.000565  
+2106  0.000576  
+181   0.000721  
+515   0.000487  
+
+[2406 rows x 44 columns]
+2025-02-24 13:51:03,988:INFO:get_config() successfully completed......................................
+2025-02-24 13:51:15,007:INFO:Initializing get_config()
+2025-02-24 13:51:15,008:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, variable=X_train)
+2025-02-24 13:51:15,013:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-24 13:51:15,013:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-24 13:51:15,080:INFO:Variable:  returned as              Al         Si          P         S        Cl         K  \
+1862  30.955795  12.305014  47.175522  1.272196  4.239949  0.550797   
+1007  26.598495  44.512703  23.700123  0.698848  1.560488  0.005569   
+491   31.002651  47.294113   3.255272  0.546221  2.319646  1.352146   
+76    12.663952  16.044582  19.020967  0.895467  1.721645  0.005868   
+65    31.561382  12.320998  45.596313  0.837272  3.237814  0.004839   
+...         ...        ...        ...       ...       ...       ...   
+1834  41.845741  11.789660  41.465248  0.204760  1.078603  0.768368   
+2111  17.922436  50.479286  24.950190  0.372501  1.626069  0.005652   
+2106  22.718927  29.973293  22.273211  5.382915  1.417478  2.852591   
+181    7.488332  44.780788   1.961926  3.064835  1.601068  1.126585   
+515   31.331371   0.933490  45.707378  0.048694  2.330050  0.004869   
+
+             Ca        Sc        Ti         V  ...        Sb        Te  \
+1862   0.640791  0.004688  0.099072  0.309742  ...  0.000469  0.000469   
+1007   0.141045  0.005569  0.331709  0.005569  ...  0.006678  0.000557   
+491    7.447508  0.006239  1.119688  0.210028  ...  0.000624  0.000624   
+76    42.822647  0.005868  0.740013  0.184550  ...  0.000587  0.000587   
+65     0.648396  0.004839  0.482634  0.004839  ...  0.000484  0.000484   
+...         ...       ...       ...       ...  ...       ...       ...   
+1834   0.169890  0.004877  0.322674  0.087103  ...  0.008166  0.000488   
+2111   0.675272  0.005652  0.463521  0.019183  ...  0.001235  0.000565   
+2106   0.170338  0.005762  0.619536  0.104889  ...  0.010001  0.000576   
+181    0.125815  0.007214  0.665208  0.092186  ...  0.000721  0.000721   
+515   13.240234  0.004869  0.246590  0.004869  ...  0.015357  0.000487   
+
+            Ba        Ta         W        Au        Hg        Tl        Pb  \
+1862  0.000469  0.000469  0.000469  0.000469  0.000469  0.000469  0.000010   
+1007  0.000557  0.003693  0.000557  0.000557  0.000557  0.000557  0.000010   
+491   0.264073  0.000624  0.000624  0.000624  0.000624  0.000624  0.000010   
+76    0.415363  0.000587  0.000587  0.000587  0.000587  0.000587  0.000010   
+65    0.000484  0.006525  0.000484  0.000484  0.000484  0.000484  0.000010   
+...        ...       ...       ...       ...       ...       ...       ...   
+1834  0.000627  0.000505  0.000488  0.000488  0.000488  0.000494  0.000010   
+2111  0.000565  0.000849  0.000565  0.000565  0.000565  0.000565  0.000010   
+2106  0.038282  0.003133  0.000576  0.000576  0.000576  0.000576  0.000010   
+181   0.297732  0.000721  0.000721  0.000721  0.000721  0.000721  0.000139   
+515   0.133428  0.013536  0.000487  0.000487  0.000487  0.001644  0.000010   
+
+            Th  
+1862  0.000469  
+1007  0.000557  
+491   0.000624  
+76    0.000587  
+65    0.000484  
+...        ...  
+1834  0.000488  
+2111  0.000565  
+2106  0.000576  
+181   0.000721  
+515   0.000487  
+
+[2406 rows x 44 columns]
+2025-02-24 13:51:15,080:INFO:get_config() successfully completed......................................
+2025-02-24 13:51:51,882:INFO:Initializing tune_model()
+2025-02-24 13:51:51,883:INFO:tune_model(estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=None, round=4, n_iter=10, custom_grid=None, optimize=Accuracy, custom_scorer=None, search_library=scikit-learn, search_algorithm=None, early_stopping=False, early_stopping_max_iters=10, choose_better=True, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=False, return_train_score=False, kwargs={}, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>)
+2025-02-24 13:51:51,883:INFO:Checking exceptions
+2025-02-24 13:51:51,958:INFO:Copying training dataset
+2025-02-24 13:51:51,972:INFO:Checking base model
+2025-02-24 13:51:51,972:INFO:Base model : Random Forest Classifier
+2025-02-24 13:51:51,978:INFO:Declaring metric variables
+2025-02-24 13:51:51,986:INFO:Defining Hyperparameters
+2025-02-24 13:51:52,291:INFO:Tuning with n_jobs=-1
+2025-02-24 13:51:52,291:INFO:Initializing RandomizedSearchCV
+2025-02-24 13:54:01,477:INFO:best_params: {'actual_estimator__n_estimators': 190, 'actual_estimator__min_samples_split': 9, 'actual_estimator__min_samples_leaf': 6, 'actual_estimator__min_impurity_decrease': 0.001, 'actual_estimator__max_features': 'log2', 'actual_estimator__max_depth': 6, 'actual_estimator__criterion': 'gini', 'actual_estimator__class_weight': 'balanced_subsample', 'actual_estimator__bootstrap': False}
+2025-02-24 13:54:01,483:INFO:Hyperparameter search completed
+2025-02-24 13:54:01,483:INFO:SubProcess create_model() called ==================================
+2025-02-24 13:54:01,486:INFO:Initializing create_model()
+2025-02-24 13:54:01,486:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7f836502fd00>, model_only=True, return_train_score=False, error_score=0.0, kwargs={'n_estimators': 190, 'min_samples_split': 9, 'min_samples_leaf': 6, 'min_impurity_decrease': 0.001, 'max_features': 'log2', 'max_depth': 6, 'criterion': 'gini', 'class_weight': 'balanced_subsample', 'bootstrap': False})
+2025-02-24 13:54:01,488:INFO:Checking exceptions
+2025-02-24 13:54:01,488:INFO:Importing libraries
+2025-02-24 13:54:01,488:INFO:Copying training dataset
+2025-02-24 13:54:01,550:INFO:Defining folds
+2025-02-24 13:54:01,550:INFO:Declaring metric variables
+2025-02-24 13:54:01,562:INFO:Importing untrained model
+2025-02-24 13:54:01,563:INFO:Declaring custom model
+2025-02-24 13:54:01,575:INFO:Random Forest Classifier Imported successfully
+2025-02-24 13:54:01,586:INFO:Starting cross validation
+2025-02-24 13:54:01,587:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-24 13:54:08,416:INFO:Calculating mean and std
+2025-02-24 13:54:08,419:INFO:Creating metrics dataframe
+2025-02-24 13:54:08,440:INFO:Finalizing model
+2025-02-24 13:54:09,247:INFO:Uploading results into container
+2025-02-24 13:54:09,250:INFO:Uploading model into container now
+2025-02-24 13:54:09,252:INFO:_master_model_container: 2
+2025-02-24 13:54:09,253:INFO:_display_container: 3
+2025-02-24 13:54:09,254:INFO:RandomForestClassifier(bootstrap=False, ccp_alpha=0.0,
+                       class_weight='balanced_subsample', criterion='gini',
+                       max_depth=6, max_features='log2', max_leaf_nodes=None,
+                       max_samples=None, min_impurity_decrease=0.001,
+                       min_samples_leaf=6, min_samples_split=9,
+                       min_weight_fraction_leaf=0.0, monotonic_cst=None,
+                       n_estimators=190, n_jobs=-1, oob_score=False,
+                       random_state=123, verbose=0, warm_start=False)
+2025-02-24 13:54:09,254:INFO:create_model() successfully completed......................................
+2025-02-24 13:54:09,492:INFO:SubProcess create_model() end ==================================
+2025-02-24 13:54:09,492:INFO:choose_better activated
+2025-02-24 13:54:09,499:INFO:SubProcess create_model() called ==================================
+2025-02-24 13:54:09,501:INFO:Initializing create_model()
+2025-02-24 13:54:09,501:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f834ac31840>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, error_score=0.0, kwargs={})
+2025-02-24 13:54:09,501:INFO:Checking exceptions
+2025-02-24 13:54:09,506:INFO:Importing libraries
+2025-02-24 13:54:09,506:INFO:Copying training dataset
+2025-02-24 13:54:09,526:INFO:Defining folds
+2025-02-24 13:54:09,527:INFO:Declaring metric variables
+2025-02-24 13:54:09,527:INFO:Importing untrained model
+2025-02-24 13:54:09,527:INFO:Declaring custom model
+2025-02-24 13:54:09,528:INFO:Random Forest Classifier Imported successfully
+2025-02-24 13:54:09,528:INFO:Starting cross validation
+2025-02-24 13:54:09,529:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-24 13:54:13,756:INFO:Calculating mean and std
+2025-02-24 13:54:13,756:INFO:Creating metrics dataframe
+2025-02-24 13:54:13,758:INFO:Finalizing model
+2025-02-24 13:54:14,256:INFO:Uploading results into container
+2025-02-24 13:54:14,257:INFO:Uploading model into container now
+2025-02-24 13:54:14,258:INFO:_master_model_container: 3
+2025-02-24 13:54:14,258:INFO:_display_container: 4
+2025-02-24 13:54:14,259:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-24 13:54:14,259:INFO:create_model() successfully completed......................................
+2025-02-24 13:54:14,437:INFO:SubProcess create_model() end ==================================
+2025-02-24 13:54:14,438:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False) result for Accuracy is 0.9871
+2025-02-24 13:54:14,439:INFO:RandomForestClassifier(bootstrap=False, ccp_alpha=0.0,
+                       class_weight='balanced_subsample', criterion='gini',
+                       max_depth=6, max_features='log2', max_leaf_nodes=None,
+                       max_samples=None, min_impurity_decrease=0.001,
+                       min_samples_leaf=6, min_samples_split=9,
+                       min_weight_fraction_leaf=0.0, monotonic_cst=None,
+                       n_estimators=190, n_jobs=-1, oob_score=False,
+                       random_state=123, verbose=0, warm_start=False) result for Accuracy is 0.9751
+2025-02-24 13:54:14,440:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False) is best model
+2025-02-24 13:54:14,440:INFO:choose_better completed
+2025-02-24 13:54:14,441:INFO:Original model was better than the tuned model, hence it will be returned. NOTE: The display metrics are for the tuned model (not the original one).
+2025-02-24 13:54:14,464:INFO:_master_model_container: 3
+2025-02-24 13:54:14,464:INFO:_display_container: 3
+2025-02-24 13:54:14,464:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=1,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=123, verbose=0,
+                       warm_start=False)
+2025-02-24 13:54:14,465:INFO:tune_model() successfully completed......................................

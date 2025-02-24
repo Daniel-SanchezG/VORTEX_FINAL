@@ -1,0 +1,107 @@
+2025-02-20 09:20:31,835 - __main__ - INFO - Starting experiment with timestamp: 20250220_092031
+2025-02-20 09:20:31,836 - __main__ - INFO - Input file: /home/dsg/vortex/PRODUCTION/DATA/raw/input_data.xlsx
+2025-02-20 09:20:31,836 - __main__ - INFO - Output directory: outputs/experiment_20250220_092031
+2025-02-20 09:20:31,836 - __main__ - INFO - Starting data preprocessing...
+2025-02-20 09:20:34,179 - src.preprocessing.data_processor - INFO - Datos cargados exitosamente: (1816, 67)
+2025-02-20 09:20:34,185 - src.preprocessing.data_processor - INFO - Encontrados 14 IDs duplicados
+2025-02-20 09:20:34,187 - src.preprocessing.data_processor - INFO - Registros únicos después de eliminar duplicados: 1802
+2025-02-20 09:20:34,188 - src.preprocessing.data_processor - INFO - Eliminando 6 clases con menos de 10 casos
+2025-02-20 09:20:34,190 - src.preprocessing.data_processor - INFO - División de datos - Entrenamiento: (1600, 47), Validación: (178, 47)
+2025-02-20 09:20:34,293 - src.preprocessing.data_processor - INFO - Datos balanceados - Shape final: (2256, 46)
+2025-02-20 09:20:36,851 - src.preprocessing.data_processor - INFO - Datos de entrenamiento guardados en outputs/experiment_20250220_092031/data/processed/training_data_20250220_092031.xlsx
+2025-02-20 09:20:37,031 - src.preprocessing.data_processor - INFO - Datos de validación guardados en outputs/experiment_20250220_092031/data/processed/validation_data_20250220_092031.xlsx
+2025-02-20 09:20:37,032 - __main__ - INFO - Starting model training...
+2025-02-20 09:20:37,032 - src.training.model_trainer - INFO - Configuring training experiment...
+2025-02-20 09:20:40,655 - src.training.model_trainer - INFO - Experiment configured successfully
+2025-02-20 09:20:40,655 - src.training.model_trainer - INFO - Starting model training...
+2025-02-20 09:20:52,273 - src.training.model_trainer - INFO - Optimizing hyperparameters...
+2025-02-20 09:21:08,777 - src.training.model_trainer - INFO - Saving tuned model before calibration...
+2025-02-20 09:21:09,284 - src.training.model_trainer - INFO - Calibrating model probabilities...
+2025-02-20 09:21:38,377 - src.training.model_trainer - INFO - Training completed successfully
+2025-02-20 09:21:38,377 - src.training.model_trainer - INFO - Evaluating model on validation data...
+2025-02-20 09:21:39,580 - src.training.model_trainer - INFO - Evaluation completed
+2025-02-20 09:21:39,580 - __main__ - INFO - Starting model training...
+2025-02-20 09:21:39,581 - src.training.model_trainer - INFO - Configuring training experiment...
+2025-02-20 09:21:41,305 - src.training.model_trainer - INFO - Experiment configured successfully
+2025-02-20 09:21:41,305 - src.training.model_trainer - INFO - Starting model training...
+2025-02-20 09:21:47,793 - src.training.model_trainer - INFO - Optimizing hyperparameters...
+2025-02-20 09:22:05,377 - src.training.model_trainer - INFO - Saving tuned model before calibration...
+2025-02-20 09:22:05,815 - src.training.model_trainer - INFO - Calibrating model probabilities...
+2025-02-20 09:22:30,000 - src.training.model_trainer - INFO - Training completed successfully
+2025-02-20 09:22:30,000 - src.training.model_trainer - INFO - Evaluating model on validation data...
+2025-02-20 09:22:31,003 - src.training.model_trainer - INFO - Evaluation completed
+2025-02-20 09:22:31,003 - __main__ - INFO - Starting feature importance analysis...
+2025-02-20 09:22:31,007 - __main__ - INFO - Retrieving tuned model for feature importance analysis...
+2025-02-20 09:22:31,007 - __main__ - INFO - Running feature importance analysis...
+2025-02-20 09:22:31,007 - src.analysis.feature_importance_analyzer - INFO - Starting feature importance analysis...
+2025-02-20 09:22:31,007 - src.analysis.feature_importance_analyzer - INFO - Data shape: X=(2256, 45), y=(2256,)
+2025-02-20 09:22:31,008 - src.analysis.feature_importance_analyzer - INFO - Output directory: outputs/experiment_20250220_092031
+2025-02-20 09:22:31,008 - src.analysis.feature_importance_analyzer - INFO - Calculating Random Forest feature importance...
+2025-02-20 09:22:31,048 - src.analysis.feature_importance_analyzer - INFO - Creating feature importance plot...
+2025-02-20 09:22:31,048 - src.analysis.feature_importance_analyzer - INFO - Creating feature importance dot plot...
+2025-02-20 09:22:31,971 - src.analysis.feature_importance_analyzer - INFO - Feature importance plot saved successfully
+2025-02-20 09:22:31,971 - src.analysis.feature_importance_analyzer - INFO - Starting RFECV analysis...
+2025-02-20 09:22:31,971 - src.analysis.feature_importance_analyzer - INFO - Running RFECV with 10 iterations...
+2025-02-20 09:22:31,971 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 1/10
+2025-02-20 09:24:13,646 - src.analysis.feature_importance_analyzer - INFO - Iteration 1 completed: selected 33 features
+2025-02-20 09:24:13,646 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 2/10
+2025-02-20 09:25:58,272 - src.analysis.feature_importance_analyzer - INFO - Iteration 2 completed: selected 29 features
+2025-02-20 09:25:58,272 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 3/10
+2025-02-20 09:27:44,377 - src.analysis.feature_importance_analyzer - INFO - Iteration 3 completed: selected 33 features
+2025-02-20 09:27:44,377 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 4/10
+2025-02-20 09:29:30,654 - src.analysis.feature_importance_analyzer - INFO - Iteration 4 completed: selected 35 features
+2025-02-20 09:29:30,655 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 5/10
+2025-02-20 09:31:09,168 - src.analysis.feature_importance_analyzer - INFO - Iteration 5 completed: selected 39 features
+2025-02-20 09:31:09,169 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 6/10
+2025-02-20 09:32:46,678 - src.analysis.feature_importance_analyzer - INFO - Iteration 6 completed: selected 42 features
+2025-02-20 09:32:46,679 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 7/10
+2025-02-20 09:34:45,292 - src.analysis.feature_importance_analyzer - INFO - Iteration 7 completed: selected 34 features
+2025-02-20 09:34:45,294 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 8/10
+2025-02-20 09:36:35,091 - src.analysis.feature_importance_analyzer - INFO - Iteration 8 completed: selected 35 features
+2025-02-20 09:36:35,091 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 9/10
+2025-02-20 09:38:18,250 - src.analysis.feature_importance_analyzer - INFO - Iteration 9 completed: selected 35 features
+2025-02-20 09:38:18,250 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 10/10
+2025-02-20 09:40:10,831 - src.analysis.feature_importance_analyzer - INFO - Iteration 10 completed: selected 35 features
+2025-02-20 09:40:10,920 - src.analysis.feature_importance_analyzer - INFO - Creating RFECV plot...
+2025-02-20 09:40:12,039 - src.analysis.feature_importance_analyzer - INFO - RFECV plot saved successfully
+2025-02-20 09:40:12,041 - src.analysis.feature_importance_analyzer - INFO - Running SHAP analysis...
+2025-02-20 09:40:12,042 - src.analysis.feature_importance_analyzer - INFO - Running SHAP analysis...
+2025-02-20 09:40:22,771 - src.analysis.feature_importance_analyzer - ERROR - Error in SHAP analysis: object of type 'LinearSegmentedColormap' has no len()
+2025-02-20 09:40:22,829 - src.analysis.feature_importance_analyzer - ERROR - Traceback (most recent call last):
+  File "/home/dsg/vortex/PRODUCTION/src/analysis/feature_importance_analyzer.py", line 320, in _run_shap_analysis
+    shap.summary_plot(
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/shap/plots/_beeswarm.py", line 883, in summary_legacy
+    pl.barh(y_pos, global_shap_values[feature_inds], 0.7, align='center', color=color)
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/pyplot.py", line 2373, in barh
+    return gca().barh(
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 2615, in barh
+    patches = self.bar(x=left, height=height, width=width, bottom=y,
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/__init__.py", line 1423, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 2407, in bar
+    color = itertools.chain(itertools.cycle(mcolors.to_rgba_array(color)),
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/colors.py", line 473, in to_rgba_array
+    if len(c) == 0:
+TypeError: object of type 'LinearSegmentedColormap' has no len()
+
+2025-02-20 09:40:22,830 - src.analysis.feature_importance_analyzer - ERROR - Error in feature importance analysis: object of type 'LinearSegmentedColormap' has no len()
+2025-02-20 09:40:22,831 - src.analysis.feature_importance_analyzer - ERROR - Traceback (most recent call last):
+  File "/home/dsg/vortex/PRODUCTION/src/analysis/feature_importance_analyzer.py", line 79, in analyze_feature_importance
+    self._run_shap_analysis(model, X)
+  File "/home/dsg/vortex/PRODUCTION/src/analysis/feature_importance_analyzer.py", line 320, in _run_shap_analysis
+    shap.summary_plot(
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/shap/plots/_beeswarm.py", line 883, in summary_legacy
+    pl.barh(y_pos, global_shap_values[feature_inds], 0.7, align='center', color=color)
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/pyplot.py", line 2373, in barh
+    return gca().barh(
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 2615, in barh
+    patches = self.bar(x=left, height=height, width=width, bottom=y,
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/__init__.py", line 1423, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 2407, in bar
+    color = itertools.chain(itertools.cycle(mcolors.to_rgba_array(color)),
+  File "/home/dsg/vortex/venv/lib/python3.10/site-packages/matplotlib/colors.py", line 473, in to_rgba_array
+    if len(c) == 0:
+TypeError: object of type 'LinearSegmentedColormap' has no len()
+
+2025-02-20 09:40:22,832 - __main__ - ERROR - Error during process: object of type 'LinearSegmentedColormap' has no len()

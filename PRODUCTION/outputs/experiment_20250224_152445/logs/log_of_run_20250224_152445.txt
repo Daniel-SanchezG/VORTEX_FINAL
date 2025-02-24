@@ -1,0 +1,6 @@
+2025-02-24 15:24:45,803 - __main__ - INFO - Starting experiment with timestamp: 20250224_152445
+2025-02-24 15:24:45,803 - __main__ - INFO - Input file: /home/dsg/vortex/PRODUCTION/DATA/processed/training_data.xlsx
+2025-02-24 15:24:45,803 - __main__ - INFO - Output directory: outputs/experiment_20250224_152445
+2025-02-24 15:24:45,803 - __main__ - INFO - Starting data preprocessing...
+2025-02-24 15:24:47,457 - src.preprocessing.data_processor - INFO - Datos cargados exitosamente: (2256, 46)
+2025-02-24 15:24:47,463 - __main__ - ERROR - Error during process: 'ID'
