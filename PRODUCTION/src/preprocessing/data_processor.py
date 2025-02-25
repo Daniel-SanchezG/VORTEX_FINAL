@@ -7,14 +7,14 @@ from imblearn.over_sampling import SMOTE
 from pathlib import Path
 import logging
 
-# Configurar logging
+# Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class DataPreprocessor:
     """
-    Clase para el preprocesamiento de datos XRF, incluyendo limpieza,
-    eliminación de casos y balanceo de clases.
+    Class for XRF data pre-processing, including cleaning,
+    case elimination and class balancing.
     """
     
     def __init__(
@@ -24,12 +24,12 @@ class DataPreprocessor:
         validation_split: float = 0.1
     ):
         """
-        Inicializa el preprocesador de datos.
+        Initialises the data preprocessor.
         
         Args:
-            random_state: Semilla para reproducibilidad
-            min_class_size: Tamaño mínimo de clase para mantener
-            validation_split: Fracción de datos para validación final
+            random_state: Seed for reproducibility.
+            min_class_size: minimum class size to maintain
+            validation_split: data fraction for final validation
         """
         self.random_state = random_state
         self.min_class_size = min_class_size
@@ -37,13 +37,13 @@ class DataPreprocessor:
         
     def load_data(self, file_path: str) -> pd.DataFrame:
         """
-        Carga datos desde archivo Excel o CSV.
+        Load data from Excel or CSV file.
         
         Args:
-            file_path: Ruta al archivo de datos
+            file_path: Path to the data file
             
         Returns:
-            DataFrame con datos cargados
+            DataFrame with loaded data
         """
         path = Path(file_path)
         try:
@@ -52,12 +52,12 @@ class DataPreprocessor:
             elif path.suffix == '.csv':
                 df = pd.read_csv(file_path, encoding='latin-1')
             else:
-                raise ValueError(f"Formato de archivo no soportado: {path.suffix}")
+                raise ValueError(f"File format not supported: {path.suffix}")
                 
-            logger.info(f"Datos cargados exitosamente: {df.shape}")
+            logger.info(f"Data successfully uploaded: {df.shape}")
             return df
         except Exception as e:
-            logger.error(f"Error al cargar datos: {str(e)}")
+            logger.error(f"Error loading data: {str(e)}")
             raise
             
     def clean_initial_data(self, df: pd.DataFrame) -> pd.DataFrame:
