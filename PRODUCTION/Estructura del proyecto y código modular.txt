@@ -1,7 +1,7 @@
 # Estructura de directorios recomendada
-project_root/
+PEODUCTION/
 │
-├── data/                      # Datos sin procesar y procesados
+├── DATA/                      # Datos sin procesar y procesados
 │   ├── raw/                  # Datos originales sin modificar
 │   └── processed/            # Datos procesados
 │
@@ -29,7 +29,7 @@ project_root/
 │   └── 03_model_training.ipynb
 │
 │
-├── config/               # Archivos de configuración
+├── outputs/               # Archivos de configuración
 │   └── config.yaml
 │
 ├── requirements.txt      # Dependencias del proyecto

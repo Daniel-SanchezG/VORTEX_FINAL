@@ -62,13 +62,13 @@ class DataPreprocessor:
             
     def clean_initial_data(self, df: pd.DataFrame) -> pd.DataFrame:
         """
-        Realiza limpieza inicial de datos.
+        Performs initial data cleansing.
         
         Args:
-            df: DataFrame con datos crudos
+            df: DataFrame with raw data
             
         Returns:
-            DataFrame limpio
+            Clean DataFrame
         """
         # Eliminar columnas iniciales innecesarias (primeras 22 columnas)
         data = df.drop(df.iloc[:, :22], axis=1)
