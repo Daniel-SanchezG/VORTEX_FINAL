@@ -220,11 +220,12 @@ class ShapAnalyzer:
                     show=False
                 )
             else:
+                
                 # Para formato más reciente (objeto Explanation)
-                beeswarm(shap_data, max_display=20, color=plt.get_cmap("viridis"), show=False)
+               beeswarm(shap_data, max_display=20, color=plt.get_cmap("viridis"), show=False)
             
-                plt.title(f"SHAP Values - {sheet_name} ({target_column})")
-                plt.tight_layout()
+            plt.title(f"SHAP Values - {sheet_name} ({target_column})")
+            plt.tight_layout()
             
             # Forzar actualización para mostrar datos
             plt.draw()
