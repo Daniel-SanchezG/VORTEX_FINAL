@@ -215,9 +215,9 @@ class ShapAnalyzer:
                     shap_values[1] if len(shap_values) > 1 else shap_values[0],
                     X_train,
                     max_display=20,
+                    cmap=plt.cm.viridis,
                     plot_type=None,
-                    show=False,
-                    color=plt.get_cmap("viridis")
+                    show=False
                 )
             else:
                 # Para formato más reciente (objeto Explanation)
