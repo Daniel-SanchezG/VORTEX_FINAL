@@ -7,6 +7,7 @@ from datetime import datetime
 from src.preprocessing.data_processor import DataPreprocessor
 from src.training.model_trainer import ModelTrainer
 from src.analysis.feature_importance_analyzer import FeatureImportanceAnalyzer
+from src.training.specific_models_trainer import SpecificModelTrainer
 
 def setup_logging(output_dir: Path) -> None:
     """
@@ -173,11 +174,62 @@ def main():
             y=y,
             n_runs=10
         )
+
+        # 4. Train specific models for different feature subsets
+        logger.info("Starting specific models training...")
+
+        # Define feature sets
+        features_pool = {
+            'trainning_features_Destilled': ['Ca', 'S', 'K', 'Ti', 'V', 'Cr', 'Cu', 
+                                          'Zn', 'As', 'Se', 'Sr', 
+                                          'Mo', 'Ba', 
+                                          'Ta', 'Site'],
+            'trainning_features_French': ['Al', 'Si', 'P', 'S', 'Cl', 'K', 'Ca',
+                                       'Ti', 'V', 'Cr', 'Fe', 'Co', 'Cu', 'Zn',
+                                       'As', 'Se', 'Rb', 'Sr', 'Zr', 'Mo', 'Ba',
+                                       'Ta', 'Site'],
+            'trainning_features_Quiruelas': ['Al', 'Si', 'P', 'K', 'Ca', 
+                                           'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co',
+                                           'Ga', 'Zn', 'As', 'Rb', 
+                                           'Sr', 'Zr', 'Site'],
+            'trainning_features_VdH': ['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                     'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co', 
+                                     'Ni', 'Cu', 'Zn', 'As', 'Rb', 
+                                     'Sr', 'Zr', 'Site']
+        }
+
+        # Create specific model trainer
+        specific_trainer = SpecificModelTrainer(
+            random_state=123,
+            output_dir=output_dir,
+            class_names=['Can_Tintorer', 'Terena', 'Aliste']
+        )
+
+
+        # Set features pool and train all models
+        specific_trainer.set_features_pool(features_pool)
+        specific_reports = specific_trainer.train_all_models(
+            train_data=train_data,
+            validation_data=val_data
+        )
+
+        # Add specific models results to experiment info
+        with open(output_dir / 'experiment_info.txt', 'a') as f:
+            f.write(f"\nSpecific Models Performance\n")
+            f.write(f"==========================\n")
+            for model_name, report in specific_reports.items():
+                f.write(f"\nModel: {model_name}\n")
+                f.write(f"Accuracy: {report.loc['accuracy']['f1-score']:.4f}\n")
+                f.write(f"F1-score (macro avg): {report.loc['macro avg']['f1-score']:.4f}\n")
+                f.write(f"F1-score (weighted avg): {report.loc['weighted avg']['f1-score']:.4f}\n")
+                f.write("-" * 30 + "\n")
+
         
+
         # Log results summary
         importance_df = results['feature_importance']
-        top_features = importance_df.head(5)
-        logger.info("\nTop 5 most important features:")
+        top_features = importance_df.head(14)
+        logger.info("\nTop 14 most important features:")
         for _, row in top_features.iterrows():
             logger.info(f"- {row['feature']}: {row['importance']:.4f}")
         
