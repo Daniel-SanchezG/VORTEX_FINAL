@@ -9137,3 +9137,11 @@ Categories (3, object): ['CT', 'PCM', 'PDLC']
 
 [1804 rows x 45 columns]
 2025-02-28 13:39:07,526:INFO:get_config() successfully completed......................................
+2025-03-01 12:33:32,421:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-01 12:33:32,422:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-01 12:33:32,422:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-01 12:33:32,422:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
