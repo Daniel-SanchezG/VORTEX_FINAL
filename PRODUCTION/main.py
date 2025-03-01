@@ -144,21 +144,8 @@ def main():
             train_data=train_data,
             validation_data=val_data
         )
-        
-        # Parte relevante del main.py que necesita cambiar:
 
-        # 2. Training and evaluation
-        logger.info("Starting model training...")
-        trainer = ModelTrainer(
-            random_state=123,
-            output_dir=output_dir
-        )
-        
-        # Primero completamos el entrenamiento y evaluación
-        predictions = trainer.train_and_evaluate(
-            train_data=train_data,
-            validation_data=val_data
-        )
+       
         
         # 3. Feature Importance Analysis
         logger.info("Starting feature importance analysis...")
@@ -174,7 +161,7 @@ def main():
         # Create analyzer
         analyzer = FeatureImportanceAnalyzer(
             output_dir=output_dir,
-            class_names=['Gavá', 'Terena', 'Aliste'],
+            class_names=['Can_Tintorer', 'Terena', 'Aliste'],
             random_state=123
         )
         

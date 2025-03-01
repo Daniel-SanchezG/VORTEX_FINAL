@@ -71,7 +71,8 @@ class DataPreprocessor:
             Clean DataFrame
         """
         # Eliminar columnas iniciales innecesarias (primeras 22 columnas)
-        data = df.drop(df.iloc[:, :22], axis=1)
+        columns_to_drop = list(df.iloc[:, :22].columns) + ['suma']
+        data = df.drop(columns=columns_to_drop, axis=1)
         
         # Agregar columnas importantes
         data['Site'] = df['Site']

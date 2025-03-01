@@ -1,0 +1,68 @@
+2025-02-28 21:37:41,903 - __main__ - INFO - Starting experiment with timestamp: 20250228_213741
+2025-02-28 21:37:41,903 - __main__ - INFO - Input file: /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/raw/input_data.xlsx
+2025-02-28 21:37:41,903 - __main__ - INFO - Output directory: outputs/experiment_20250228_213741
+2025-02-28 21:37:41,904 - __main__ - INFO - Starting data preprocessing...
+2025-02-28 21:37:43,722 - src.preprocessing.data_processor - INFO - Data successfully uploaded: (1816, 67)
+2025-02-28 21:37:43,726 - src.preprocessing.data_processor - INFO - Encontrados 14 IDs duplicados
+2025-02-28 21:37:43,728 - src.preprocessing.data_processor - INFO - Registros únicos después de eliminar duplicados: 1802
+2025-02-28 21:37:43,729 - src.preprocessing.data_processor - INFO - Eliminando 6 clases con menos de 10 casos
+2025-02-28 21:37:43,731 - src.preprocessing.data_processor - INFO - División de datos - Entrenamiento: (1600, 46), Validación: (178, 46)
+2025-02-28 21:37:43,808 - src.preprocessing.data_processor - INFO - Datos balanceados - Shape final: (2256, 45)
+2025-02-28 21:37:45,846 - src.preprocessing.data_processor - INFO - Datos de entrenamiento guardados en outputs/experiment_20250228_213741/data/processed/training_data_20250228_213741.xlsx
+2025-02-28 21:37:45,997 - src.preprocessing.data_processor - INFO - Datos de validación guardados en outputs/experiment_20250228_213741/data/processed/validation_data_20250228_213741.xlsx
+2025-02-28 21:37:45,997 - __main__ - INFO - Starting model training...
+2025-02-28 21:37:45,998 - src.training.model_trainer - INFO - Configuring training experiment...
+2025-02-28 21:37:49,211 - src.training.model_trainer - INFO - Experiment configured successfully
+2025-02-28 21:37:49,211 - src.training.model_trainer - INFO - Starting model training...
+2025-02-28 21:38:02,746 - src.training.model_trainer - INFO - Optimizing hyperparameters...
+2025-02-28 21:38:44,422 - src.training.model_trainer - INFO - Saving tuned model before calibration...
+2025-02-28 21:38:44,700 - src.training.model_trainer - INFO - Calibrating model probabilities...
+2025-02-28 21:39:25,043 - src.training.model_trainer - INFO - Training completed successfully
+2025-02-28 21:39:25,043 - src.training.model_trainer - INFO - Evaluating model on validation data...
+2025-02-28 21:39:26,410 - src.training.model_trainer - INFO - Evaluation completed
+2025-02-28 21:39:26,411 - __main__ - INFO - Starting feature importance analysis...
+2025-02-28 21:39:26,412 - __main__ - INFO - Retrieving tuned model for feature importance analysis...
+2025-02-28 21:39:26,413 - __main__ - INFO - Running feature importance analysis...
+2025-02-28 21:39:26,413 - src.analysis.feature_importance_analyzer - INFO - Starting feature importance analysis...
+2025-02-28 21:39:26,413 - src.analysis.feature_importance_analyzer - INFO - Data shape: X=(2256, 44), y=(2256,)
+2025-02-28 21:39:26,413 - src.analysis.feature_importance_analyzer - INFO - Output directory: outputs/experiment_20250228_213741
+2025-02-28 21:39:26,413 - src.analysis.feature_importance_analyzer - INFO - Starting RFECV analysis...
+2025-02-28 21:39:26,413 - src.analysis.feature_importance_analyzer - INFO - Running RFECV with 10 iterations...
+2025-02-28 21:39:26,460 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 1/10
+2025-02-28 21:41:56,283 - src.analysis.feature_importance_analyzer - INFO - Iteration 1 completed: selected 42 features
+2025-02-28 21:41:56,284 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 2/10
+2025-02-28 21:44:57,329 - src.analysis.feature_importance_analyzer - INFO - Iteration 2 completed: selected 31 features
+2025-02-28 21:44:57,332 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 3/10
+2025-02-28 21:47:31,753 - src.analysis.feature_importance_analyzer - INFO - Iteration 3 completed: selected 42 features
+2025-02-28 21:47:31,753 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 4/10
+2025-02-28 21:50:22,685 - src.analysis.feature_importance_analyzer - INFO - Iteration 4 completed: selected 28 features
+2025-02-28 21:50:22,685 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 5/10
+2025-02-28 21:53:12,707 - src.analysis.feature_importance_analyzer - INFO - Iteration 5 completed: selected 25 features
+2025-02-28 21:53:12,708 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 6/10
+2025-02-28 21:55:52,131 - src.analysis.feature_importance_analyzer - INFO - Iteration 6 completed: selected 38 features
+2025-02-28 21:55:52,131 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 7/10
+2025-02-28 21:58:33,354 - src.analysis.feature_importance_analyzer - INFO - Iteration 7 completed: selected 39 features
+2025-02-28 21:58:33,354 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 8/10
+2025-02-28 22:01:18,201 - src.analysis.feature_importance_analyzer - INFO - Iteration 8 completed: selected 35 features
+2025-02-28 22:01:18,202 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 9/10
+2025-02-28 22:04:19,357 - src.analysis.feature_importance_analyzer - INFO - Iteration 9 completed: selected 24 features
+2025-02-28 22:04:19,360 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 10/10
+2025-02-28 22:06:51,595 - src.analysis.feature_importance_analyzer - INFO - Iteration 10 completed: selected 42 features
+2025-02-28 22:06:51,620 - src.analysis.feature_importance_analyzer - INFO - Creating RFECV plot...
+2025-02-28 22:06:52,321 - src.analysis.feature_importance_analyzer - INFO - RFECV plot saved successfully
+2025-02-28 22:06:52,323 - src.analysis.feature_importance_analyzer - INFO - Creating feature importance plot...
+2025-02-28 22:06:52,329 - src.analysis.feature_importance_analyzer - INFO - Creating feature importance dot plot based on importance values...
+2025-02-28 22:06:53,265 - src.analysis.feature_importance_analyzer - INFO - Feature importance plot saved successfully
+2025-02-28 22:06:53,265 - src.analysis.feature_importance_analyzer - INFO - Running SHAP analysis...
+2025-02-28 22:06:53,266 - src.analysis.feature_importance_analyzer - INFO - Running SHAP analysis...
+2025-02-28 22:07:03,968 - src.analysis.feature_importance_analyzer - INFO - SHAP analysis completed successfully
+2025-02-28 22:07:03,968 - src.analysis.feature_importance_analyzer - INFO - Feature importance analysis completed successfully
+2025-02-28 22:07:03,968 - __main__ - INFO - 
+Top 5 most important features:
+2025-02-28 22:07:03,969 - __main__ - INFO - - Ca: 0.2120
+2025-02-28 22:07:03,969 - __main__ - INFO - - As: 0.1201
+2025-02-28 22:07:03,969 - __main__ - INFO - - Ba: 0.0702
+2025-02-28 22:07:03,970 - __main__ - INFO - - V: 0.0689
+2025-02-28 22:07:03,970 - __main__ - INFO - - Sr: 0.0659
+2025-02-28 22:07:03,974 - __main__ - INFO - Process completed successfully!
+2025-02-28 22:07:03,975 - __main__ - INFO - Results saved in: outputs/experiment_20250228_213741

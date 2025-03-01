@@ -1,6 +1,0 @@
-Timestamp: 20250219_134802
-Archivo de entrada: /home/dsg/vortex/PRODUCTION/DATA/raw/input_data.xlsx
-Tamaño mínimo de clase: 10
-Split de validación: 0.1
-Número de muestras de entrenamiento: 2256
-Número de muestras de validación: 178

@@ -7914,3 +7914,1226 @@ Categories (3, object): ['CT', 'PCM', 'PDLC']
                                         method='sigmoid', n_jobs=None))],
          verbose=False)
 2025-02-27 15:29:47,821:INFO:save_model() successfully completed......................................
+2025-02-28 13:14:57,315:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-28 13:14:57,317:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-28 13:14:57,317:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-28 13:14:57,317:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-02-28 13:28:51,082:INFO:PyCaret ClassificationExperiment
+2025-02-28 13:28:51,082:INFO:Logging name: clf-default-name
+2025-02-28 13:28:51,082:INFO:ML Usecase: MLUsecase.CLASSIFICATION
+2025-02-28 13:28:51,082:INFO:version 3.3.2
+2025-02-28 13:28:51,082:INFO:Initializing setup()
+2025-02-28 13:28:51,082:INFO:self.USI: 50b1
+2025-02-28 13:28:51,082:INFO:self._variable_keys: {'pipeline', 'exp_id', 'fold_shuffle_param', 'n_jobs_param', 'log_plots_param', 'logging_param', 'y', 'target_param', 'seed', 'gpu_n_jobs_param', 'fold_groups_param', 'y_train', 'idx', 'exp_name_log', 'memory', 'data', 'X', 'X_test', 'gpu_param', 'USI', 'is_multiclass', 'X_train', '_ml_usecase', '_available_plots', 'html_param', 'y_test', 'fix_imbalance', 'fold_generator'}
+2025-02-28 13:28:51,083:INFO:Checking environment
+2025-02-28 13:28:51,083:INFO:python_version: 3.10.12
+2025-02-28 13:28:51,083:INFO:python_build: ('main', 'Jan 15 2024 21:14:33')
+2025-02-28 13:28:51,083:INFO:machine: x86_64
+2025-02-28 13:28:51,083:INFO:platform: Linux-5.15.0-131-generic-x86_64-with-glibc2.31
+2025-02-28 13:28:51,083:INFO:Memory: svmem(total=7813275648, available=1204240384, percent=84.6, used=5667823616, free=281268224, active=3202535424, inactive=3571531776, buffers=157413376, cached=1706770432, shared=645783552, slab=352534528)
+2025-02-28 13:28:51,084:INFO:Physical Core: 2
+2025-02-28 13:28:51,084:INFO:Logical Core: 4
+2025-02-28 13:28:51,084:INFO:Checking libraries
+2025-02-28 13:28:51,085:INFO:System:
+2025-02-28 13:28:51,085:INFO:    python: 3.10.12 (main, Jan 15 2024, 21:14:33) [GCC 9.4.0]
+2025-02-28 13:28:51,085:INFO:executable: /home/dsg/VORTEX_FINAL/venv/bin/python3
+2025-02-28 13:28:51,085:INFO:   machine: Linux-5.15.0-131-generic-x86_64-with-glibc2.31
+2025-02-28 13:28:51,085:INFO:PyCaret required dependencies:
+2025-02-28 13:28:52,103:INFO:                 pip: 25.0.1
+2025-02-28 13:28:52,104:INFO:          setuptools: 75.8.0
+2025-02-28 13:28:52,104:INFO:             pycaret: 3.3.2
+2025-02-28 13:28:52,104:INFO:             IPython: 8.20.0
+2025-02-28 13:28:52,104:INFO:          ipywidgets: 8.1.1
+2025-02-28 13:28:52,104:INFO:                tqdm: 4.66.1
+2025-02-28 13:28:52,104:INFO:               numpy: 1.24.4
+2025-02-28 13:28:52,104:INFO:              pandas: 2.0.3
+2025-02-28 13:28:52,104:INFO:              jinja2: 3.1.3
+2025-02-28 13:28:52,104:INFO:               scipy: 1.10.1
+2025-02-28 13:28:52,104:INFO:              joblib: 1.3.2
+2025-02-28 13:28:52,104:INFO:             sklearn: 1.4.2
+2025-02-28 13:28:52,105:INFO:                pyod: 2.0.1
+2025-02-28 13:28:52,105:INFO:            imblearn: 0.12.3
+2025-02-28 13:28:52,105:INFO:   category_encoders: 2.6.3
+2025-02-28 13:28:52,105:INFO:            lightgbm: 4.2.0
+2025-02-28 13:28:52,105:INFO:               numba: 0.58.1
+2025-02-28 13:28:52,105:INFO:            requests: 2.32.3
+2025-02-28 13:28:52,105:INFO:          matplotlib: 3.6.0
+2025-02-28 13:28:52,105:INFO:          scikitplot: 0.3.7
+2025-02-28 13:28:52,105:INFO:         yellowbrick: 1.5
+2025-02-28 13:28:52,105:INFO:              plotly: 5.18.0
+2025-02-28 13:28:52,105:INFO:    plotly-resampler: Not installed
+2025-02-28 13:28:52,105:INFO:             kaleido: 0.2.1
+2025-02-28 13:28:52,106:INFO:           schemdraw: 0.15
+2025-02-28 13:28:52,106:INFO:         statsmodels: 0.14.1
+2025-02-28 13:28:52,106:INFO:              sktime: 0.26.0
+2025-02-28 13:28:52,106:INFO:               tbats: 1.1.3
+2025-02-28 13:28:52,106:INFO:            pmdarima: 2.0.4
+2025-02-28 13:28:52,106:INFO:              psutil: 5.9.7
+2025-02-28 13:28:52,106:INFO:          markupsafe: 2.1.3
+2025-02-28 13:28:52,106:INFO:             pickle5: Not installed
+2025-02-28 13:28:52,106:INFO:         cloudpickle: 3.1.1
+2025-02-28 13:28:52,106:INFO:         deprecation: 2.1.0
+2025-02-28 13:28:52,106:INFO:              xxhash: 3.4.1
+2025-02-28 13:28:52,106:INFO:           wurlitzer: 3.0.3
+2025-02-28 13:28:52,107:INFO:PyCaret optional dependencies:
+2025-02-28 13:28:53,710:INFO:                shap: 0.44.0
+2025-02-28 13:28:53,710:INFO:           interpret: 0.5.0
+2025-02-28 13:28:53,710:INFO:                umap: 0.5.5
+2025-02-28 13:28:53,710:INFO:     ydata_profiling: 4.6.0
+2025-02-28 13:28:53,710:INFO:  explainerdashboard: 0.4.5
+2025-02-28 13:28:53,710:INFO:             autoviz: 0.1.804
+2025-02-28 13:28:53,710:INFO:           fairlearn: 0.7.0
+2025-02-28 13:28:53,710:INFO:          deepchecks: Not installed
+2025-02-28 13:28:53,711:INFO:             xgboost: 1.6.2
+2025-02-28 13:28:53,711:INFO:            catboost: 1.2.2
+2025-02-28 13:28:53,711:INFO:              kmodes: 0.12.2
+2025-02-28 13:28:53,711:INFO:             mlxtend: 0.23.1
+2025-02-28 13:28:53,711:INFO:       statsforecast: 1.5.0
+2025-02-28 13:28:53,711:INFO:        tune_sklearn: 0.5.0
+2025-02-28 13:28:53,711:INFO:                 ray: 2.9.0
+2025-02-28 13:28:53,711:INFO:            hyperopt: 0.2.7
+2025-02-28 13:28:53,711:INFO:              optuna: 3.5.0
+2025-02-28 13:28:53,711:INFO:               skopt: 0.9.0
+2025-02-28 13:28:53,711:INFO:              mlflow: 2.20.2
+2025-02-28 13:28:53,711:INFO:              gradio: 3.50.2
+2025-02-28 13:28:53,712:INFO:             fastapi: 0.109.0
+2025-02-28 13:28:53,712:INFO:             uvicorn: 0.25.0
+2025-02-28 13:28:53,712:INFO:              m2cgen: 0.10.0
+2025-02-28 13:28:53,712:INFO:           evidently: 0.4.40
+2025-02-28 13:28:53,712:INFO:               fugue: 0.8.7
+2025-02-28 13:28:53,712:INFO:           streamlit: Not installed
+2025-02-28 13:28:53,712:INFO:             prophet: Not installed
+2025-02-28 13:28:53,712:INFO:None
+2025-02-28 13:28:53,712:INFO:Set up data.
+2025-02-28 13:28:53,740:INFO:Set up folding strategy.
+2025-02-28 13:28:53,740:INFO:Set up train/test split.
+2025-02-28 13:28:53,761:INFO:Set up index.
+2025-02-28 13:28:53,762:INFO:Assigning column types.
+2025-02-28 13:28:53,784:INFO:Engine successfully changes for model 'lr' to 'sklearn'.
+2025-02-28 13:28:53,848:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2025-02-28 13:28:53,857:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-28 13:28:53,910:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:54,061:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:54,256:INFO:Engine for model 'knn' has not been set explicitly, hence returning None.
+2025-02-28 13:28:54,257:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-28 13:28:54,288:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:54,293:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:54,293:INFO:Engine successfully changes for model 'knn' to 'sklearn'.
+2025-02-28 13:28:54,341:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-28 13:28:54,370:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:54,373:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:54,422:INFO:Engine for model 'rbfsvm' has not been set explicitly, hence returning None.
+2025-02-28 13:28:54,451:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:54,454:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:54,454:INFO:Engine successfully changes for model 'rbfsvm' to 'sklearn'.
+2025-02-28 13:28:54,556:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:54,560:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:54,671:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:54,674:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:54,680:INFO:Preparing preprocessing pipeline...
+2025-02-28 13:28:54,684:INFO:Set up label encoding.
+2025-02-28 13:28:54,684:INFO:Set up simple imputation.
+2025-02-28 13:28:54,756:INFO:Finished creating preprocessing pipeline.
+2025-02-28 13:28:54,766:INFO:Pipeline: Pipeline(memory=FastMemory(location=/tmp/joblib),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(exclude=None, include=None,
+                                               transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(exclude=None,
+                                    include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ca', 'Sc', 'Ti', 'V', 'Cr', 'Mn',
+                                             'Fe', 'Co', 'Ni', 'Cu', 'Zn', 'Ga',
+                                             'Ge', 'As', 'Se', 'Br', 'Rb', 'Sr',
+                                             'Y', 'Zr', 'Nb'...
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='mean'))),
+                ('categorical_imputer',
+                 TransformerWrapper(exclude=None, include=[],
+                                    transformer=SimpleImputer(add_indicator=False,
+                                                              copy=True,
+                                                              fill_value=None,
+                                                              keep_empty_features=False,
+                                                              missing_values=nan,
+                                                              strategy='most_frequent')))],
+         verbose=False)
+2025-02-28 13:28:54,767:INFO:Creating final display dataframe.
+2025-02-28 13:28:55,002:INFO:Setup _display_container:                     Description                   Value
+0                    Session id                     123
+1                        Target                    Site
+2                   Target type              Multiclass
+3                Target mapping  CT: 0, PCM: 1, PDLC: 2
+4           Original data shape              (2256, 46)
+5        Transformed data shape              (2256, 46)
+6   Transformed train set shape              (1804, 46)
+7    Transformed test set shape               (452, 46)
+8              Numeric features                      45
+9                    Preprocess                    True
+10              Imputation type                  simple
+11           Numeric imputation                    mean
+12       Categorical imputation                    mode
+13               Fold Generator         StratifiedKFold
+14                  Fold Number                      10
+15                     CPU Jobs                      -1
+16                      Use GPU                   False
+17               Log Experiment                   False
+18              Experiment Name        clf-default-name
+19                          USI                    50b1
+2025-02-28 13:28:55,135:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:55,138:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:55,259:INFO:Soft dependency imported: xgboost: 1.6.2
+2025-02-28 13:28:55,265:INFO:Soft dependency imported: catboost: 1.2.2
+2025-02-28 13:28:55,267:INFO:setup() successfully completed in 4.19s...............
+2025-02-28 13:29:33,445:INFO:Initializing create_model()
+2025-02-28 13:29:33,445:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, estimator=rf, fold=None, round=4, cross_validation=True, predict=True, fit_kwargs=None, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=True, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, error_score=0.0, kwargs={'n_estimators': 200, 'min_samples_leaf': 5, 'class_weight': 'balanced', 'criterion': 'entropy', 'random_state': 42})
+2025-02-28 13:29:33,446:INFO:Checking exceptions
+2025-02-28 13:29:33,487:INFO:Importing libraries
+2025-02-28 13:29:33,487:INFO:Copying training dataset
+2025-02-28 13:29:33,517:INFO:Defining folds
+2025-02-28 13:29:33,517:INFO:Declaring metric variables
+2025-02-28 13:29:33,524:INFO:Importing untrained model
+2025-02-28 13:29:33,532:INFO:Random Forest Classifier Imported successfully
+2025-02-28 13:29:33,547:INFO:Starting cross validation
+2025-02-28 13:29:33,549:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-28 13:29:42,405:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,414:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,424:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,495:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,506:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,517:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,555:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,605:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,606:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,647:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,662:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:42,662:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:45,482:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:45,503:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:45,517:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:45,808:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:45,824:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:45,847:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:46,089:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:46,113:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:46,156:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:46,285:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:46,291:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:46,298:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,705:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,714:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,723:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,839:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,844:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,850:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:29:47,872:INFO:Calculating mean and std
+2025-02-28 13:29:47,876:INFO:Creating metrics dataframe
+2025-02-28 13:29:47,889:INFO:Finalizing model
+2025-02-28 13:29:49,076:INFO:Uploading results into container
+2025-02-28 13:29:49,079:INFO:Uploading model into container now
+2025-02-28 13:29:49,116:INFO:_master_model_container: 1
+2025-02-28 13:29:49,117:INFO:_display_container: 2
+2025-02-28 13:29:49,118:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False)
+2025-02-28 13:29:49,119:INFO:create_model() successfully completed......................................
+2025-02-28 13:30:23,326:INFO:Initializing get_config()
+2025-02-28 13:30:23,326:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=X_train)
+2025-02-28 13:30:23,327:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-28 13:30:23,328:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/pycaret/internal/pycaret_experiment/pycaret_experiment.py:321: UserWarning: Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+  warnings.warn(msg)  # print on screen
+
+2025-02-28 13:30:23,367:INFO:Variable:  returned as              Al         Si          P         S        Cl         K        Ca  \
+1479  21.269129  52.751781  20.069708  0.190650  0.637982  0.005799  1.662546   
+335   23.118284  45.975990  28.078920  0.048384  0.679627  0.005501  0.082349   
+1249  24.413755  24.691513  27.524775  0.744418  1.348286  0.005878  0.068056   
+728   18.705660  45.095497  21.445589  3.601468  1.403939  2.904245  0.197452   
+1835  36.696747  14.842984  35.900219  0.528142  2.882349  0.960174  0.101411   
+...         ...        ...        ...       ...       ...       ...       ...   
+1726  33.065529  27.891024  33.573391  0.575415  0.820950  0.687391  0.444901   
+875   30.257610  22.002092  37.135899  0.708265  1.917146  0.005100  4.409623   
+286   23.482368  29.865496  29.595087  2.066185  2.075848  1.357458  5.366835   
+1106  24.899801  35.108177  28.354494  0.983204  2.902304  2.338488  0.990917   
+396   19.731764  60.436352  10.823002  0.377695  1.039134  0.006079  4.126273   
+
+            Sc        Ti         V  ...        Te        Ba        Ta  \
+1479  0.005799  0.180271  0.165291  ...  0.000580  0.032642  0.000580   
+335   0.005501  0.031946  0.124607  ...  0.000550  0.000550  0.000550   
+1249  0.005878  0.246225  0.005878  ...  0.000588  0.000588  0.000588   
+728   0.005693  0.279145  0.142491  ...  0.000569  0.000569  0.000569   
+1835  0.005028  0.228821  0.163134  ...  0.000503  0.000503  0.002336   
+...        ...       ...       ...  ...       ...       ...       ...   
+1726  0.005220  0.173934  0.224445  ...  0.000522  0.000522  0.002120   
+875   0.005100  0.554718  0.133763  ...  0.000510  0.035840  0.003692   
+286   0.005430  1.171171  0.322127  ...  0.000543  0.280580  0.003931   
+1106  0.005404  0.428441  0.352190  ...  0.000540  0.000540  0.000540   
+396   0.006079  0.223634  0.111452  ...  0.000608  0.027753  0.002116   
+
+             W        Au        Hg        Tl       Pb        Th       rand  
+1479  0.000580  0.000580  0.000580  0.000580  0.00001  0.000580  31.703537  
+335   0.000550  0.000550  0.000550  0.000550  0.00001  0.000550  30.081650  
+1249  0.000588  0.000588  0.000588  0.000588  0.00001  0.000588  29.484409  
+728   0.000569  0.000569  0.000569  0.000569  0.00001  0.000569  31.358761  
+1835  0.000503  0.000503  0.000503  0.001192  0.00001  0.000503  31.282984  
+...        ...       ...       ...       ...      ...       ...        ...  
+1726  0.000522  0.000522  0.000522  0.000692  0.00001  0.000522  30.356281  
+875   0.000510  0.000510  0.000510  0.000510  0.00001  0.000510  28.756454  
+286   0.000543  0.000543  0.000543  0.000543  0.00001  0.000543  29.673195  
+1106  0.000540  0.000540  0.000540  0.001322  0.00001  0.000540  31.538971  
+396   0.000608  0.000608  0.000608  0.000608  0.00001  0.000608  32.924404  
+
+[1804 rows x 45 columns]
+2025-02-28 13:30:23,367:INFO:get_config() successfully completed......................................
+2025-02-28 13:30:23,367:INFO:Initializing get_config()
+2025-02-28 13:30:23,367:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=y_train)
+2025-02-28 13:30:23,368:INFO:Variable: 'y_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'y_train_transformed' instead.
+2025-02-28 13:30:23,368:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/pycaret/internal/pycaret_experiment/pycaret_experiment.py:321: UserWarning: Variable: 'y_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'y_train_transformed' instead.
+  warnings.warn(msg)  # print on screen
+
+2025-02-28 13:30:23,378:INFO:Variable:  returned as 1479      CT
+335      PCM
+1249    PDLC
+728      PCM
+1835     PCM
+        ... 
+1726     PCM
+875       CT
+286       CT
+1106     PCM
+396       CT
+Name: Site, Length: 1804, dtype: category
+Categories (3, object): ['CT', 'PCM', 'PDLC']
+2025-02-28 13:30:23,378:INFO:get_config() successfully completed......................................
+2025-02-28 13:30:23,378:INFO:Initializing get_config()
+2025-02-28 13:30:23,379:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=X_test)
+2025-02-28 13:30:23,379:INFO:Variable: 'X_test' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_test_transformed' instead.
+2025-02-28 13:30:23,379:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/pycaret/internal/pycaret_experiment/pycaret_experiment.py:321: UserWarning: Variable: 'X_test' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_test_transformed' instead.
+  warnings.warn(msg)  # print on screen
+
+2025-02-28 13:30:23,413:INFO:Variable:  returned as              Al         Si          P         S        Cl         K  \
+1932  36.935623  23.564274  33.277229  0.137221  0.870535  1.303007   
+1719  24.911413  52.198128  14.123789  0.364652  1.950218  2.483461   
+2190  25.238174  30.090355  35.488750  0.820520  2.218794  0.463919   
+1552  31.457323  19.923794  31.840834  0.555241  4.383063  2.007686   
+1043  13.869948  63.165466   7.887604  1.008458  0.839748  0.855503   
+...         ...        ...        ...       ...       ...       ...   
+667   24.398184  32.048077  13.576881  1.056694  2.447871  0.773076   
+2247  40.829330  10.376652  41.601147  0.306992  1.321064  0.004937   
+768   25.200401  46.297329  24.748264  0.137565  0.897768  0.733857   
+754   32.374401  30.154680  29.857187  0.434722  0.844359  0.867267   
+1907  30.748346  32.346127  30.990698  0.162711  0.890088  0.968118   
+
+             Ca        Sc        Ti         V  ...        Te        Ba  \
+1932   0.088993  0.005218  0.495285  0.332675  ...  0.000522  0.019104   
+1719   0.197482  0.005895  0.376853  0.270340  ...  0.000590  0.005935   
+2190   0.678852  0.005230  0.693234  0.055326  ...  0.000523  0.000523   
+1552   0.479385  0.005307  0.316225  0.005307  ...  0.000531  0.000531   
+1043   0.097414  0.006421  0.466971  0.006421  ...  0.000642  0.000642   
+...         ...       ...       ...       ...  ...       ...       ...   
+667   19.538734  0.005909  1.317346  0.317374  ...  0.000591  0.133133   
+2247   0.151562  0.004937  0.348217  0.004937  ...  0.000494  0.000494   
+768    0.042571  0.005576  0.165754  0.212882  ...  0.000558  0.024238   
+754    0.165923  0.005402  0.138811  0.245276  ...  0.000540  0.011761   
+1907   0.167024  0.005350  0.170334  0.197103  ...  0.000535  0.000535   
+
+            Ta         W        Au        Hg        Tl       Pb        Th  \
+1932  0.000576  0.000522  0.000522  0.000522  0.000640  0.00001  0.000522   
+1719  0.000590  0.000590  0.000590  0.000590  0.000590  0.00001  0.000590   
+2190  0.008403  0.000523  0.000523  0.000523  0.000910  0.00001  0.000523   
+1552  0.000531  0.000531  0.000531  0.000531  0.000531  0.00001  0.000531   
+1043  0.003158  0.000642  0.000642  0.000642  0.000642  0.00001  0.000642   
+...        ...       ...       ...       ...       ...      ...       ...   
+667   0.000591  0.000591  0.000591  0.000591  0.000591  0.00001  0.000591   
+2247  0.006317  0.000494  0.000494  0.000494  0.000674  0.00001  0.000494   
+768   0.000558  0.000558  0.000558  0.000558  0.000558  0.00001  0.000558   
+754   0.005433  0.000540  0.000540  0.000540  0.002141  0.00001  0.000540   
+1907  0.001361  0.000535  0.000535  0.000535  0.000622  0.00001  0.000535   
+
+           rand  
+1932  28.148645  
+1719  27.857496  
+2190  30.027840  
+1552  29.088923  
+1043  29.649683  
+...         ...  
+667   31.610937  
+2247  31.339594  
+768   29.924158  
+754   29.803400  
+1907  28.057573  
+
+[452 rows x 45 columns]
+2025-02-28 13:30:23,414:INFO:get_config() successfully completed......................................
+2025-02-28 13:30:23,414:INFO:Initializing get_config()
+2025-02-28 13:30:23,414:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=y_test)
+2025-02-28 13:30:23,415:INFO:Variable: 'y_test' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'y_test_transformed' instead.
+2025-02-28 13:30:23,415:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/pycaret/internal/pycaret_experiment/pycaret_experiment.py:321: UserWarning: Variable: 'y_test' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'y_test_transformed' instead.
+  warnings.warn(msg)  # print on screen
+
+2025-02-28 13:30:23,424:INFO:Variable:  returned as 1932     PCM
+1719     PCM
+2190    PDLC
+1552     PCM
+1043    PDLC
+        ... 
+667       CT
+2247    PDLC
+768      PCM
+754      PCM
+1907     PCM
+Name: Site, Length: 452, dtype: category
+Categories (3, object): ['CT', 'PCM', 'PDLC']
+2025-02-28 13:30:23,424:INFO:get_config() successfully completed......................................
+2025-02-28 13:30:25,925:INFO:Initializing tune_model()
+2025-02-28 13:30:25,926:INFO:tune_model(estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False), fold=None, round=4, n_iter=10, custom_grid={'criterion': ['entropy'], 'min_samples_leaf': [5, 10, 15, 20, 25, 30], 'n_estimators': [10, 50, 100, 200]}, optimize=F1, custom_scorer=None, search_library=scikit-learn, search_algorithm=None, early_stopping=False, early_stopping_max_iters=10, choose_better=True, fit_kwargs=None, groups=None, return_tuner=False, verbose=True, tuner_verbose=True, return_train_score=False, kwargs={}, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>)
+2025-02-28 13:30:25,926:INFO:Checking exceptions
+2025-02-28 13:30:25,990:INFO:Copying training dataset
+2025-02-28 13:30:26,009:INFO:Checking base model
+2025-02-28 13:30:26,010:INFO:Base model : Random Forest Classifier
+2025-02-28 13:30:26,015:INFO:Declaring metric variables
+2025-02-28 13:30:26,021:INFO:Defining Hyperparameters
+2025-02-28 13:30:26,291:INFO:custom_grid: {'actual_estimator__criterion': ['entropy'], 'actual_estimator__min_samples_leaf': [5, 10, 15, 20, 25, 30], 'actual_estimator__n_estimators': [10, 50, 100, 200]}
+2025-02-28 13:30:26,291:INFO:Tuning with n_jobs=-1
+2025-02-28 13:30:26,291:INFO:Initializing RandomizedSearchCV
+2025-02-28 13:30:26,595:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,595:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,596:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,643:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,825:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,885:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,960:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:26,985:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:27,031:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:27,293:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:27,742:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:27,754:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:27,790:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:28,102:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:28,404:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:28,572:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:28,621:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:28,863:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:29,165:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:29,345:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:29,832:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:30,225:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:30,729:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:30,932:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:31,281:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:31,964:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:32,185:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:32,487:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:32,964:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:33,510:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:33,523:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:33,901:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:34,286:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:34,690:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:34,765:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:35,158:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:35,479:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:35,759:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:36,156:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:36,229:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:36,745:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:37,225:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:37,457:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:37,556:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:38,219:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:38,469:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:38,613:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:38,769:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:39,372:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:39,454:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:39,597:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:39,765:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:39,997:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:40,247:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:40,258:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:40,509:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:40,589:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:40,864:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:40,963:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:41,172:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:42,842:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:43,057:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:43,146:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:43,817:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:45,316:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:45,383:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:45,653:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:46,261:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:46,386:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:47,083:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:47,115:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:47,324:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:47,639:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:47,701:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:47,719:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:48,025:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:48,275:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:48,282:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:48,341:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:48,841:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:50,431:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:50,524:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:50,700:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:51,384:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:52,611:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:52,759:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:53,284:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:54,364:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:55,061:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:55,115:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:55,474:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:55,483:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:56,193:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:56,286:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:56,693:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:56,838:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:57,529:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:57,546:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:57,702:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:57,805:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:57,827:INFO:best_params: {'actual_estimator__n_estimators': 100, 'actual_estimator__min_samples_leaf': 5, 'actual_estimator__criterion': 'entropy'}
+2025-02-28 13:30:57,831:INFO:Hyperparameter search completed
+2025-02-28 13:30:57,832:INFO:SubProcess create_model() called ==================================
+2025-02-28 13:30:57,834:INFO:Initializing create_model()
+2025-02-28 13:30:57,834:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=True, system=False, add_to_model_list=True, metrics=None, display=<pycaret.internal.display.display.CommonDisplay object at 0x7f39adaa4910>, model_only=True, return_train_score=False, error_score=0.0, kwargs={'n_estimators': 100, 'min_samples_leaf': 5, 'criterion': 'entropy'})
+2025-02-28 13:30:57,834:INFO:Checking exceptions
+2025-02-28 13:30:57,834:INFO:Importing libraries
+2025-02-28 13:30:57,834:INFO:Copying training dataset
+2025-02-28 13:30:57,881:INFO:Defining folds
+2025-02-28 13:30:57,881:INFO:Declaring metric variables
+2025-02-28 13:30:57,891:INFO:Importing untrained model
+2025-02-28 13:30:57,891:INFO:Declaring custom model
+2025-02-28 13:30:57,898:INFO:Random Forest Classifier Imported successfully
+2025-02-28 13:30:57,911:INFO:Starting cross validation
+2025-02-28 13:30:57,913:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-28 13:30:59,440:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,444:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,445:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,450:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,452:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,457:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,462:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,464:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,469:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,471:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,477:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:30:59,480:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,870:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,885:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,901:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,917:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,917:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,924:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,925:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,933:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,937:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,939:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,948:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:00,956:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,817:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,826:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,835:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,855:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,859:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,863:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:01,880:INFO:Calculating mean and std
+2025-02-28 13:31:01,882:INFO:Creating metrics dataframe
+2025-02-28 13:31:01,889:INFO:Finalizing model
+2025-02-28 13:31:02,436:INFO:Uploading results into container
+2025-02-28 13:31:02,437:INFO:Uploading model into container now
+2025-02-28 13:31:02,439:INFO:_master_model_container: 2
+2025-02-28 13:31:02,439:INFO:_display_container: 3
+2025-02-28 13:31:02,440:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False)
+2025-02-28 13:31:02,440:INFO:create_model() successfully completed......................................
+2025-02-28 13:31:02,687:INFO:SubProcess create_model() end ==================================
+2025-02-28 13:31:02,687:INFO:choose_better activated
+2025-02-28 13:31:02,694:INFO:SubProcess create_model() called ==================================
+2025-02-28 13:31:02,696:INFO:Initializing create_model()
+2025-02-28 13:31:02,696:INFO:create_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False), fold=StratifiedKFold(n_splits=10, random_state=None, shuffle=False), round=4, cross_validation=True, predict=True, fit_kwargs={}, groups=None, refit=True, probability_threshold=None, experiment_custom_tags=None, verbose=False, system=False, add_to_model_list=True, metrics=None, display=None, model_only=True, return_train_score=False, error_score=0.0, kwargs={})
+2025-02-28 13:31:02,696:INFO:Checking exceptions
+2025-02-28 13:31:02,700:INFO:Importing libraries
+2025-02-28 13:31:02,700:INFO:Copying training dataset
+2025-02-28 13:31:02,724:INFO:Defining folds
+2025-02-28 13:31:02,725:INFO:Declaring metric variables
+2025-02-28 13:31:02,725:INFO:Importing untrained model
+2025-02-28 13:31:02,725:INFO:Declaring custom model
+2025-02-28 13:31:02,727:INFO:Random Forest Classifier Imported successfully
+2025-02-28 13:31:02,727:INFO:Starting cross validation
+2025-02-28 13:31:02,729:INFO:Cross validating with StratifiedKFold(n_splits=10, random_state=None, shuffle=False), n_jobs=-1
+2025-02-28 13:31:05,485:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,494:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,504:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,507:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,516:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,523:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,571:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,579:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,587:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,628:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,637:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:05,643:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,481:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,488:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,489:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,495:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,503:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,511:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,672:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,689:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,699:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,842:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,849:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:08,855:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,429:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,435:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,441:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,791:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,802:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,812:WARNING:/home/dsg/VORTEX_FINAL/venv/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1561: UserWarning: Note that pos_label (set to 'PDLC') is ignored when average != 'binary' (got 'weighted'). You may use labels=[pos_label] to specify a single positive class.
+  warnings.warn(
+
+2025-02-28 13:31:10,831:INFO:Calculating mean and std
+2025-02-28 13:31:10,832:INFO:Creating metrics dataframe
+2025-02-28 13:31:10,838:INFO:Finalizing model
+2025-02-28 13:31:11,799:INFO:Uploading results into container
+2025-02-28 13:31:11,800:INFO:Uploading model into container now
+2025-02-28 13:31:11,800:INFO:_master_model_container: 3
+2025-02-28 13:31:11,801:INFO:_display_container: 4
+2025-02-28 13:31:11,801:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False)
+2025-02-28 13:31:11,801:INFO:create_model() successfully completed......................................
+2025-02-28 13:31:11,985:INFO:SubProcess create_model() end ==================================
+2025-02-28 13:31:11,987:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False) result for F1 is 0.9706
+2025-02-28 13:31:11,989:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=100, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False) result for F1 is 0.9678
+2025-02-28 13:31:11,989:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False) is best model
+2025-02-28 13:31:11,990:INFO:choose_better completed
+2025-02-28 13:31:11,990:INFO:Original model was better than the tuned model, hence it will be returned. NOTE: The display metrics are for the tuned model (not the original one).
+2025-02-28 13:31:12,011:INFO:_master_model_container: 3
+2025-02-28 13:31:12,013:INFO:_display_container: 3
+2025-02-28 13:31:12,014:INFO:RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False)
+2025-02-28 13:31:12,016:INFO:tune_model() successfully completed......................................
+2025-02-28 13:37:22,499:INFO:Initializing interpret_model()
+2025-02-28 13:37:22,499:INFO:interpret_model(estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False), use_train_data=False, X_new_sample=None, y_new_sample=None, feature=None, kwargs={'class_names': ['Can_Tintorer', 'Encinasola', 'Aliste'], 'max_display': 46, 'color': <matplotlib.colors.ListedColormap object at 0x7f39adaa4f40>}, observation=None, plot=summary, save=False, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>)
+2025-02-28 13:37:22,499:INFO:Checking exceptions
+2025-02-28 13:37:22,499:INFO:Soft dependency imported: shap: 0.44.0
+2025-02-28 13:37:23,244:INFO:plot type: summary
+2025-02-28 13:37:23,245:INFO:Creating TreeExplainer
+2025-02-28 13:37:23,258:INFO:Compiling shap values
+2025-02-28 13:37:26,362:INFO:Visual Rendered Successfully
+2025-02-28 13:37:26,362:INFO:interpret_model() successfully completed......................................
+2025-02-28 13:37:59,335:INFO:Initializing interpret_model()
+2025-02-28 13:37:59,336:INFO:interpret_model(estimator=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+                       criterion='entropy', max_depth=None, max_features='sqrt',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_samples_leaf=5,
+                       min_samples_split=2, min_weight_fraction_leaf=0.0,
+                       monotonic_cst=None, n_estimators=200, n_jobs=-1,
+                       oob_score=False, random_state=42, verbose=0,
+                       warm_start=False), use_train_data=False, X_new_sample=None, y_new_sample=None, feature=None, kwargs={'class_names': ['Can_Tintorer', 'Encinasola', 'Aliste'], 'max_display': 46}, observation=None, plot=summary, save=False, self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>)
+2025-02-28 13:37:59,336:INFO:Checking exceptions
+2025-02-28 13:37:59,336:INFO:Soft dependency imported: shap: 0.44.0
+2025-02-28 13:37:59,423:INFO:plot type: summary
+2025-02-28 13:37:59,423:INFO:Creating TreeExplainer
+2025-02-28 13:37:59,440:INFO:Compiling shap values
+2025-02-28 13:38:02,517:INFO:Visual Rendered Successfully
+2025-02-28 13:38:02,517:INFO:interpret_model() successfully completed......................................
+2025-02-28 13:38:32,838:INFO:Initializing get_config()
+2025-02-28 13:38:32,838:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=X_train)
+2025-02-28 13:38:32,838:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-28 13:38:32,838:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-28 13:38:32,859:INFO:Variable:  returned as              Al         Si          P         S        Cl         K        Ca  \
+1479  21.269129  52.751781  20.069708  0.190650  0.637982  0.005799  1.662546   
+335   23.118284  45.975990  28.078920  0.048384  0.679627  0.005501  0.082349   
+1249  24.413755  24.691513  27.524775  0.744418  1.348286  0.005878  0.068056   
+728   18.705660  45.095497  21.445589  3.601468  1.403939  2.904245  0.197452   
+1835  36.696747  14.842984  35.900219  0.528142  2.882349  0.960174  0.101411   
+...         ...        ...        ...       ...       ...       ...       ...   
+1726  33.065529  27.891024  33.573391  0.575415  0.820950  0.687391  0.444901   
+875   30.257610  22.002092  37.135899  0.708265  1.917146  0.005100  4.409623   
+286   23.482368  29.865496  29.595087  2.066185  2.075848  1.357458  5.366835   
+1106  24.899801  35.108177  28.354494  0.983204  2.902304  2.338488  0.990917   
+396   19.731764  60.436352  10.823002  0.377695  1.039134  0.006079  4.126273   
+
+            Sc        Ti         V  ...        Te        Ba        Ta  \
+1479  0.005799  0.180271  0.165291  ...  0.000580  0.032642  0.000580   
+335   0.005501  0.031946  0.124607  ...  0.000550  0.000550  0.000550   
+1249  0.005878  0.246225  0.005878  ...  0.000588  0.000588  0.000588   
+728   0.005693  0.279145  0.142491  ...  0.000569  0.000569  0.000569   
+1835  0.005028  0.228821  0.163134  ...  0.000503  0.000503  0.002336   
+...        ...       ...       ...  ...       ...       ...       ...   
+1726  0.005220  0.173934  0.224445  ...  0.000522  0.000522  0.002120   
+875   0.005100  0.554718  0.133763  ...  0.000510  0.035840  0.003692   
+286   0.005430  1.171171  0.322127  ...  0.000543  0.280580  0.003931   
+1106  0.005404  0.428441  0.352190  ...  0.000540  0.000540  0.000540   
+396   0.006079  0.223634  0.111452  ...  0.000608  0.027753  0.002116   
+
+             W        Au        Hg        Tl       Pb        Th       rand  
+1479  0.000580  0.000580  0.000580  0.000580  0.00001  0.000580  31.703537  
+335   0.000550  0.000550  0.000550  0.000550  0.00001  0.000550  30.081650  
+1249  0.000588  0.000588  0.000588  0.000588  0.00001  0.000588  29.484409  
+728   0.000569  0.000569  0.000569  0.000569  0.00001  0.000569  31.358761  
+1835  0.000503  0.000503  0.000503  0.001192  0.00001  0.000503  31.282984  
+...        ...       ...       ...       ...      ...       ...        ...  
+1726  0.000522  0.000522  0.000522  0.000692  0.00001  0.000522  30.356281  
+875   0.000510  0.000510  0.000510  0.000510  0.00001  0.000510  28.756454  
+286   0.000543  0.000543  0.000543  0.000543  0.00001  0.000543  29.673195  
+1106  0.000540  0.000540  0.000540  0.001322  0.00001  0.000540  31.538971  
+396   0.000608  0.000608  0.000608  0.000608  0.00001  0.000608  32.924404  
+
+[1804 rows x 45 columns]
+2025-02-28 13:38:32,859:INFO:get_config() successfully completed......................................
+2025-02-28 13:38:51,246:INFO:Initializing get_config()
+2025-02-28 13:38:51,247:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=X_train)
+2025-02-28 13:38:51,247:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-28 13:38:51,247:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-28 13:38:51,267:INFO:Variable:  returned as              Al         Si          P         S        Cl         K        Ca  \
+1479  21.269129  52.751781  20.069708  0.190650  0.637982  0.005799  1.662546   
+335   23.118284  45.975990  28.078920  0.048384  0.679627  0.005501  0.082349   
+1249  24.413755  24.691513  27.524775  0.744418  1.348286  0.005878  0.068056   
+728   18.705660  45.095497  21.445589  3.601468  1.403939  2.904245  0.197452   
+1835  36.696747  14.842984  35.900219  0.528142  2.882349  0.960174  0.101411   
+...         ...        ...        ...       ...       ...       ...       ...   
+1726  33.065529  27.891024  33.573391  0.575415  0.820950  0.687391  0.444901   
+875   30.257610  22.002092  37.135899  0.708265  1.917146  0.005100  4.409623   
+286   23.482368  29.865496  29.595087  2.066185  2.075848  1.357458  5.366835   
+1106  24.899801  35.108177  28.354494  0.983204  2.902304  2.338488  0.990917   
+396   19.731764  60.436352  10.823002  0.377695  1.039134  0.006079  4.126273   
+
+            Sc        Ti         V  ...        Te        Ba        Ta  \
+1479  0.005799  0.180271  0.165291  ...  0.000580  0.032642  0.000580   
+335   0.005501  0.031946  0.124607  ...  0.000550  0.000550  0.000550   
+1249  0.005878  0.246225  0.005878  ...  0.000588  0.000588  0.000588   
+728   0.005693  0.279145  0.142491  ...  0.000569  0.000569  0.000569   
+1835  0.005028  0.228821  0.163134  ...  0.000503  0.000503  0.002336   
+...        ...       ...       ...  ...       ...       ...       ...   
+1726  0.005220  0.173934  0.224445  ...  0.000522  0.000522  0.002120   
+875   0.005100  0.554718  0.133763  ...  0.000510  0.035840  0.003692   
+286   0.005430  1.171171  0.322127  ...  0.000543  0.280580  0.003931   
+1106  0.005404  0.428441  0.352190  ...  0.000540  0.000540  0.000540   
+396   0.006079  0.223634  0.111452  ...  0.000608  0.027753  0.002116   
+
+             W        Au        Hg        Tl       Pb        Th       rand  
+1479  0.000580  0.000580  0.000580  0.000580  0.00001  0.000580  31.703537  
+335   0.000550  0.000550  0.000550  0.000550  0.00001  0.000550  30.081650  
+1249  0.000588  0.000588  0.000588  0.000588  0.00001  0.000588  29.484409  
+728   0.000569  0.000569  0.000569  0.000569  0.00001  0.000569  31.358761  
+1835  0.000503  0.000503  0.000503  0.001192  0.00001  0.000503  31.282984  
+...        ...       ...       ...       ...      ...       ...        ...  
+1726  0.000522  0.000522  0.000522  0.000692  0.00001  0.000522  30.356281  
+875   0.000510  0.000510  0.000510  0.000510  0.00001  0.000510  28.756454  
+286   0.000543  0.000543  0.000543  0.000543  0.00001  0.000543  29.673195  
+1106  0.000540  0.000540  0.000540  0.001322  0.00001  0.000540  31.538971  
+396   0.000608  0.000608  0.000608  0.000608  0.00001  0.000608  32.924404  
+
+[1804 rows x 45 columns]
+2025-02-28 13:38:51,267:INFO:get_config() successfully completed......................................
+2025-02-28 13:39:07,501:INFO:Initializing get_config()
+2025-02-28 13:39:07,501:INFO:get_config(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f39b5e0f040>, variable=X_train)
+2025-02-28 13:39:07,501:INFO:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+2025-02-28 13:39:07,501:WARNING:Variable: 'X_train' used to return the transformed values in PyCaret 2.x. From PyCaret 3.x, this will return the raw values. If you need the transformed values, call get_config with 'X_train_transformed' instead.
+
+2025-02-28 13:39:07,526:INFO:Variable:  returned as              Al         Si          P         S        Cl         K        Ca  \
+1479  21.269129  52.751781  20.069708  0.190650  0.637982  0.005799  1.662546   
+335   23.118284  45.975990  28.078920  0.048384  0.679627  0.005501  0.082349   
+1249  24.413755  24.691513  27.524775  0.744418  1.348286  0.005878  0.068056   
+728   18.705660  45.095497  21.445589  3.601468  1.403939  2.904245  0.197452   
+1835  36.696747  14.842984  35.900219  0.528142  2.882349  0.960174  0.101411   
+...         ...        ...        ...       ...       ...       ...       ...   
+1726  33.065529  27.891024  33.573391  0.575415  0.820950  0.687391  0.444901   
+875   30.257610  22.002092  37.135899  0.708265  1.917146  0.005100  4.409623   
+286   23.482368  29.865496  29.595087  2.066185  2.075848  1.357458  5.366835   
+1106  24.899801  35.108177  28.354494  0.983204  2.902304  2.338488  0.990917   
+396   19.731764  60.436352  10.823002  0.377695  1.039134  0.006079  4.126273   
+
+            Sc        Ti         V  ...        Te        Ba        Ta  \
+1479  0.005799  0.180271  0.165291  ...  0.000580  0.032642  0.000580   
+335   0.005501  0.031946  0.124607  ...  0.000550  0.000550  0.000550   
+1249  0.005878  0.246225  0.005878  ...  0.000588  0.000588  0.000588   
+728   0.005693  0.279145  0.142491  ...  0.000569  0.000569  0.000569   
+1835  0.005028  0.228821  0.163134  ...  0.000503  0.000503  0.002336   
+...        ...       ...       ...  ...       ...       ...       ...   
+1726  0.005220  0.173934  0.224445  ...  0.000522  0.000522  0.002120   
+875   0.005100  0.554718  0.133763  ...  0.000510  0.035840  0.003692   
+286   0.005430  1.171171  0.322127  ...  0.000543  0.280580  0.003931   
+1106  0.005404  0.428441  0.352190  ...  0.000540  0.000540  0.000540   
+396   0.006079  0.223634  0.111452  ...  0.000608  0.027753  0.002116   
+
+             W        Au        Hg        Tl       Pb        Th       rand  
+1479  0.000580  0.000580  0.000580  0.000580  0.00001  0.000580  31.703537  
+335   0.000550  0.000550  0.000550  0.000550  0.00001  0.000550  30.081650  
+1249  0.000588  0.000588  0.000588  0.000588  0.00001  0.000588  29.484409  
+728   0.000569  0.000569  0.000569  0.000569  0.00001  0.000569  31.358761  
+1835  0.000503  0.000503  0.000503  0.001192  0.00001  0.000503  31.282984  
+...        ...       ...       ...       ...      ...       ...        ...  
+1726  0.000522  0.000522  0.000522  0.000692  0.00001  0.000522  30.356281  
+875   0.000510  0.000510  0.000510  0.000510  0.00001  0.000510  28.756454  
+286   0.000543  0.000543  0.000543  0.000543  0.00001  0.000543  29.673195  
+1106  0.000540  0.000540  0.000540  0.001322  0.00001  0.000540  31.538971  
+396   0.000608  0.000608  0.000608  0.000608  0.00001  0.000608  32.924404  
+
+[1804 rows x 45 columns]
+2025-02-28 13:39:07,526:INFO:get_config() successfully completed......................................

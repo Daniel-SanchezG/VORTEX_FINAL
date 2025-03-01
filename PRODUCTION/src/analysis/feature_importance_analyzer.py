@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class FeatureImportanceAnalyzer:
-    """Class for analyzing feature importance using multiple methods."""
+    """Class for analyzing feature importance using RFECV and SHAP values."""
     
     def __init__(
         self,
@@ -54,33 +54,24 @@ class FeatureImportanceAnalyzer:
             logger.info(f"Data shape: X={X.shape}, y={y.shape}")
             logger.info(f"Output directory: {self.output_dir}")
             
-            # 1. Basic Random Forest Feature Importance
-            logger.info("Calculating Random Forest feature importance...")
-            feature_importance = pd.DataFrame({
-                'feature': X.columns,
-                'importance': model.feature_importances_
-            }).sort_values('importance', ascending=False)
-            
-            feature_importance.to_csv(
-                self.output_dir / 'tables/rf_feature_importance.csv',
-                index=False
-            )
-            
-            # 2. Feature Importance Plot
-            logger.info("Creating feature importance plot...")
-            self._plot_feature_importance_dotplot(feature_importance)
-            
-            # 3. RFECV Analysis
+            # 1. RFECV Analysis
             logger.info("Starting RFECV analysis...")
             rfecv_results = self._run_rfecv_analysis(model, X, y, n_runs)
             
-            # 4. SHAP Analysis
+            # 2. Feature Importance Plot (now using RFECV results)
+            logger.info("Creating feature importance plot...")
+            feature_importance_df = pd.read_csv(
+                self.output_dir / 'tables/rfecv_feature_frequencies.csv'
+            )
+            self._plot_feature_importance_dotplot(feature_importance_df)
+            
+            # 3. SHAP Analysis
             logger.info("Running SHAP analysis...")
             self._run_shap_analysis(model, X)
             
-            # Combine results
+            # Return results
             results = {
-                'feature_importance': feature_importance,
+                'feature_importance': feature_importance_df,
                 'rfecv_results': rfecv_results
             }
             
@@ -92,14 +83,8 @@ class FeatureImportanceAnalyzer:
             logger.error(traceback.format_exc())
             raise
             
-    def _run_rfecv_analysis(
-        self,
-        model,
-        X: pd.DataFrame,
-        y: pd.Series,
-        n_runs: int
-    ) -> Dict:
-        """Run RFECV analysis multiple times."""
+    def _run_rfecv_analysis(self,model,X: pd.DataFrame,y: pd.Series,n_runs: int) -> Dict:
+        """Run RFECV analysis multiple times and extract feature importances."""
         try:
             logger.info(f"Running RFECV with {n_runs} iterations...")
             
@@ -109,11 +94,14 @@ class FeatureImportanceAnalyzer:
                 'feature_masks': []
             }
             
+            # Extraer importancia basada en entropía directamente del modelo
+            feature_importance = model.feature_importances_
+            
             for i in range(n_runs):
                 logger.info(f"RFECV iteration {i+1}/{n_runs}")
                 
                 cv = StratifiedKFold(
-                    n_splits=5,  # Reducido para pruebas
+                    n_splits=5,
                     shuffle=True,
                     random_state=self.random_state + i
                 )
@@ -130,40 +118,43 @@ class FeatureImportanceAnalyzer:
                 rfecv.fit(X, y)
                 
                 results['n_features_list'].append(rfecv.n_features_)
-                # Usar cv_results_ en lugar de grid_scores_
                 results['grid_scores_list'].append(rfecv.cv_results_['mean_test_score'])
                 results['feature_masks'].append(rfecv.support_)
                 
                 logger.info(f"Iteration {i+1} completed: selected {rfecv.n_features_} features")
             
-            # Calculate feature importance frequencies
+            # Calcular frecuencias de selección de características
             feature_freq = np.mean(results['feature_masks'], axis=0)
+            
+            # Crear DataFrame con ambas métricas
             feature_importance_df = pd.DataFrame({
                 'feature': X.columns,
-                'selection_frequency': feature_freq
+                'selection_frequency': feature_freq,
+                'importance': feature_importance
             })
             
-            # Sort by frequency
+            # Ordenar por importancia para que el gráfico sea más informativo
             feature_importance_df = feature_importance_df.sort_values(
-                'selection_frequency', 
+                'importance', 
                 ascending=False
             )
             
-            # Save feature selection frequencies
+            # Guardar datos completos de características
             feature_importance_df.to_csv(
                 self.output_dir / 'tables/rfecv_feature_frequencies.csv',
                 index=False
             )
             
-            # Plot results
+            # Plot resultados RFECV
             self._plot_rfecv_results(results['grid_scores_list'])
             
             return results
-            
+        
         except Exception as e:
             logger.error(f"Error in RFECV analysis: {str(e)}")
             logger.error(traceback.format_exc())
             raise
+        
 
     def _plot_rfecv_results(self, grid_scores_list: List) -> None:
         """Plot RFECV results with confidence intervals."""
@@ -220,22 +211,26 @@ class FeatureImportanceAnalyzer:
             raise    
 
     def _plot_feature_importance_dotplot(self, importance_df: pd.DataFrame) -> None:
+
         """
-        Create a dot plot of feature importances.
-        
+         Create a dot plot of feature importances using entropy-based importance values.
+    
         Args:
-            importance_df: DataFrame with feature importances
+            importance_df: DataFrame with feature selection frequencies and importance values
         """
         try:
-            logger.info("Creating feature importance dot plot...")
+            logger.info("Creating feature importance dot plot based on importance values...")
             
-            # Select top features
-            top_features = importance_df.head(self.n_top_features)
+            # Ordenar por importancia, no por frecuencia de selección
+            importance_df_sorted = importance_df.sort_values('importance', ascending=False)
             
-            # Create plot
+            # Seleccionar top features
+            top_features = importance_df_sorted.head(self.n_top_features)
+            
+            # Crear plot
             fig, ax = plt.subplots(figsize=(12, 8))
             
-            # Plot horizontal lines and dots
+            # Plot horizontal lines y dots
             y_pos = range(len(top_features))
             ax.hlines(
                 y=y_pos,
@@ -253,24 +248,31 @@ class FeatureImportanceAnalyzer:
                 color='darkblue'
             )
             
-            # Customize plot
+            # Personalizar plot
             ax.set_yticks(y_pos)
             ax.set_yticklabels(top_features['feature'], fontsize=12)
-            ax.set_xlabel('Feature Importance', fontsize=14, fontweight='bold')
+            ax.set_xlabel('Feature Importance (Entropy-based)', fontsize=14, fontweight='bold')
             ax.set_ylabel('Features', fontsize=14, fontweight='bold')
             ax.grid(True, axis='x', linestyle='--', alpha=0.3)
             
-            # Add importance values as text
-            for i, v in enumerate(top_features['importance']):
-                ax.text(v, i, f' {v:.4f}', va='center', fontsize=10)
+            # Añadir valores de importancia y frecuencia de selección como texto
+            for i, (_, row) in enumerate(top_features.iterrows()):
+                selection_freq = row.get('selection_frequency', 1.0)  # Default a 1.0 si no existe
+                ax.text(
+                    row['importance'], 
+                    i, 
+                    f' {row["importance"]:.4f} (freq: {selection_freq:.2f})', 
+                    va='center', 
+                    fontsize=10
+                )
             
-            # Invert y-axis to show most important features at top
+            # Invertir eje y para mostrar características más importantes arriba
             ax.invert_yaxis()
             
-            # Set title
-            plt.title('Top Feature Importance', fontsize=16, pad=20)
+            # Establecer título
+            plt.title('Top Feature Importance (Entropy-based)', fontsize=16, pad=20)
             
-            # Adjust layout and save
+            # Ajustar layout y guardar
             plt.tight_layout()
             plt.savefig(
                 self.output_dir / 'plots/feature_importance_dotplot.png',
@@ -280,13 +282,13 @@ class FeatureImportanceAnalyzer:
             plt.close()
             
             logger.info("Feature importance plot saved successfully")
-            
+        
         except Exception as e:
             logger.error(f"Error creating feature importance plot: {str(e)}")
             logger.error(traceback.format_exc())
-            raise    
+            raise
 
-    def _run_shap_analysis(self,model, X: pd.DataFrame) -> None:
+    def _run_shap_analysis(self, model, X: pd.DataFrame) -> None:
         """
         Run SHAP analysis and create summary plot.
         

@@ -100,8 +100,12 @@ class ModelTrainer:
             # Create and train base model
             self.base_model = create_model(
                 'rf',
+                n_estimators=200,
+                min_samples_leaf=5,
                 class_weight="balanced",
-                criterion='entropy'
+                criterion='entropy',
+                random_state=42
+
             )
             
             # Save base model metrics
@@ -116,7 +120,10 @@ class ModelTrainer:
                 self.base_model,
                 n_iter=10,
                 optimize='F1',
-                custom_grid={'criterion': ['entropy']}
+                custom_grid={'criterion': ['entropy'],
+                             'min_samples_leaf':[5, 10, 15, 20, 25, 30],
+                             'n_estimators':[10,50,100,200]
+                             }
             )
             
             # Save tuned model metrics
@@ -135,7 +142,7 @@ class ModelTrainer:
             
             # Calibrate model
             logger.info("Calibrating model probabilities...")
-            self.model = calibrate_model(self.tuned_model)
+            self.calibrated_model = calibrate_model(self.tuned_model, method='sigmoid')
             
             # Save calibrated model metrics
             cal_metrics = pull()
@@ -144,7 +151,15 @@ class ModelTrainer:
             )
             
             # Finalize and save calibrated model
-            self.model = finalize_model(self.model)
+            self.final_model = finalize_model(self.calibrated_model)
+            save_model(
+                self.final_model,
+                self.output_dir / 'models/final_model',
+                verbose=True
+            )
+            
+            self.model = self.final_model
+
             logger.info("Training completed successfully")
             
         except Exception as e:
@@ -205,7 +220,7 @@ class ModelTrainer:
             plt.figure(figsize=(8, 5.5))
             disp = ConfusionMatrixDisplay(
                 confusion_matrix=cm,
-                display_labels=['Gavá', 'Terena', 'Aliste']
+                display_labels=['Can_tintorer', 'Terena', 'Aliste']
             )
             disp.plot(cmap='Greens')
             plt.savefig(
