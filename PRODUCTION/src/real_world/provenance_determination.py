@@ -64,7 +64,7 @@ def determine_provenance(uncertainty_df, confidence_threshold=0.7):
         for site in df['Site'].unique():
             site_data = df[df['Site'] == site]
             avg_uncertain = round(sum(site_data['max_prob'] < confidence_threshold) / len(site_data) * 100, 2)
-            high_conf = site_data[site_data['max_prob'] > confidence_threshold]
+            high_conf = site_data[site_data['max_prob'] >= confidence_threshold]
             median_entropy = site_data['Entropy'].median() if 'Entropy' in site_data.columns else np.nan
             
             # Determinar consenso basado en muestras de alta confianza
