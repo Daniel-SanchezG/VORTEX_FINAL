@@ -4,7 +4,8 @@
 """
 Script para ejecutar el pipeline completo de análisis arqueológico
 -----------------------------------------------------------------
-Integra predicción, análisis de incertidumbre y determinación de procedencia.
+Integra predicción, análisis de incertidumbre, determinación de procedencia
+y visualización de resultados.
 
 Ejemplo de uso:
     python run_predictions_with_uncertainty_and_provenance.py
@@ -22,6 +23,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from archaeological_predictor import ArchaeologicalPredictor
 from uncertainty_analysis import process_predictions_with_uncertainty
 from provenance_determination import process_provenance_determination
+from visualization import generate_visualization
 
 # Configuración de logging
 logging.basicConfig(
@@ -48,14 +50,18 @@ current_date = datetime.datetime.now().strftime("%Y%m%d")
 prediction_file = os.path.join(OUTPUT_DIR, f"archaeological_predictions_{current_date}.xlsx")
 uncertainty_file = os.path.join(OUTPUT_DIR, f"uncertainty_analysis_{current_date}.xlsx")
 provenance_file = os.path.join(OUTPUT_DIR, f"provenance_analysis_{current_date}.xlsx")
+visualization_file = os.path.join(OUTPUT_DIR, f"site_entropy_distribution_{current_date}.png")
+statistics_file = os.path.join(OUTPUT_DIR, f"site_statistics_{current_date}")
 
-def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False, confidence_threshold=0.7):
+def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False, 
+                         skip_visualization=False, confidence_threshold=0.7):
     """
-    Ejecuta el pipeline completo: predicciones, incertidumbre y procedencia.
+    Ejecuta el pipeline completo: predicciones, incertidumbre, procedencia y visualización.
     
     Args:
         skip_uncertainty (bool): Si True, omite el análisis de incertidumbre.
         skip_provenance (bool): Si True, omite la determinación de procedencia.
+        skip_visualization (bool): Si True, omite la generación de visualizaciones.
         confidence_threshold (float): Umbral de confianza para análisis.
     
     Returns:
@@ -96,12 +102,12 @@ def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False, confide
             logger.info("Análisis de incertidumbre omitido por configuración.")
             print("\n🔍 PASO 2: Análisis de incertidumbre omitido según configuración.")
             
-            if skip_provenance:
-                return True
-            else:
-                logger.error("No se puede realizar análisis de procedencia sin análisis de incertidumbre.")
-                print("\n❌ No se puede realizar análisis de procedencia sin análisis de incertidumbre.")
-                return False
+            if not skip_provenance or not skip_visualization:
+                logger.error("No se pueden realizar análisis posteriores sin análisis de incertidumbre.")
+                print("\n❌ No se pueden realizar análisis posteriores sin análisis de incertidumbre.")
+                return True  # Retornamos True porque al menos las predicciones se generaron
+            
+            return True
         
         logger.info("=== INICIANDO ANÁLISIS DE INCERTIDUMBRE ===")
         print(f"\n🔍 PASO 2: Realizando análisis de incertidumbre...")
@@ -114,8 +120,8 @@ def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False, confide
         )
         
         if uncertainty_df is None:
-            logger.error("Falló el análisis de incertidumbre. Abortando procedencia.")
-            print("\n⚠️ El análisis de incertidumbre falló. No se puede continuar con la procedencia.")
+            logger.error("Falló el análisis de incertidumbre. Abortando análisis posteriores.")
+            print("\n⚠️ El análisis de incertidumbre falló. No se puede continuar.")
             return True  # Retornar True porque al menos las predicciones se generaron
         
         logger.info(f"Análisis de incertidumbre completado y guardado en: {uncertainty_file}")
@@ -128,26 +134,54 @@ def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False, confide
         if skip_provenance:
             logger.info("Determinación de procedencia omitida por configuración.")
             print("\n🔎 PASO 3: Determinación de procedencia omitida según configuración.")
-            return True
+        else:
+            logger.info("=== INICIANDO DETERMINACIÓN DE PROCEDENCIA ===")
+            print(f"\n🔎 PASO 3: Realizando determinación de procedencia...")
+            
+            # Ejecutar determinación de procedencia
+            provenance_df = process_provenance_determination(
+                uncertainty_df=uncertainty_df,
+                output_path=provenance_file,
+                confidence_threshold=confidence_threshold
+            )
+            
+            if provenance_df is None:
+                logger.error("Falló la determinación de procedencia.")
+                print("\n⚠️ La determinación de procedencia falló.")
+            else:
+                logger.info(f"Determinación de procedencia completada y guardada en: {provenance_file}")
+                print(f"✅ Determinación de procedencia completada.")
+                print(f"   Archivo: {provenance_file}")
         
-        logger.info("=== INICIANDO DETERMINACIÓN DE PROCEDENCIA ===")
-        print(f"\n🔎 PASO 3: Realizando determinación de procedencia...")
-        
-        # Ejecutar determinación de procedencia
-        provenance_df = process_provenance_determination(
-            uncertainty_df=uncertainty_df,
-            output_path=provenance_file,
-            confidence_threshold=confidence_threshold
-        )
-        
-        if provenance_df is None:
-            logger.error("Falló la determinación de procedencia.")
-            print("\n⚠️ La determinación de procedencia falló.")
-            return True  # Retornar True porque al menos las predicciones e incertidumbre se generaron
-        
-        logger.info(f"Determinación de procedencia completada y guardada en: {provenance_file}")
-        print(f"✅ Determinación de procedencia completada.")
-        print(f"   Archivo: {provenance_file}")
+        #-----------------------------------------------------------------
+        # PASO 4: Visualización (opcional)
+        #-----------------------------------------------------------------
+        if skip_visualization:
+            logger.info("Generación de visualizaciones omitida por configuración.")
+            print("\n📈 PASO 4: Generación de visualizaciones omitida según configuración.")
+        else:
+            logger.info("=== INICIANDO GENERACIÓN DE VISUALIZACIONES ===")
+            print(f"\n📈 PASO 4: Generando visualizaciones de entropía...")
+            
+            # Generar visualizaciones
+            vis_results = generate_visualization(
+                uncertainty_df=uncertainty_df,
+                output_dir=OUTPUT_DIR,
+                entropy_col='Entropy'  # Usar el nombre exacto de la columna
+            )
+            
+            if not vis_results:
+                logger.error("Falló la generación de visualizaciones.")
+                print("\n⚠️ La generación de visualizaciones falló.")
+            else:
+                logger.info("Visualizaciones generadas correctamente.")
+                print(f"✅ Visualizaciones generadas correctamente.")
+                
+                if 'visualization' in vis_results:
+                    print(f"   Gráfico: {vis_results['visualization']}")
+                
+                if 'statistics' in vis_results and 'excel' in vis_results['statistics']:
+                    print(f"   Estadísticas: {vis_results['statistics']['excel']}")
         
         print("\n🏆 PIPELINE COMPLETO EJECUTADO CON ÉXITO!")
         return True
@@ -167,6 +201,7 @@ if __name__ == "__main__":
     parser.add_argument('--threshold', type=float, default=0.7, help='Umbral de confianza (por defecto: 0.7)')
     parser.add_argument('--no-uncertainty', action='store_true', help='Omitir análisis de incertidumbre')
     parser.add_argument('--no-provenance', action='store_true', help='Omitir determinación de procedencia')
+    parser.add_argument('--no-visualization', action='store_true', help='Omitir generación de visualizaciones')
     
     args = parser.parse_args()
     
@@ -178,14 +213,19 @@ if __name__ == "__main__":
     if args.output:
         OUTPUT_DIR = args.output
         os.makedirs(OUTPUT_DIR, exist_ok=True)
+        
+        # Actualizar rutas de salida
         prediction_file = os.path.join(OUTPUT_DIR, f"archaeological_predictions_{current_date}.xlsx")
         uncertainty_file = os.path.join(OUTPUT_DIR, f"uncertainty_analysis_{current_date}.xlsx")
         provenance_file = os.path.join(OUTPUT_DIR, f"provenance_analysis_{current_date}.xlsx")
+        visualization_file = os.path.join(OUTPUT_DIR, f"site_entropy_distribution_{current_date}.png")
+        statistics_file = os.path.join(OUTPUT_DIR, f"site_statistics_{current_date}")
     
     # Ejecutar pipeline
     success = run_complete_pipeline(
         skip_uncertainty=args.no_uncertainty,
         skip_provenance=args.no_provenance,
+        skip_visualization=args.no_visualization,
         confidence_threshold=args.threshold
     )
     
