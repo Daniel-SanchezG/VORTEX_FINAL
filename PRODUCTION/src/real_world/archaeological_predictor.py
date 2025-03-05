@@ -55,8 +55,18 @@ class ArchaeologicalPredictor:
             'da': 'full_model',         # Alberite
             'pa': 'full_model',         # Paternanbidea
             'cg': 'full_model',         # Can_Gambus
-            'cs': 'full_model',         # CatalonianSites
-            'fs': 'FrenchModel'         # FrenchSites
+            'cs': 'full_model',
+            'cc': 'full_model',
+            'ls': 'full_model',
+            'rl': 'full_model',
+            'a': 'FrenchModel',
+            'j': 'FrenchModel',
+            'k': 'FrenchModel',
+            'l': 'FrenchModel',
+            'p': 'FrenchModel',
+            'StM': 'FrenchModel',
+
+                              # FrenchSites
         }
         self.site_names = {
             'pq': 'Quiruelas',
@@ -64,8 +74,17 @@ class ArchaeologicalPredictor:
             'da': 'Alberite',
             'pa': 'Paternanbidea',
             'cg': 'Can_Gambus',
-            'cs': 'CatalonianSites',
-            'fs': 'FrenchSites'
+            'ls': 'La_Serreta',
+            'cs': 'Can_Sandurni',
+            'cc': 'Cova_Cassinmanya',
+            'rl': 'Roca_Livet',
+            'a': 'Auverne',
+            'j': 'Josseliere',
+            'k': 'Kervilor',
+            'l': 'Luffang',
+            'p': 'Plinchacourt',
+            'StM': 'SaintMichel'
+            
         }
     
     def load_datasets(self):
@@ -79,13 +98,21 @@ class ArchaeologicalPredictor:
         logger.info(f"Cargando datos desde: {self.data_path}")
         try:
             sheets = {
-                'pq': 'quiruelas', 
-                'vdh': 'v_higueras', 
+                'pq': 'Quiruelas', 
+                'vdh': 'V_higueras', 
                 'da': 'Alberite', 
                 'pa': 'Paternanbidea',
-                'cg': 'Can_Gambus', 
-                'cs': 'CatalonianSites', 
-                'fs': 'FrenchSites'
+                'cg': 'Can_Gambus',
+                'ls': 'La_Serreta',
+                'cs': 'Can_Sandurni',
+                'cc': 'Cova_Cassinmanya',
+                'rl': 'Roca_Livet',
+                'a': 'Auverne',
+                'j': 'Josseliere',
+                'k': 'Kervilor',
+                'l': 'Luffang',
+                'p': 'Plinchacourt',
+                'StM': 'SaintMichel'
             }
             
             for key, sheet_name in sheets.items():
@@ -99,12 +126,10 @@ class ArchaeologicalPredictor:
                     metadata = {}
                     
                     # Manejar ID
-                    if 'id' not in df.columns:
-                        metadata['id'] = [f"{key}_{i}" for i in range(len(df))]
-                    else:
-                        metadata['id'] = df['id'].tolist()
-                        df = df.drop(columns=['id'])
                     
+                    metadata['id'] = df['id'].tolist()
+                    df = df.drop(columns=['id'])
+                
                     # Manejar Yac (yacimiento)
                     if 'Yac' in df.columns:
                         metadata['Yac'] = df['Yac'].tolist()
