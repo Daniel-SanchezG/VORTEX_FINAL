@@ -40,7 +40,7 @@ logger = logging.getLogger("ArchaeologicalPipeline")
 BASE_DIR = '/home/dsg/VORTEX_FINAL/PRODUCTION'
 DATA_PATH = os.path.join(BASE_DIR, 'DATA/real_world/real_world_data.xlsx')
 MODELS_DIR = os.path.join(BASE_DIR, 'models')
-OUTPUT_DIR = os.path.join(BASE_DIR, 'results')
+OUTPUT_DIR = os.path.join(BASE_DIR, 'real_world_results')
 
 # Crear directorio de resultados si no existe
 os.makedirs(OUTPUT_DIR, exist_ok=True)
