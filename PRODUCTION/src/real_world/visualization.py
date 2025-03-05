@@ -70,11 +70,20 @@ def plot_site_entropy_distribution(uncertainty_df, output_file=None,
         
         # Usar nombres de sitios como posiciones en x
         x = np.arange(len(site_medians.index))
+
+        class_names = {
+        'CT': 'Can Tintorer',
+        'PCM': 'Encinasola',
+        'PDLC': 'Aliste'
+        }
         
         for i, col in enumerate(score_cols):
+            class_code = col.replace('prediction_score_', '')
+            class_label = class_names.get(class_code, class_code)  # Usar el nombre completo o el código si no está en el mapeo
+            
             ax.bar(x, site_medians[col], bottom=bottom, 
-                  label=col.replace('prediction_score_', ''),
-                  color=colors[i], alpha=0.7)
+                label=class_label,
+                color=colors[i], alpha=0.7)
             bottom += site_medians[col]
         
         # Añadir línea de entropía
