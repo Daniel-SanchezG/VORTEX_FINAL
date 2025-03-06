@@ -1,0 +1,212 @@
+2025-03-04 10:04:46,444 - __main__ - INFO - Starting experiment with timestamp: 20250304_100446
+2025-03-04 10:04:46,444 - __main__ - INFO - Input file: /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/raw/input_data.xlsx
+2025-03-04 10:04:46,444 - __main__ - INFO - Output directory: outputs/experiment_20250304_100446
+2025-03-04 10:04:46,444 - __main__ - INFO - Starting data preprocessing...
+2025-03-04 10:04:48,473 - src.preprocessing.data_processor - INFO - Data successfully uploaded: (1816, 67)
+2025-03-04 10:04:48,489 - src.preprocessing.data_processor - INFO - Encontrados 14 IDs duplicados
+2025-03-04 10:04:48,491 - src.preprocessing.data_processor - INFO - Registros únicos después de eliminar duplicados: 1802
+2025-03-04 10:04:48,494 - src.preprocessing.data_processor - INFO - Eliminando 6 clases con menos de 10 casos
+2025-03-04 10:04:48,500 - src.preprocessing.data_processor - INFO - División de datos - Entrenamiento: (1600, 46), Validación: (178, 46)
+2025-03-04 10:04:48,611 - src.preprocessing.data_processor - INFO - Datos balanceados - Shape final: (2256, 45)
+2025-03-04 10:04:50,819 - src.preprocessing.data_processor - INFO - Datos de entrenamiento guardados en outputs/experiment_20250304_100446/data/processed/training_data_20250304_100446.xlsx
+2025-03-04 10:04:50,979 - src.preprocessing.data_processor - INFO - Datos de validación guardados en outputs/experiment_20250304_100446/data/processed/validation_data_20250304_100446.xlsx
+2025-03-04 10:04:50,979 - __main__ - INFO - Starting model training...
+2025-03-04 10:04:50,979 - src.training.model_trainer - INFO - Configuring training experiment...
+2025-03-04 10:04:54,860 - src.training.model_trainer - INFO - Experiment configured successfully
+2025-03-04 10:04:54,861 - src.training.model_trainer - INFO - Starting model training...
+2025-03-04 10:05:52,852 - src.training.model_trainer - INFO - Optimizing hyperparameters...
+2025-03-04 10:06:59,579 - src.training.model_trainer - INFO - Saving tuned model before calibration...
+2025-03-04 10:07:01,195 - src.training.model_trainer - INFO - Calibrating model probabilities...
+2025-03-04 10:08:28,188 - src.training.model_trainer - INFO - Saved final model directly to outputs/experiment_20250304_100446/models/final_model_direct.pkl
+2025-03-04 10:08:28,189 - src.training.model_trainer - INFO - Training completed successfully
+2025-03-04 10:08:28,189 - src.training.model_trainer - INFO - Evaluating model on validation data...
+2025-03-04 10:08:31,138 - src.training.model_trainer - INFO - Evaluation completed
+2025-03-04 10:08:31,139 - __main__ - INFO - Starting feature importance analysis...
+2025-03-04 10:08:31,179 - __main__ - INFO - Retrieving tuned model for feature importance analysis...
+2025-03-04 10:08:31,180 - __main__ - INFO - Running feature importance analysis...
+2025-03-04 10:08:31,180 - src.analysis.feature_importance_analyzer - INFO - Starting feature importance analysis...
+2025-03-04 10:08:31,180 - src.analysis.feature_importance_analyzer - INFO - Data shape: X=(2256, 44), y=(2256,)
+2025-03-04 10:08:31,180 - src.analysis.feature_importance_analyzer - INFO - Output directory: outputs/experiment_20250304_100446
+2025-03-04 10:08:31,181 - src.analysis.feature_importance_analyzer - INFO - Starting RFECV analysis...
+2025-03-04 10:08:31,181 - src.analysis.feature_importance_analyzer - INFO - Running RFECV with 10 iterations...
+2025-03-04 10:08:31,287 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 1/10
+2025-03-04 10:11:21,792 - src.analysis.feature_importance_analyzer - INFO - Iteration 1 completed: selected 42 features
+2025-03-04 10:11:21,793 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 2/10
+2025-03-04 10:14:13,923 - src.analysis.feature_importance_analyzer - INFO - Iteration 2 completed: selected 31 features
+2025-03-04 10:14:13,923 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 3/10
+2025-03-04 10:16:44,780 - src.analysis.feature_importance_analyzer - INFO - Iteration 3 completed: selected 42 features
+2025-03-04 10:16:44,780 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 4/10
+2025-03-04 10:19:30,089 - src.analysis.feature_importance_analyzer - INFO - Iteration 4 completed: selected 28 features
+2025-03-04 10:19:30,089 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 5/10
+2025-03-04 10:22:47,988 - src.analysis.feature_importance_analyzer - INFO - Iteration 5 completed: selected 25 features
+2025-03-04 10:22:47,990 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 6/10
+2025-03-04 10:25:22,700 - src.analysis.feature_importance_analyzer - INFO - Iteration 6 completed: selected 38 features
+2025-03-04 10:25:22,700 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 7/10
+2025-03-04 10:27:55,821 - src.analysis.feature_importance_analyzer - INFO - Iteration 7 completed: selected 39 features
+2025-03-04 10:27:55,821 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 8/10
+2025-03-04 10:30:33,571 - src.analysis.feature_importance_analyzer - INFO - Iteration 8 completed: selected 35 features
+2025-03-04 10:30:33,571 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 9/10
+2025-03-04 10:33:23,733 - src.analysis.feature_importance_analyzer - INFO - Iteration 9 completed: selected 24 features
+2025-03-04 10:33:23,734 - src.analysis.feature_importance_analyzer - INFO - RFECV iteration 10/10
+2025-03-04 10:35:52,795 - src.analysis.feature_importance_analyzer - INFO - Iteration 10 completed: selected 42 features
+2025-03-04 10:35:52,802 - src.analysis.feature_importance_analyzer - INFO - Creating RFECV plot...
+2025-03-04 10:35:53,406 - src.analysis.feature_importance_analyzer - INFO - RFECV plot saved successfully
+2025-03-04 10:35:53,407 - src.analysis.feature_importance_analyzer - INFO - Creating feature importance plot...
+2025-03-04 10:35:53,416 - src.analysis.feature_importance_analyzer - INFO - Creating feature importance dot plot based on importance values...
+2025-03-04 10:35:54,338 - src.analysis.feature_importance_analyzer - INFO - Feature importance plot saved successfully
+2025-03-04 10:35:54,338 - src.analysis.feature_importance_analyzer - INFO - Running SHAP analysis...
+2025-03-04 10:35:54,338 - src.analysis.feature_importance_analyzer - INFO - Running SHAP analysis...
+2025-03-04 10:36:04,748 - src.analysis.feature_importance_analyzer - INFO - SHAP analysis completed successfully
+2025-03-04 10:36:04,749 - src.analysis.feature_importance_analyzer - INFO - Feature importance analysis completed successfully
+2025-03-04 10:36:04,749 - __main__ - INFO - Starting specific models training...
+2025-03-04 10:36:04,750 - src.training.specific_models_trainer - INFO - Features pool set with 4 configurations
+2025-03-04 10:36:04,750 - src.training.specific_models_trainer - INFO - Starting training of all specific models...
+2025-03-04 10:36:04,750 - src.training.specific_models_trainer - INFO - 
+==================================================
+2025-03-04 10:36:04,750 - src.training.specific_models_trainer - INFO - Processing configuration: trainning_features_Destilled
+2025-03-04 10:36:04,751 - src.training.specific_models_trainer - INFO - ==================================================
+2025-03-04 10:36:04,757 - src.training.specific_models_trainer - INFO - Training data shape: (2256, 14), class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:04,758 - src.training.specific_models_trainer - INFO - Validation data shape: (178, 14), class distribution: Site
+CT      76
+PDLC    54
+PCM     48
+Name: count, dtype: int64
+2025-03-04 10:36:04,768 - src.training.specific_models_trainer - INFO - Balanced data shape: (2256, 14), distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:04,772 - src.training.specific_models_trainer - INFO - Training model rf_Destilled...
+2025-03-04 10:36:05,715 - src.training.specific_models_trainer - INFO - Calibrating model rf_Destilled...
+2025-03-04 10:36:05,744 - src.training.specific_models_trainer - INFO - Evaluating model rf_Destilled...
+2025-03-04 10:36:05,769 - src.training.specific_models_trainer - INFO - Classification report saved in: outputs/experiment_20250304_100446/tables/rf_Destilled_classification_report.csv
+2025-03-04 10:36:06,000 - src.training.specific_models_trainer - INFO - Confusion matrix saved in: outputs/experiment_20250304_100446/plots/rf_Destilled_confusion_matrix.png
+2025-03-04 10:36:06,014 - src.training.specific_models_trainer - INFO - Model saved in: outputs/experiment_20250304_100446/models/rf_Destilled_calibrated.pkl
+2025-03-04 10:36:06,014 - src.training.specific_models_trainer - INFO - 
+==================================================
+2025-03-04 10:36:06,015 - src.training.specific_models_trainer - INFO - Processing configuration: trainning_features_French
+2025-03-04 10:36:06,015 - src.training.specific_models_trainer - INFO - ==================================================
+2025-03-04 10:36:06,019 - src.training.specific_models_trainer - INFO - Training data shape: (2256, 22), class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:06,020 - src.training.specific_models_trainer - INFO - Validation data shape: (178, 22), class distribution: Site
+CT      76
+PDLC    54
+PCM     48
+Name: count, dtype: int64
+2025-03-04 10:36:06,030 - src.training.specific_models_trainer - INFO - Balanced data shape: (2256, 22), distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:06,034 - src.training.specific_models_trainer - INFO - Training model rf_French...
+2025-03-04 10:36:07,214 - src.training.specific_models_trainer - INFO - Calibrating model rf_French...
+2025-03-04 10:36:07,239 - src.training.specific_models_trainer - INFO - Evaluating model rf_French...
+2025-03-04 10:36:07,265 - src.training.specific_models_trainer - INFO - Classification report saved in: outputs/experiment_20250304_100446/tables/rf_French_classification_report.csv
+2025-03-04 10:36:07,498 - src.training.specific_models_trainer - INFO - Confusion matrix saved in: outputs/experiment_20250304_100446/plots/rf_French_confusion_matrix.png
+2025-03-04 10:36:07,512 - src.training.specific_models_trainer - INFO - Model saved in: outputs/experiment_20250304_100446/models/rf_French_calibrated.pkl
+2025-03-04 10:36:07,512 - src.training.specific_models_trainer - INFO - 
+==================================================
+2025-03-04 10:36:07,512 - src.training.specific_models_trainer - INFO - Processing configuration: trainning_features_Quiruelas
+2025-03-04 10:36:07,513 - src.training.specific_models_trainer - INFO - ==================================================
+2025-03-04 10:36:07,517 - src.training.specific_models_trainer - INFO - Training data shape: (2256, 17), class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:07,517 - src.training.specific_models_trainer - INFO - Validation data shape: (178, 17), class distribution: Site
+CT      76
+PDLC    54
+PCM     48
+Name: count, dtype: int64
+2025-03-04 10:36:07,526 - src.training.specific_models_trainer - INFO - Balanced data shape: (2256, 17), distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:07,530 - src.training.specific_models_trainer - INFO - Training model rf_Quiruelas...
+2025-03-04 10:36:08,705 - src.training.specific_models_trainer - INFO - Calibrating model rf_Quiruelas...
+2025-03-04 10:36:08,729 - src.training.specific_models_trainer - INFO - Evaluating model rf_Quiruelas...
+2025-03-04 10:36:08,753 - src.training.specific_models_trainer - INFO - Classification report saved in: outputs/experiment_20250304_100446/tables/rf_Quiruelas_classification_report.csv
+2025-03-04 10:36:09,006 - src.training.specific_models_trainer - INFO - Confusion matrix saved in: outputs/experiment_20250304_100446/plots/rf_Quiruelas_confusion_matrix.png
+2025-03-04 10:36:09,019 - src.training.specific_models_trainer - INFO - Model saved in: outputs/experiment_20250304_100446/models/rf_Quiruelas_calibrated.pkl
+2025-03-04 10:36:09,019 - src.training.specific_models_trainer - INFO - 
+==================================================
+2025-03-04 10:36:09,020 - src.training.specific_models_trainer - INFO - Processing configuration: trainning_features_VdH
+2025-03-04 10:36:09,020 - src.training.specific_models_trainer - INFO - ==================================================
+2025-03-04 10:36:09,024 - src.training.specific_models_trainer - INFO - Training data shape: (2256, 19), class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:09,024 - src.training.specific_models_trainer - INFO - Validation data shape: (178, 19), class distribution: Site
+CT      76
+PDLC    54
+PCM     48
+Name: count, dtype: int64
+2025-03-04 10:36:09,034 - src.training.specific_models_trainer - INFO - Balanced data shape: (2256, 19), distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-04 10:36:09,037 - src.training.specific_models_trainer - INFO - Training model rf_VdH...
+2025-03-04 10:36:10,419 - src.training.specific_models_trainer - INFO - Calibrating model rf_VdH...
+2025-03-04 10:36:10,445 - src.training.specific_models_trainer - INFO - Evaluating model rf_VdH...
+2025-03-04 10:36:10,469 - src.training.specific_models_trainer - INFO - Classification report saved in: outputs/experiment_20250304_100446/tables/rf_VdH_classification_report.csv
+2025-03-04 10:36:10,744 - src.training.specific_models_trainer - INFO - Confusion matrix saved in: outputs/experiment_20250304_100446/plots/rf_VdH_confusion_matrix.png
+2025-03-04 10:36:10,756 - src.training.specific_models_trainer - INFO - Model saved in: outputs/experiment_20250304_100446/models/rf_VdH_calibrated.pkl
+2025-03-04 10:36:10,756 - src.training.specific_models_trainer - INFO - 
+
+================================================================================
+2025-03-04 10:36:10,756 - src.training.specific_models_trainer - INFO - MODEL PERFORMANCE SUMMARY
+2025-03-04 10:36:10,756 - src.training.specific_models_trainer - INFO - ================================================================================
+2025-03-04 10:36:10,757 - src.training.specific_models_trainer - INFO - 
+Model: rf_Destilled
+2025-03-04 10:36:10,757 - src.training.specific_models_trainer - INFO - Accuracy: 0.9607
+2025-03-04 10:36:10,757 - src.training.specific_models_trainer - INFO - F1-score (macro avg): 0.9599
+2025-03-04 10:36:10,757 - src.training.specific_models_trainer - INFO - F1-score (weighted avg): 0.9605
+2025-03-04 10:36:10,757 - src.training.specific_models_trainer - INFO - --------------------------------------------------
+2025-03-04 10:36:10,757 - src.training.specific_models_trainer - INFO - 
+Model: rf_French
+2025-03-04 10:36:10,758 - src.training.specific_models_trainer - INFO - Accuracy: 0.9551
+2025-03-04 10:36:10,758 - src.training.specific_models_trainer - INFO - F1-score (macro avg): 0.9542
+2025-03-04 10:36:10,758 - src.training.specific_models_trainer - INFO - F1-score (weighted avg): 0.9549
+2025-03-04 10:36:10,758 - src.training.specific_models_trainer - INFO - --------------------------------------------------
+2025-03-04 10:36:10,759 - src.training.specific_models_trainer - INFO - 
+Model: rf_Quiruelas
+2025-03-04 10:36:10,759 - src.training.specific_models_trainer - INFO - Accuracy: 0.9494
+2025-03-04 10:36:10,759 - src.training.specific_models_trainer - INFO - F1-score (macro avg): 0.9465
+2025-03-04 10:36:10,759 - src.training.specific_models_trainer - INFO - F1-score (weighted avg): 0.9493
+2025-03-04 10:36:10,760 - src.training.specific_models_trainer - INFO - --------------------------------------------------
+2025-03-04 10:36:10,760 - src.training.specific_models_trainer - INFO - 
+Model: rf_VdH
+2025-03-04 10:36:10,760 - src.training.specific_models_trainer - INFO - Accuracy: 0.9157
+2025-03-04 10:36:10,760 - src.training.specific_models_trainer - INFO - F1-score (macro avg): 0.9144
+2025-03-04 10:36:10,760 - src.training.specific_models_trainer - INFO - F1-score (weighted avg): 0.9154
+2025-03-04 10:36:10,761 - src.training.specific_models_trainer - INFO - --------------------------------------------------
+2025-03-04 10:36:10,761 - src.training.specific_models_trainer - INFO - 
+Process completed successfully!
+2025-03-04 10:36:10,763 - __main__ - INFO - 
+Top 14 most important features:
+2025-03-04 10:36:10,763 - __main__ - INFO - - Ca: 0.2120
+2025-03-04 10:36:10,763 - __main__ - INFO - - As: 0.1201
+2025-03-04 10:36:10,764 - __main__ - INFO - - Ba: 0.0702
+2025-03-04 10:36:10,764 - __main__ - INFO - - V: 0.0689
+2025-03-04 10:36:10,764 - __main__ - INFO - - Sr: 0.0659
+2025-03-04 10:36:10,765 - __main__ - INFO - - Cr: 0.0483
+2025-03-04 10:36:10,765 - __main__ - INFO - - Mo: 0.0443
+2025-03-04 10:36:10,765 - __main__ - INFO - - Ta: 0.0440
+2025-03-04 10:36:10,765 - __main__ - INFO - - Cu: 0.0346
+2025-03-04 10:36:10,766 - __main__ - INFO - - K: 0.0329
+2025-03-04 10:36:10,766 - __main__ - INFO - - Ti: 0.0290
+2025-03-04 10:36:10,767 - __main__ - INFO - - Se: 0.0212
+2025-03-04 10:36:10,767 - __main__ - INFO - - S: 0.0178
+2025-03-04 10:36:10,767 - __main__ - INFO - - Cl: 0.0173
+2025-03-04 10:36:10,769 - __main__ - INFO - Process completed successfully!
+2025-03-04 10:36:10,769 - __main__ - INFO - Results saved in: outputs/experiment_20250304_100446

@@ -70,58 +70,58 @@ class DataPreprocessor:
         Returns:
             Clean DataFrame
         """
-        # Eliminar columnas iniciales innecesarias (primeras 22 columnas)
+        # Delete initial unnecessary columns
         columns_to_drop = list(df.iloc[:, :22].columns) + ['suma']
         data = df.drop(columns=columns_to_drop, axis=1)
         
-        # Agregar columnas importantes
+        # Add important columns
         data['Site'] = df['Site']
         data['id'] = df['ID']
         
-        # Verificar valores faltantes
+        # Check for missing values
         if data.isnull().any().any():
-            logger.warning("Se encontraron valores faltantes en los datos")
+            logger.warning("Missing values found in the data")
             
         return data
         
     def remove_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
         """
-        Elimina registros duplicados basados en ID.
+        Delete duplicate records based on ID.
         
         Args:
-            df: DataFrame con posibles duplicados
+            df: DataFrame with possible duplicates
             
         Returns:
-            DataFrame sin duplicados
+            DataFrame without duplicates
         """
-        # Identificar duplicados
-        duplicados = df['id'].duplicated().sum()
-        if duplicados > 0:
-            logger.info(f"Encontrados {duplicados} IDs duplicados")
+        # Identify duplicates
+        duplicates = df['id'].duplicated().sum()
+        if duplicates > 0:
+            logger.info(f"Found {duplicates} duplicate IDs")
             
-        # Eliminar duplicados
+        # Delete duplicates
         df_clean = df.drop_duplicates(subset='id', keep='first')
         df_clean.reset_index(drop=True, inplace=True)
         
-        logger.info(f"Registros únicos después de eliminar duplicados: {df_clean.shape[0]}")
+        logger.info(f"Unique records after deleting duplicates: {df_clean.shape[0]}")
         return df_clean
         
     def remove_small_classes(self, df: pd.DataFrame) -> pd.DataFrame:
         """
-        Elimina clases con menos casos que min_class_size.
+        Delete classes with less cases than min_class_size.
         
         Args:
-            df: DataFrame con todas las clases
+            df: DataFrame with all classes
             
         Returns:
-            DataFrame sin clases pequeñas
+            DataFrame without small classes
         """
-        # Identificar clases pequeñas
+        # Identify small classes
         class_counts = df['Site'].value_counts()
         small_classes = class_counts[class_counts < self.min_class_size].index
         
         if len(small_classes) > 0:
-            logger.info(f"Eliminando {len(small_classes)} clases con menos de {self.min_class_size} casos")
+            logger.info(f"Deleting {len(small_classes)} classes with less than {self.min_class_size} cases")
             df_filtered = df[~df['Site'].isin(small_classes)]
             df_filtered.reset_index(drop=True, inplace=True)
             return df_filtered
@@ -133,26 +133,26 @@ class DataPreprocessor:
         df: pd.DataFrame
     ) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
-        Divide los datos en conjuntos de entrenamiento y validación final.
+        Divide the data into training and final validation sets. Creates Final Validation Set (FVS) 
         
         Args:
-            df: DataFrame completo
+            df: Complete DataFrame
             
         Returns:
-            Tuple de (datos_entrenamiento, datos_validacion)
+            Tuple of (training data, final validation data)
         """
-        # Dividir datos
+        # Split data
         train_data = df.sample(
             frac=1-self.validation_split,
             random_state=self.random_state
         )
         val_data = df.drop(train_data.index)
         
-        # Resetear índices
+        # Reset indices
         train_data.reset_index(drop=True, inplace=True)
         val_data.reset_index(drop=True, inplace=True)
         
-        logger.info(f"División de datos - Entrenamiento: {train_data.shape}, Validación: {val_data.shape}")
+        logger.info(f"Data split - Training: {train_data.shape}, Validation: {val_data.shape}")
         return train_data, val_data
         
     def apply_smote(
@@ -162,29 +162,29 @@ class DataPreprocessor:
         exclude_cols: List[str] = ['Site', 'id']
     ) -> pd.DataFrame:
         """
-        Aplica SMOTE para balancear las clases.
+        Applies SMOTE to balance the classes.
         
         Args:
-            df: DataFrame para balancear
-            target_col: Nombre de la columna objetivo
-            exclude_cols: Columnas a excluir del balanceo
+            df: DataFrame to balance
+            target_col: Name of the target column
+            exclude_cols: Columns to exclude from balancing
             
         Returns:
-            DataFrame balanceado
+            Balanced DataFrame
         """
-        # Preparar datos para SMOTE
+        # Prepare data for SMOTE
         X = df.drop(exclude_cols, axis=1)
         y = df[target_col]
         
-        # Aplicar SMOTE
+        # Apply SMOTE
         smote = SMOTE(random_state=self.random_state)
         X_balanced, y_balanced = smote.fit_resample(X, y)
         
-        # Crear DataFrame balanceado
+        # Create balanced DataFrame
         balanced_df = pd.DataFrame(X_balanced, columns=X.columns)
         balanced_df[target_col] = y_balanced
         
-        logger.info(f"Datos balanceados - Shape final: {balanced_df.shape}")
+        logger.info(f"Balanced data - Final shape: {balanced_df.shape}")
         return balanced_df
         
     def process_data(
@@ -194,55 +194,55 @@ class DataPreprocessor:
         output_val_path: Optional[str] = None
     ) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
-        Ejecuta el pipeline completo de preprocesamiento.
+        Executes the complete pre-processing pipeline.
         
         Args:
-            input_path: Ruta al archivo de entrada
-            output_train_path: Ruta opcional para guardar datos de entrenamiento
-            output_val_path: Ruta opcional para guardar datos de validación
+            input_path: Path to the input file
+            output_train_path: Optional path to save training data
+            output_val_path: Optional path to save validation data
             
         Returns:
-            Tuple de (datos_entrenamiento_procesados, datos_validacion)
+            Tuple of (processed training data, validation data)
         """
-        # 1. Cargar datos
+        # 1. Load data
         df = self.load_data(input_path)
         
-        # 2. Limpieza inicial
+        # 2. Initial cleaning
         df_clean = self.clean_initial_data(df)
         
-        # 3. Eliminar duplicados
+        # 3. Delete duplicates
         df_unique = self.remove_duplicates(df_clean)
         
-        # 4. Eliminar clases pequeñas
+        # 4. Delete small classes
         df_filtered = self.remove_small_classes(df_unique)
         
-        # 5. Dividir en train/validation
+        # 5. Split into train/validation
         train_data, val_data = self.split_validation(df_filtered)
         
-        # 6. Aplicar SMOTE a los datos de entrenamiento
+        # 6. Apply SMOTE to training data
         train_balanced = self.apply_smote(train_data)
         
-        # Guardar datos si se especifican rutas
+        # Save data if paths are specified
         if output_train_path:
             train_balanced.to_excel(output_train_path, index=False)
-            logger.info(f"Datos de entrenamiento guardados en {output_train_path}")
+            logger.info(f"Training data saved in {output_train_path}")
             
         if output_val_path:
             val_data.to_excel(output_val_path, index=False)
-            logger.info(f"Datos de validación guardados en {output_val_path}")
+            logger.info(f"Validation data saved in {output_val_path}")
             
         return train_balanced, val_data
 
-# Ejemplo de uso
+# Example of usage
 if __name__ == "__main__":
-    # Inicializar preprocesador
+    # Initialize preprocessor
     preprocessor = DataPreprocessor(
         random_state=786,
         min_class_size=10,
         validation_split=0.1
     )
     
-    # Procesar datos
+    # Process data
     train_data, val_data = preprocessor.process_data(
         input_path="data/raw/input_data.xlsx",
         output_train_path="data/processed/train_data.xlsx",

@@ -9153,3 +9153,126 @@ Categories (3, object): ['CT', 'PCM', 'PDLC']
 'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
 2025-03-03 13:55:42,463:WARNING:
 'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-03 20:32:15,129:INFO:Initializing load_model()
+2025-03-03 20:32:15,137:INFO:load_model(model_name=models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:32:24,856:INFO:Initializing load_model()
+2025-03-03 20:32:24,857:INFO:load_model(model_name=models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:33:00,816:INFO:Initializing load_model()
+2025-03-03 20:33:00,819:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:33:37,596:INFO:Initializing load_model()
+2025-03-03 20:33:37,597:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:34:11,414:INFO:Initializing load_model()
+2025-03-03 20:34:11,414:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:34:11,990:INFO:Initializing predict_model()
+2025-03-03 20:34:11,990:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f6865e1bf70>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Al', 'Si', 'P', 'K', 'Ca', 'Ti',
+                                             'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ga',
+                                             'Zn', 'As', 'Rb', 'Sr', 'Zr'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('actual_estimator',
+                 CalibratedClassifierCV(cv=5,
+                                        estimator=RandomForestClassifier(class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         min_samples_leaf=5,
+                                                                         n_estimators=200,
+                                                                         n_jobs=-1,
+                                                                         random_state=42)))]), probability_threshold=None, encoded_labels=False, raw_score=True, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f6864bf97e0>)
+2025-03-03 20:34:11,990:INFO:Checking exceptions
+2025-03-03 20:34:11,990:INFO:Preloading libraries
+2025-03-03 20:34:11,996:INFO:Set up data.
+2025-03-03 20:34:12,018:INFO:Set up index.
+2025-03-03 20:36:43,280:INFO:Initializing load_model()
+2025-03-03 20:36:43,280:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:36:43,745:INFO:Initializing predict_model()
+2025-03-03 20:36:43,745:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f6864383e80>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Al', 'Si', 'P', 'K', 'Ca', 'Ti',
+                                             'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ga',
+                                             'Zn', 'As', 'Rb', 'Sr', 'Zr'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('actual_estimator',
+                 CalibratedClassifierCV(cv=5,
+                                        estimator=RandomForestClassifier(class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         min_samples_leaf=5,
+                                                                         n_estimators=200,
+                                                                         n_jobs=-1,
+                                                                         random_state=42)))]), probability_threshold=None, encoded_labels=False, raw_score=True, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f6864bfb640>)
+2025-03-03 20:36:43,745:INFO:Checking exceptions
+2025-03-03 20:36:43,746:INFO:Preloading libraries
+2025-03-03 20:36:43,746:INFO:Set up data.
+2025-03-03 20:36:43,754:INFO:Set up index.
+2025-03-03 20:38:46,926:INFO:Initializing load_model()
+2025-03-03 20:38:46,926:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_QuiruelasSpecific, platform=None, authentication=None, verbose=True)
+2025-03-03 20:38:47,455:INFO:Initializing predict_model()
+2025-03-03 20:38:47,455:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f6865b6be20>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Al', 'Si', 'P', 'K', 'Ca', 'Ti',
+                                             'V', 'Cr', 'Mn', 'Fe', 'Co', 'Ga',
+                                             'Zn', 'As', 'Rb', 'Sr', 'Zr'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('actual_estimator',
+                 CalibratedClassifierCV(cv=5,
+                                        estimator=RandomForestClassifier(class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         min_samples_leaf=5,
+                                                                         n_estimators=200,
+                                                                         n_jobs=-1,
+                                                                         random_state=42)))]), probability_threshold=None, encoded_labels=False, raw_score=True, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f6864bfb640>)
+2025-03-03 20:38:47,455:INFO:Checking exceptions
+2025-03-03 20:38:47,455:INFO:Preloading libraries
+2025-03-03 20:38:47,456:INFO:Set up data.
+2025-03-03 20:38:47,465:INFO:Set up index.
+2025-03-04 18:15:23,086:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-04 18:15:23,090:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-04 18:15:23,090:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-04 18:15:23,090:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-04 18:16:22,924:INFO:Initializing load_model()
+2025-03-04 18:16:22,928:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_VdHSpecific, platform=None, authentication=None, verbose=True)
+2025-03-05 07:40:15,346:INFO:Initializing load_model()
+2025-03-05 07:40:15,349:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_VdHSpecific, platform=None, authentication=None, verbose=True)
+2025-03-05 07:41:52,260:INFO:Initializing load_model()
+2025-03-05 07:41:52,261:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/models/20250227_VdHSpecific, platform=None, authentication=None, verbose=True)
+2025-03-05 07:41:53,428:INFO:Initializing predict_model()
+2025-03-05 07:41:53,428:INFO:predict_model(self=<pycaret.classification.oop.ClassificationExperiment object at 0x7f6865e1b010>, estimator=Pipeline(memory=Memory(location=None),
+         steps=[('label_encoding',
+                 TransformerWrapperWithInverse(transformer=LabelEncoder())),
+                ('numerical_imputer',
+                 TransformerWrapper(include=['Al', 'Si', 'P', 'S', 'Cl', 'K',
+                                             'Ti', 'V', 'Cr', 'Mn', 'Fe', 'Co',
+                                             'Ni', 'Cu', 'Zn', 'As', 'Rb', 'Sr',
+                                             'Zr'],
+                                    transformer=SimpleImputer())),
+                ('categorical_imputer',
+                 TransformerWrapper(include=[],
+                                    transformer=SimpleImputer(strategy='most_frequent'))),
+                ('actual_estimator',
+                 CalibratedClassifierCV(cv=5,
+                                        estimator=RandomForestClassifier(class_weight='balanced',
+                                                                         criterion='entropy',
+                                                                         min_samples_leaf=5,
+                                                                         n_estimators=50,
+                                                                         n_jobs=-1,
+                                                                         random_state=42)))]), probability_threshold=None, encoded_labels=False, raw_score=True, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f6864c13d90>)
+2025-03-05 07:41:53,428:INFO:Checking exceptions
+2025-03-05 07:41:53,428:INFO:Preloading libraries

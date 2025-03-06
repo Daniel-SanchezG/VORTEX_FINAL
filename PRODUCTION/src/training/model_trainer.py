@@ -10,6 +10,7 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classifica
 import matplotlib.pyplot as plt
 import logging
 import os
+import pickle
 from pathlib import Path
 
 # Configure logging
@@ -132,6 +133,17 @@ class ModelTrainer:
                 self.output_dir / 'tables/tuned_model_score_grid.csv'
             )
             
+            if hasattr(self.tuned_model, 'model'):
+                with open(self.output_dir / 'models/tuned_model_direct.pkl', 'wb') as f:
+                    pickle.dump(self.tuned_model.model, f)
+                logger.info(f"Saved underlying tuned model directly to {self.output_dir / 'models/tuned_model_direct.pkl'}")
+            else:
+                # If it's already a raw model
+                with open(self.output_dir / 'models/tuned_model_direct.pkl', 'wb') as f:
+                    pickle.dump(self.tuned_model, f)
+                logger.info(f"Saved tuned model directly to {self.output_dir / 'models/tuned_model_direct.pkl'}")
+            
+            
             # Save tuned model before calibration for feature importance
             logger.info("Saving tuned model before calibration...")
             save_model(
@@ -140,6 +152,7 @@ class ModelTrainer:
                 verbose=True
             )
             
+  
             # Calibrate model
             logger.info("Calibrating model probabilities...")
             self.calibrated_model = calibrate_model(self.tuned_model, method='sigmoid')
@@ -157,6 +170,18 @@ class ModelTrainer:
                 self.output_dir / 'models/final_model',
                 verbose=True
             )
+
+            if hasattr(self.final_model, 'model'):
+                # If it's a PyCaret model container
+                with open(self.output_dir / 'models/final_model_direct.pkl', 'wb') as f:
+                    pickle.dump(self.final_model.model, f)
+                logger.info(f"Saved underlying final model directly to {self.output_dir / 'models/final_model_direct.pkl'}")
+            else:
+                # If it's already a raw model
+                with open(self.output_dir / 'models/final_model_direct.pkl', 'wb') as f:
+                    pickle.dump(self.final_model, f)
+                logger.info(f"Saved final model directly to {self.output_dir / 'models/final_model_direct.pkl'}")
+
             
             self.model = self.final_model
 
