@@ -1,0 +1,150 @@
+2025-03-06 16:32:25,766 - __main__ - INFO - Starting experiment with timestamp: 20250306_163225
+2025-03-06 16:32:25,767 - __main__ - INFO - Input file: /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/raw/input_data.xlsx
+2025-03-06 16:32:25,767 - __main__ - INFO - Output directory: PRODUCTION/outputs/experiment_20250306_163225
+2025-03-06 16:32:25,767 - __main__ - INFO - Full analysis: No
+2025-03-06 16:32:25,767 - __main__ - INFO - Starting data preprocessing...
+2025-03-06 16:32:28,173 - src.preprocessing.data_processor - INFO - Data successfully uploaded: (1816, 67)
+2025-03-06 16:32:28,182 - src.preprocessing.data_processor - INFO - Found 14 duplicate IDs
+2025-03-06 16:32:28,184 - src.preprocessing.data_processor - INFO - Unique records after deleting duplicates: 1802
+2025-03-06 16:32:28,187 - src.preprocessing.data_processor - INFO - Deleting 6 classes with less than 10 cases
+2025-03-06 16:32:28,192 - src.preprocessing.data_processor - INFO - Data split - Training: (1600, 46), Validation: (178, 46)
+2025-03-06 16:32:28,301 - src.preprocessing.data_processor - INFO - Balanced data - Final shape: (2256, 45)
+2025-03-06 16:32:30,943 - src.preprocessing.data_processor - INFO - Training data saved in PRODUCTION/outputs/experiment_20250306_163225/data/processed/training_data_20250306_163225.xlsx
+2025-03-06 16:32:31,164 - src.preprocessing.data_processor - INFO - Validation data saved in PRODUCTION/outputs/experiment_20250306_163225/data/processed/validation_data_20250306_163225.xlsx
+2025-03-06 16:32:31,165 - __main__ - INFO - Starting model training...
+2025-03-06 16:32:31,165 - src.training.model_trainer - INFO - Configuring training experiment...
+2025-03-06 16:32:34,952 - src.training.model_trainer - INFO - Experiment configured successfully
+2025-03-06 16:32:34,952 - src.training.model_trainer - INFO - Starting model training...
+2025-03-06 16:32:49,063 - src.training.model_trainer - INFO - Optimizing hyperparameters...
+2025-03-06 16:33:42,254 - src.training.model_trainer - INFO - Saved tuned model directly to PRODUCTION/outputs/experiment_20250306_163225/models/tuned_model_direct.pkl
+2025-03-06 16:33:42,255 - src.training.model_trainer - INFO - Saving tuned model before calibration...
+2025-03-06 16:33:42,598 - src.training.model_trainer - INFO - Calibrating model probabilities...
+2025-03-06 16:34:36,880 - src.training.model_trainer - INFO - Saved final model directly to PRODUCTION/outputs/experiment_20250306_163225/models/final_model_direct.pkl
+2025-03-06 16:34:36,880 - src.training.model_trainer - INFO - Training completed successfully
+2025-03-06 16:34:36,881 - src.training.model_trainer - INFO - Evaluating model on validation data...
+2025-03-06 16:34:38,669 - src.training.model_trainer - INFO - Evaluation completed
+2025-03-06 16:34:38,669 - __main__ - INFO - Skipping feature importance analysis (use --full to enable)
+2025-03-06 16:34:38,669 - __main__ - INFO - Starting specific models training...
+2025-03-06 16:34:38,670 - src.training.specific_models_trainer_pycaret - INFO - Features pool set with 4 configurations
+2025-03-06 16:34:38,670 - src.training.specific_models_trainer_pycaret - INFO - Starting training of all specific models...
+2025-03-06 16:34:38,670 - src.training.specific_models_trainer_pycaret - INFO - 
+==================================================
+2025-03-06 16:34:38,670 - src.training.specific_models_trainer_pycaret - INFO - Processing configuration: trainning_features_Destilled
+2025-03-06 16:34:38,671 - src.training.specific_models_trainer_pycaret - INFO - ==================================================
+2025-03-06 16:34:38,676 - src.training.specific_models_trainer_pycaret - INFO - Training data shape: (2256, 15)
+2025-03-06 16:34:38,678 - src.training.specific_models_trainer_pycaret - INFO - Class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-06 16:34:38,678 - src.training.specific_models_trainer_pycaret - INFO - Validation data shape: (178, 15)
+2025-03-06 16:34:38,679 - src.training.specific_models_trainer_pycaret - INFO - Training model rf_Destilled...
+2025-03-06 16:34:38,679 - src.training.specific_models_trainer_pycaret - INFO - Setting up PyCaret experiment...
+2025-03-06 16:34:40,461 - src.training.specific_models_trainer_pycaret - INFO - Creating base Random Forest model...
+2025-03-06 16:34:48,347 - src.training.specific_models_trainer_pycaret - INFO - Tuning model rf_Destilled...
+2025-03-06 16:35:35,114 - src.training.specific_models_trainer_pycaret - INFO - Calibrating model rf_Destilled...
+2025-03-06 16:36:06,126 - src.training.specific_models_trainer_pycaret - INFO - Finalizing model rf_Destilled...
+2025-03-06 16:36:12,175 - src.training.specific_models_trainer_pycaret - INFO - Model saved at: PRODUCTION/outputs/experiment_20250306_163225/models/rf_Destilled
+2025-03-06 16:36:12,176 - src.training.specific_models_trainer_pycaret - INFO - Evaluating model rf_Destilled on validation data...
+2025-03-06 16:36:13,151 - src.training.specific_models_trainer_pycaret - INFO - Classification report saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_Destilled_classification_report.csv
+2025-03-06 16:36:13,506 - src.training.specific_models_trainer_pycaret - INFO - Confusion matrix saved in: PRODUCTION/outputs/experiment_20250306_163225/plots/rf_Destilled_confusion_matrix.png
+2025-03-06 16:36:13,512 - src.training.specific_models_trainer_pycaret - INFO - Predictions saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_Destilled_predictions.csv
+2025-03-06 16:36:13,512 - src.training.specific_models_trainer_pycaret - INFO - 
+==================================================
+2025-03-06 16:36:13,513 - src.training.specific_models_trainer_pycaret - INFO - Processing configuration: trainning_features_French
+2025-03-06 16:36:13,513 - src.training.specific_models_trainer_pycaret - INFO - ==================================================
+2025-03-06 16:36:13,515 - src.training.specific_models_trainer_pycaret - INFO - Training data shape: (2256, 23)
+2025-03-06 16:36:13,517 - src.training.specific_models_trainer_pycaret - INFO - Class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-06 16:36:13,517 - src.training.specific_models_trainer_pycaret - INFO - Validation data shape: (178, 23)
+2025-03-06 16:36:13,517 - src.training.specific_models_trainer_pycaret - INFO - Training model rf_French...
+2025-03-06 16:36:13,517 - src.training.specific_models_trainer_pycaret - INFO - Setting up PyCaret experiment...
+2025-03-06 16:36:14,694 - src.training.specific_models_trainer_pycaret - INFO - Creating base Random Forest model...
+2025-03-06 16:36:23,465 - src.training.specific_models_trainer_pycaret - INFO - Tuning model rf_French...
+2025-03-06 16:37:21,650 - src.training.specific_models_trainer_pycaret - INFO - Calibrating model rf_French...
+2025-03-06 16:37:55,771 - src.training.specific_models_trainer_pycaret - INFO - Finalizing model rf_French...
+2025-03-06 16:38:01,638 - src.training.specific_models_trainer_pycaret - INFO - Model saved at: PRODUCTION/outputs/experiment_20250306_163225/models/rf_French
+2025-03-06 16:38:01,638 - src.training.specific_models_trainer_pycaret - INFO - Evaluating model rf_French on validation data...
+2025-03-06 16:38:02,781 - src.training.specific_models_trainer_pycaret - INFO - Classification report saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_French_classification_report.csv
+2025-03-06 16:38:03,218 - src.training.specific_models_trainer_pycaret - INFO - Confusion matrix saved in: PRODUCTION/outputs/experiment_20250306_163225/plots/rf_French_confusion_matrix.png
+2025-03-06 16:38:03,224 - src.training.specific_models_trainer_pycaret - INFO - Predictions saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_French_predictions.csv
+2025-03-06 16:38:03,224 - src.training.specific_models_trainer_pycaret - INFO - 
+==================================================
+2025-03-06 16:38:03,225 - src.training.specific_models_trainer_pycaret - INFO - Processing configuration: trainning_features_Quiruelas
+2025-03-06 16:38:03,225 - src.training.specific_models_trainer_pycaret - INFO - ==================================================
+2025-03-06 16:38:03,229 - src.training.specific_models_trainer_pycaret - INFO - Training data shape: (2256, 18)
+2025-03-06 16:38:03,231 - src.training.specific_models_trainer_pycaret - INFO - Class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-06 16:38:03,232 - src.training.specific_models_trainer_pycaret - INFO - Validation data shape: (178, 18)
+2025-03-06 16:38:03,232 - src.training.specific_models_trainer_pycaret - INFO - Training model rf_Quiruelas...
+2025-03-06 16:38:03,232 - src.training.specific_models_trainer_pycaret - INFO - Setting up PyCaret experiment...
+2025-03-06 16:38:04,539 - src.training.specific_models_trainer_pycaret - INFO - Creating base Random Forest model...
+2025-03-06 16:38:13,178 - src.training.specific_models_trainer_pycaret - INFO - Tuning model rf_Quiruelas...
+2025-03-06 16:39:05,617 - src.training.specific_models_trainer_pycaret - INFO - Calibrating model rf_Quiruelas...
+2025-03-06 16:39:38,785 - src.training.specific_models_trainer_pycaret - INFO - Finalizing model rf_Quiruelas...
+2025-03-06 16:39:44,983 - src.training.specific_models_trainer_pycaret - INFO - Model saved at: PRODUCTION/outputs/experiment_20250306_163225/models/rf_Quiruelas
+2025-03-06 16:39:44,984 - src.training.specific_models_trainer_pycaret - INFO - Evaluating model rf_Quiruelas on validation data...
+2025-03-06 16:39:46,286 - src.training.specific_models_trainer_pycaret - INFO - Classification report saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_Quiruelas_classification_report.csv
+2025-03-06 16:39:46,620 - src.training.specific_models_trainer_pycaret - INFO - Confusion matrix saved in: PRODUCTION/outputs/experiment_20250306_163225/plots/rf_Quiruelas_confusion_matrix.png
+2025-03-06 16:39:46,624 - src.training.specific_models_trainer_pycaret - INFO - Predictions saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_Quiruelas_predictions.csv
+2025-03-06 16:39:46,624 - src.training.specific_models_trainer_pycaret - INFO - 
+==================================================
+2025-03-06 16:39:46,624 - src.training.specific_models_trainer_pycaret - INFO - Processing configuration: trainning_features_VdH
+2025-03-06 16:39:46,624 - src.training.specific_models_trainer_pycaret - INFO - ==================================================
+2025-03-06 16:39:46,628 - src.training.specific_models_trainer_pycaret - INFO - Training data shape: (2256, 20)
+2025-03-06 16:39:46,630 - src.training.specific_models_trainer_pycaret - INFO - Class distribution: Site
+PDLC    752
+CT      752
+PCM     752
+Name: count, dtype: int64
+2025-03-06 16:39:46,630 - src.training.specific_models_trainer_pycaret - INFO - Validation data shape: (178, 20)
+2025-03-06 16:39:46,630 - src.training.specific_models_trainer_pycaret - INFO - Training model rf_VdH...
+2025-03-06 16:39:46,630 - src.training.specific_models_trainer_pycaret - INFO - Setting up PyCaret experiment...
+2025-03-06 16:39:47,802 - src.training.specific_models_trainer_pycaret - INFO - Creating base Random Forest model...
+2025-03-06 16:39:56,053 - src.training.specific_models_trainer_pycaret - INFO - Tuning model rf_VdH...
+2025-03-06 16:40:47,916 - src.training.specific_models_trainer_pycaret - INFO - Calibrating model rf_VdH...
+2025-03-06 16:41:22,319 - src.training.specific_models_trainer_pycaret - INFO - Finalizing model rf_VdH...
+2025-03-06 16:41:29,364 - src.training.specific_models_trainer_pycaret - INFO - Model saved at: PRODUCTION/outputs/experiment_20250306_163225/models/rf_VdH
+2025-03-06 16:41:29,364 - src.training.specific_models_trainer_pycaret - INFO - Evaluating model rf_VdH on validation data...
+2025-03-06 16:41:30,399 - src.training.specific_models_trainer_pycaret - INFO - Classification report saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_VdH_classification_report.csv
+2025-03-06 16:41:30,727 - src.training.specific_models_trainer_pycaret - INFO - Confusion matrix saved in: PRODUCTION/outputs/experiment_20250306_163225/plots/rf_VdH_confusion_matrix.png
+2025-03-06 16:41:30,732 - src.training.specific_models_trainer_pycaret - INFO - Predictions saved in: PRODUCTION/outputs/experiment_20250306_163225/tables/rf_VdH_predictions.csv
+2025-03-06 16:41:30,732 - src.training.specific_models_trainer_pycaret - INFO - 
+
+================================================================================
+2025-03-06 16:41:30,732 - src.training.specific_models_trainer_pycaret - INFO - MODEL PERFORMANCE SUMMARY
+2025-03-06 16:41:30,732 - src.training.specific_models_trainer_pycaret - INFO - ================================================================================
+2025-03-06 16:41:30,732 - src.training.specific_models_trainer_pycaret - INFO - 
+Model: rf_Destilled
+2025-03-06 16:41:30,733 - src.training.specific_models_trainer_pycaret - INFO - Accuracy: 0.9494
+2025-03-06 16:41:30,733 - src.training.specific_models_trainer_pycaret - INFO - F1-score (macro avg): 0.9478
+2025-03-06 16:41:30,733 - src.training.specific_models_trainer_pycaret - INFO - F1-score (weighted avg): 0.9493
+2025-03-06 16:41:30,733 - src.training.specific_models_trainer_pycaret - INFO - --------------------------------------------------
+2025-03-06 16:41:30,733 - src.training.specific_models_trainer_pycaret - INFO - 
+Model: rf_French
+2025-03-06 16:41:30,734 - src.training.specific_models_trainer_pycaret - INFO - Accuracy: 0.9607
+2025-03-06 16:41:30,734 - src.training.specific_models_trainer_pycaret - INFO - F1-score (macro avg): 0.9583
+2025-03-06 16:41:30,734 - src.training.specific_models_trainer_pycaret - INFO - F1-score (weighted avg): 0.9606
+2025-03-06 16:41:30,734 - src.training.specific_models_trainer_pycaret - INFO - --------------------------------------------------
+2025-03-06 16:41:30,734 - src.training.specific_models_trainer_pycaret - INFO - 
+Model: rf_Quiruelas
+2025-03-06 16:41:30,734 - src.training.specific_models_trainer_pycaret - INFO - Accuracy: 0.9494
+2025-03-06 16:41:30,735 - src.training.specific_models_trainer_pycaret - INFO - F1-score (macro avg): 0.9454
+2025-03-06 16:41:30,735 - src.training.specific_models_trainer_pycaret - INFO - F1-score (weighted avg): 0.9495
+2025-03-06 16:41:30,735 - src.training.specific_models_trainer_pycaret - INFO - --------------------------------------------------
+2025-03-06 16:41:30,735 - src.training.specific_models_trainer_pycaret - INFO - 
+Model: rf_VdH
+2025-03-06 16:41:30,735 - src.training.specific_models_trainer_pycaret - INFO - Accuracy: 0.9101
+2025-03-06 16:41:30,736 - src.training.specific_models_trainer_pycaret - INFO - F1-score (macro avg): 0.9084
+2025-03-06 16:41:30,736 - src.training.specific_models_trainer_pycaret - INFO - F1-score (weighted avg): 0.9098
+2025-03-06 16:41:30,736 - src.training.specific_models_trainer_pycaret - INFO - --------------------------------------------------
+2025-03-06 16:41:30,736 - src.training.specific_models_trainer_pycaret - INFO - 
+Process completed successfully!
+2025-03-06 16:41:30,738 - __main__ - INFO - Process completed successfully!
+2025-03-06 16:41:30,738 - __main__ - INFO - Results saved in: PRODUCTION/outputs/experiment_20250306_163225
