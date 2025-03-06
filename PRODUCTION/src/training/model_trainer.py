@@ -44,6 +44,7 @@ class ModelTrainer:
         self.setup_dirs()
         
     def setup_dirs(self):
+
         """Create necessary directory structure."""
         (self.output_dir / 'models').mkdir(parents=True, exist_ok=True)
         (self.output_dir / 'plots').mkdir(parents=True, exist_ok=True)
@@ -67,7 +68,7 @@ class ModelTrainer:
             # Prepare data
             features = self.prepare_data(data)
             
-            # Configure experiment
+            # Configure Pycaret's experiment
             exp = setup(
                 data=features,
                 target=self.target_column,
@@ -91,6 +92,8 @@ class ModelTrainer:
     def train_model(self) -> None:
         """
         Train the Random Forest model with optimized parameters.
+        This base configuration has been obtained during several 
+        experiments during the course of the research.
         """
         if not self.experiment_setup:
             raise ValueError("Must run setup_experiment before training the model")
@@ -112,7 +115,7 @@ class ModelTrainer:
             # Save base model metrics
             rf_metrics = pull()
             rf_metrics.to_csv(
-                self.output_dir / 'tables/rf_model_score_grid.csv'
+                self.output_dir / 'tables/rf_model_training_evaluation_score.csv'
             )
             
             # Optimize hyperparameters and save the tuned model explicitly
@@ -122,17 +125,16 @@ class ModelTrainer:
                 n_iter=10,
                 optimize='F1',
                 custom_grid={'criterion': ['entropy'],
-                             'min_samples_leaf':[5, 10, 15, 20, 25, 30],
-                             'n_estimators':[10,50,100,200]
+                             'min_samples_leaf':[5, 10, 15, 20, 25, 30]
                              }
             )
             
             # Save tuned model metrics
             tuned_metrics = pull()
             tuned_metrics.to_csv(
-                self.output_dir / 'tables/tuned_model_score_grid.csv'
+                self.output_dir / 'tables/tuned_model_evaluation_score.csv'
             )
-            
+            #Explain and debug!!
             if hasattr(self.tuned_model, 'model'):
                 with open(self.output_dir / 'models/tuned_model_direct.pkl', 'wb') as f:
                     pickle.dump(self.tuned_model.model, f)
@@ -144,7 +146,7 @@ class ModelTrainer:
                 logger.info(f"Saved tuned model directly to {self.output_dir / 'models/tuned_model_direct.pkl'}")
             
             
-            # Save tuned model before calibration for feature importance
+            # Save as Pycaret's Pipeline tuned model before calibration for feature importance
             logger.info("Saving tuned model before calibration...")
             save_model(
                 self.tuned_model,
@@ -160,7 +162,7 @@ class ModelTrainer:
             # Save calibrated model metrics
             cal_metrics = pull()
             cal_metrics.to_csv(
-                self.output_dir / 'tables/calibrated_model_score_grid.csv'
+                self.output_dir / 'tables/calibrated_model_evaluation_score.csv'
             )
             
             # Finalize and save calibrated model
