@@ -7,7 +7,7 @@ from datetime import datetime
 from src.preprocessing.data_processor import DataPreprocessor
 from src.training.model_trainer import ModelTrainer
 from src.analysis.feature_importance_analyzer import FeatureImportanceAnalyzer
-from src.training.specific_models_trainer import SpecificModelTrainer
+from src.training.specific_models_trainer_pycaret import SpecificModelTrainerPyCaret
 
 def setup_logging(output_dir: Path) -> None:
     """
@@ -140,14 +140,12 @@ def main():
             output_dir=output_dir
         )
         
-        # Primero completamos el entrenamiento y evaluación
+        # First, complete training and evaluation
         predictions = trainer.train_and_evaluate(
             train_data=train_data,
             validation_data=val_data
         )
-
-       
-        
+  
         # 3. Feature Importance Analysis
         logger.info("Starting feature importance analysis...")
         
@@ -199,7 +197,7 @@ def main():
         }
 
         # Create specific model trainer
-        specific_trainer = SpecificModelTrainer(
+        specific_trainer = SpecificModelTrainerPyCaret(
             random_state=123,
             output_dir=output_dir,
             class_names=['Can_Tintorer', 'Terena', 'Aliste']

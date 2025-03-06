@@ -54,18 +54,17 @@ class ArchaeologicalPredictor:
             'da': 'full_model',         # Alberite
             'pa': 'full_model',         # Paternanbidea
             'cg': 'full_model',         # Can_Gambus
-            'cs': 'full_model',
-            'cc': 'full_model',
-            'ls': 'full_model',
-            'rl': 'full_model',
-            'a': 'FrenchModel',
-            'j': 'FrenchModel',
-            'k': 'FrenchModel',
-            'l': 'FrenchModel',
-            'p': 'FrenchModel',
-            'StM': 'FrenchModel',
-
-                              # FrenchSites
+            'cs': 'full_model',         # Can_Sandurni
+            'cc': 'full_model',         # Cova_Cassinmanya
+            'ls': 'full_model',         # La_Serreta
+            'rl': 'full_model',         # Roca_Livet
+            'a': 'FrenchModel',         # Auverne
+            'j': 'FrenchModel',         # Josseliere
+            'k': 'FrenchModel',         # Kervilor
+            'l': 'FrenchModel',         # Luffang
+            'p': 'FrenchModel',         # Plinchacourt
+            'StM': 'FrenchModel'        # SaintMichel
+                         
         }
         self.site_names = {
             'pq': 'Quiruelas',
@@ -165,13 +164,13 @@ class ArchaeologicalPredictor:
             'full_model': os.path.join(self.models_dir, 'final_model'),
             'VdHModel': os.path.join(self.models_dir, '20250227_VdHSpecific'),
             'PQModel': os.path.join(self.models_dir, '20250227_QuiruelasSpecific'),
-            'FrenchModel': os.path.join(self.models_dir, '20250227_FrenchSpecific')
+            'FrenchModel': os.path.join(self.models_dir, 'rf_French')
         }
         
         success = True
         for model_name, model_path in model_paths.items():
             try:
-                model = load_model(model_path)
+                model = load_model(model_path) #Using Pycaret's load_model function
                 self.model_pool[model_name] = model
                 logger.info(f"Loaded model '{model_name}' from {model_path}")
             except Exception as e:
@@ -220,7 +219,8 @@ class ArchaeologicalPredictor:
                     logger.warning(f"Could not check model columns: {str(e)}")
                 
                 # Make prediction with scores
-                predictions = predict_model(model, data=df, raw_score=True)
+                
+                predictions = predict_model(model, data=df, raw_score=True) #Using Pycaret's predict_model function
                 
                 # Create a new DataFrame for results
                 result_df = pd.DataFrame()

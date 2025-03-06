@@ -9276,3 +9276,17 @@ Categories (3, object): ['CT', 'PCM', 'PDLC']
                                                                          random_state=42)))]), probability_threshold=None, encoded_labels=False, raw_score=True, round=4, verbose=True, ml_usecase=None, preprocess=True, encode_labels=<function _SupervisedExperiment.predict_model.<locals>.encode_labels at 0x7f6864c13d90>)
 2025-03-05 07:41:53,428:INFO:Checking exceptions
 2025-03-05 07:41:53,428:INFO:Preloading libraries
+2025-03-06 13:17:37,599:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-06 13:17:37,600:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-06 13:17:37,600:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-06 13:17:37,600:WARNING:
+'cuml' is a soft dependency and not included in the pycaret installation. Please run: `pip install cuml` to install.
+2025-03-06 13:17:40,228:INFO:Initializing load_model()
+2025-03-06 13:17:40,228:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/outputs/experiment_20250304_112504/models/final_model, platform=None, authentication=None, verbose=True)
+2025-03-06 13:19:47,627:INFO:Initializing load_model()
+2025-03-06 13:19:47,628:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/outputs/experiment_20250304_112504/models/final_model_direct, platform=None, authentication=None, verbose=True)
+2025-03-06 13:24:35,631:INFO:Initializing load_model()
+2025-03-06 13:24:35,632:INFO:load_model(model_name=/home/dsg/VORTEX_FINAL/PRODUCTION/outputs/experiment_20250304_112504/models/rf_French_calibrated, platform=None, authentication=None, verbose=True)

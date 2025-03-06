@@ -1,0 +1,6 @@
+artifact_location: file:///home/dsg/VORTEX_FINAL/mlruns/977660116366222817
+creation_time: 1741270342184
+experiment_id: '977660116366222817'
+last_update_time: 1741270342184
+lifecycle_stage: active
+name: rl_prediction
