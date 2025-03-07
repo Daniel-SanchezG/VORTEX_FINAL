@@ -71,6 +71,11 @@ def parse_arguments():
         default=0.1,
         help='Fraction of data for validation (between 0 and 1)'
     )
+    parser.add_argument(
+        '--full',
+        action='store_true',
+        help='Run full analysis including feature importance (step 3)'
+    )
     return parser.parse_args()
 
 def setup_directories(base_dir: Path, timestamp: str) -> Path:
@@ -118,6 +123,7 @@ def main():
         logger.info(f"Starting experiment with timestamp: {timestamp}")
         logger.info(f"Input file: {args.input}")
         logger.info(f"Output directory: {output_dir}")
+        logger.info(f"Full analysis: {'Yes' if args.full else 'No'}")
         
         # 1. Preprocessing
         logger.info("Starting data preprocessing...")
@@ -133,7 +139,7 @@ def main():
             output_val_path=output_dir / f"data/processed/validation_data_{timestamp}.xlsx"
         )
         
-       # 2. Training and evaluation
+        # 2. Training and evaluation
         logger.info("Starting model training...")
         trainer = ModelTrainer(
             random_state=123,
@@ -146,32 +152,50 @@ def main():
             validation_data=val_data
         )
   
-        # 3. Feature Importance Analysis
-        logger.info("Starting feature importance analysis...")
+        # Variables para guardar información sobre el análisis de features
+        top_features = None
+        feature_importance_info = ""
         
-        # Get features and target for analysis
-        X = train_data.drop(['Site', 'id'] if 'id' in train_data.columns else ['Site'], axis=1)
-        y = train_data['Site']
-        
-        # Ahora podemos obtener el modelo tunificado con seguridad
-        logger.info("Retrieving tuned model for feature importance analysis...")
-        tuned_model = trainer.get_tuned_model()
-        
-        # Create analyzer
-        analyzer = FeatureImportanceAnalyzer(
-            output_dir=output_dir,
-            class_names=['Can_Tintorer', 'Terena', 'Aliste'],
-            random_state=123
-        )
-        
-        # Run analysis
-        logger.info("Running feature importance analysis...")
-        results = analyzer.analyze_feature_importance(
-            model=tuned_model,
-            X=X,
-            y=y,
-            n_runs=10
-        )
+        # 3. Feature Importance Analysis (solo si se especifica --full)
+        if args.full:
+            logger.info("Starting feature importance analysis...")
+            
+            # Get features and target for analysis
+            X = train_data.drop(['Site', 'id'] if 'id' in train_data.columns else ['Site'], axis=1)
+            y = train_data['Site']
+            
+            # Ahora podemos obtener el modelo tunificado con seguridad
+            logger.info("Retrieving tuned model for feature importance analysis...")
+            tuned_model = trainer.get_tuned_model()
+            
+            # Create analyzer
+            analyzer = FeatureImportanceAnalyzer(
+                output_dir=output_dir,
+                class_names=['Can_Tintorer', 'Terena', 'Aliste'],
+                random_state=123
+            )
+            
+            # Run analysis
+            logger.info("Running feature importance analysis...")
+            results = analyzer.analyze_feature_importance(
+                model=tuned_model,
+                X=X,
+                y=y,
+                n_runs=10
+            )
+            
+            # Guardar información de top features para incluir en resumen
+            importance_df = results['feature_importance']
+            top_features = importance_df.head(14)
+            
+            # Preparar información para el resumen
+            feature_importance_info = f"\nTop Features by Importance\n"
+            feature_importance_info += f"========================\n"
+            for _, row in top_features.iterrows():
+                feature_importance_info += f"- {row['feature']}: {row['importance']:.4f}\n"
+        else:
+            logger.info("Skipping feature importance analysis (use --full to enable)")
+            feature_importance_info = "\nFeature importance analysis was skipped. Use --full to enable.\n"
 
         # 4. Train specific models for different feature subsets
         logger.info("Starting specific models training...")
@@ -203,7 +227,6 @@ def main():
             class_names=['Can_Tintorer', 'Terena', 'Aliste']
         )
 
-
         # Set features pool and train all models
         specific_trainer.set_features_pool(features_pool)
         specific_reports = specific_trainer.train_all_models(
@@ -211,6 +234,29 @@ def main():
             validation_data=val_data
         )
 
+        # Log results summary
+        if args.full and top_features is not None:
+            logger.info("\nTop 14 most important features:")
+            for _, row in top_features.iterrows():
+                logger.info(f"- {row['feature']}: {row['importance']:.4f}")
+        
+        # Save experiment information
+        with open(output_dir / 'experiment_info.txt', 'w') as f:
+            f.write(f"Experiment Information\n")
+            f.write(f"=====================\n\n")
+            f.write(f"Timestamp: {timestamp}\n")
+            f.write(f"Input file: {args.input}\n")
+            f.write(f"Minimum class size: {args.min_class_size}\n")
+            f.write(f"Validation split: {args.validation_split}\n")
+            f.write(f"Full analysis: {'Yes' if args.full else 'No'}\n")
+            f.write(f"Number of training samples: {len(train_data)}\n")
+            f.write(f"Number of validation samples: {len(val_data)}\n")
+            f.write(f"\nModel Configuration\n")
+            f.write(f"===================\n")
+            f.write(f"Random state (preprocessing): 786\n")
+            f.write(f"Random state (training): 123\n")
+            f.write(feature_importance_info)
+        
         # Add specific models results to experiment info
         with open(output_dir / 'experiment_info.txt', 'a') as f:
             f.write(f"\nSpecific Models Performance\n")
@@ -221,34 +267,6 @@ def main():
                 f.write(f"F1-score (macro avg): {report.loc['macro avg']['f1-score']:.4f}\n")
                 f.write(f"F1-score (weighted avg): {report.loc['weighted avg']['f1-score']:.4f}\n")
                 f.write("-" * 30 + "\n")
-
-        
-
-        # Log results summary
-        importance_df = results['feature_importance']
-        top_features = importance_df.head(14)
-        logger.info("\nTop 14 most important features:")
-        for _, row in top_features.iterrows():
-            logger.info(f"- {row['feature']}: {row['importance']:.4f}")
-        
-        # Save experiment information
-        with open(output_dir / 'experiment_info.txt', 'w') as f:
-            f.write(f"Experiment Information\n")
-            f.write(f"=====================\n\n")
-            f.write(f"Timestamp: {timestamp}\n")
-            f.write(f"Input file: {args.input}\n")
-            f.write(f"Minimum class size: {args.min_class_size}\n")
-            f.write(f"Validation split: {args.validation_split}\n")
-            f.write(f"Number of training samples: {len(train_data)}\n")
-            f.write(f"Number of validation samples: {len(val_data)}\n")
-            f.write(f"\nModel Configuration\n")
-            f.write(f"===================\n")
-            f.write(f"Random state (preprocessing): 786\n")
-            f.write(f"Random state (training): 123\n")
-            f.write(f"\nTop Features by Importance\n")
-            f.write(f"========================\n")
-            for _, row in top_features.iterrows():
-                f.write(f"- {row['feature']}: {row['importance']:.4f}\n")
         
         logger.info("Process completed successfully!")
         logger.info(f"Results saved in: {output_dir}")

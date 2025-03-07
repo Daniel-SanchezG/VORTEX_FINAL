@@ -1,0 +1,59 @@
+Experiment Information
+=====================
+
+Timestamp: 20250307_154249
+Input file: /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/raw/input_data.xlsx
+Minimum class size: 10
+Validation split: 0.1
+Full analysis: Yes
+Number of training samples: 2256
+Number of validation samples: 178
+
+Model Configuration
+===================
+Random state (preprocessing): 786
+Random state (training): 123
+
+Top Features by Importance
+========================
+- Ca: 0.2120
+- As: 0.1201
+- Ba: 0.0702
+- V: 0.0689
+- Sr: 0.0659
+- Cr: 0.0483
+- Mo: 0.0443
+- Ta: 0.0440
+- Cu: 0.0346
+- K: 0.0329
+- Ti: 0.0290
+- Se: 0.0212
+- S: 0.0178
+- Cl: 0.0173
+
+Specific Models Performance
+==========================
+
+Model: rf_Destilled
+Accuracy: 0.9494
+F1-score (macro avg): 0.9478
+F1-score (weighted avg): 0.9493
+------------------------------
+
+Model: rf_French
+Accuracy: 0.9607
+F1-score (macro avg): 0.9583
+F1-score (weighted avg): 0.9606
+------------------------------
+
+Model: rf_Quiruelas
+Accuracy: 0.9494
+F1-score (macro avg): 0.9454
+F1-score (weighted avg): 0.9495
+------------------------------
+
+Model: rf_VdH
+Accuracy: 0.9101
+F1-score (macro avg): 0.9084
+F1-score (weighted avg): 0.9098
+------------------------------
