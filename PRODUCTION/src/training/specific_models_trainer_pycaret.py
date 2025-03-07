@@ -44,7 +44,7 @@ class SpecificModelTrainerPyCaret:
         """
         self.random_state = random_state
         self.target_column = target_column
-        self.output_dir = Path(output_dir)
+        self.output_dir = Path(output_dir).absolute()
         self.class_names = class_names or ['Can_Tintorer', 'Terena', 'Aliste']
         self.features_pool = None
         self.trained_models = {}
@@ -149,11 +149,12 @@ class SpecificModelTrainerPyCaret:
                 data=data_subset,
                 target=self.target_column,
                 session_id=self.random_state,
-                train_size=0.8,  # Will use 20% for internal validation
+                train_size=0.8,  # Will use 20% for testing
                 normalize=True,
+                log_experiment=False,
                 transformation=True, 
-                ignore_features=None,  # Already filtered features
-                fix_imbalance=True,  # This replaces SMOTE from the original implementation
+                ignore_features=None,  
+                fix_imbalance=True,  # SMOTE implementation   
                 verbose=False
             )
             

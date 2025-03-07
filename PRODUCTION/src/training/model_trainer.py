@@ -118,7 +118,7 @@ class ModelTrainer:
                 self.output_dir / 'tables/rf_model_training_evaluation_score.csv'
             )
             
-            # Optimize hyperparameters and save the tuned model explicitly
+            # Optimize hyperparameters and save the tuned model
             logger.info("Optimizing hyperparameters...")
             self.tuned_model = tune_model(
                 self.base_model,
@@ -165,14 +165,14 @@ class ModelTrainer:
                 self.output_dir / 'tables/calibrated_model_evaluation_score.csv'
             )
             
-            # Finalize and save calibrated model
+            # Finalize and save calibrated model (last iteration of training with all data)
             self.final_model = finalize_model(self.calibrated_model)
             save_model(
                 self.final_model,
                 self.output_dir / 'models/final_model',
                 verbose=True
             )
-
+            #Explain and debug!!
             if hasattr(self.final_model, 'model'):
                 # If it's a PyCaret model container
                 with open(self.output_dir / 'models/final_model_direct.pkl', 'wb') as f:
@@ -235,7 +235,7 @@ class ModelTrainer:
             
             # Save predictions
             predictions.to_csv(
-                self.output_dir / 'tables/validation_predictions.csv',
+                self.output_dir / 'tables/FVS_predictions.csv',
                 index=False
             )
             
@@ -247,11 +247,11 @@ class ModelTrainer:
             plt.figure(figsize=(8, 5.5))
             disp = ConfusionMatrixDisplay(
                 confusion_matrix=cm,
-                display_labels=['Can_tintorer', 'Terena', 'Aliste']
+                display_labels=['Can_tintorer', 'Encinasola', 'Aliste']
             )
             disp.plot(cmap='Greens')
             plt.savefig(
-                self.output_dir / 'plots/confusion_matrix.png',
+                self.output_dir / 'plots/FVSconfusion_matrix.png',
                 bbox_inches='tight'
             )
             plt.close()
@@ -263,7 +263,7 @@ class ModelTrainer:
                 output_dict=True
             )
             pd.DataFrame(report).T.to_csv(
-                self.output_dir / 'tables/classification_report.csv'
+                self.output_dir / 'tables/FVS_classification_report.csv'
             )
             
             logger.info("Evaluation completed")
