@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 """
-Script independiente para ejecutar análisis SHAP en archivos Excel.
-Este script puede ejecutarse de forma independiente del flujo principal
-para generar visualizaciones SHAP y análisis de importancia de características.
+Script to run SHAP analysis on Excel files.
+This script can be run independently from the main flow
+to generate SHAP visualizations and feature importance analysis.
 """
 
 import argparse
@@ -17,31 +17,31 @@ import matplotlib.pyplot as plt
 import shap
 import sys
 
-# Importamos la clase ShapAnalyzer
+# Import the ShapAnalyzer class
 from src.analysis.shap_analyzer import ShapAnalyzer
 
 def setup_logging(output_dir):
-    """Configura el sistema de logging para el análisis SHAP."""
-    # Crear directorio si no existe
+    """Configure the logging system for SHAP analysis."""
+    # Create directory if it doesn't exist
     log_dir = Path(output_dir) / 'logs'
     log_dir.mkdir(parents=True, exist_ok=True)
     
-    # Configurar el logger
+    # Configure the logger
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     log_file = log_dir / f'shap_analysis_{timestamp}.log'
     
-    # Formato del log
+    # Log format
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     
-    # Handler para consola
+    # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     
-    # Handler para archivo
+    # File handler
     file_handler = logging.FileHandler(log_file)
     file_handler.setFormatter(formatter)
     
-    # Configurar logger raíz
+    # Configure root logger
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     logger.addHandler(console_handler)
@@ -50,121 +50,121 @@ def setup_logging(output_dir):
     return logger
 
 def parse_arguments():
-    """Analiza los argumentos de línea de comandos para el análisis SHAP."""
+    """Analyze command line arguments for SHAP analysis."""
     parser = argparse.ArgumentParser(
-        description='Análisis SHAP independiente para archivos Excel'
+        description='Independent SHAP analysis for Excel files'
     )
     parser.add_argument(
         '--input',
         type=str,
         required=True,
-        help='Ruta al archivo Excel con los datos a analizar'
+        help='Path to the Excel file with the data to analyze'
     )
     parser.add_argument(
         '--output-dir',
         type=str,
         default='./shap_results',
-        help='Directorio donde se guardarán los resultados del análisis'
+        help='Directory where the analysis results will be saved'
     )
     parser.add_argument(
         '--sheets',
         type=str,
         nargs='+',
         default=None,
-        help='Nombres de las hojas a analizar (por defecto: todas)'
+        help='Sheet names to analyze (default: all)'
     )
     parser.add_argument(
         '--model-path',
         type=str,
         default=None,
-        help='Ruta a un modelo pre-entrenado guardado (opcional)'
+        help='Path to a pre-trained model saved (optional)'
     )
     parser.add_argument(
         '--top-features',
         type=int,
         default=20,
-        help='Número de características principales a mostrar en gráficos'
+        help='Number of top features to show in plots'
     )
     return parser.parse_args()
 
 def main():
-    """Función principal para el análisis SHAP independiente."""
-    # Analizar argumentos
+    """Main function for independent SHAP analysis."""
+    # Analyze arguments
     args = parse_arguments()
     
-    # Configurar directorios
+    # Configure directories
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     
-    # Configurar logging
+    # Configure logging
     logger = setup_logging(output_dir)
     
-    # Registrar inicio
-    logger.info("Iniciando análisis SHAP independiente")
-    logger.info(f"Archivo de entrada: {args.input}")
-    logger.info(f"Directorio de salida: {output_dir}")
+    # Register start
+    logger.info("Starting independent SHAP analysis")
+    logger.info(f"Input file: {args.input}")
+    logger.info(f"Output directory: {output_dir}")
     
     try:
         # Verificar que el archivo de entrada existe
         input_path = Path(args.input)
         if not input_path.exists():
-            logger.error(f"El archivo de entrada {input_path} no existe")
+            logger.error(f"The input file {input_path} does not exist")
             sys.exit(1)
         
-        # Cargar modelo pre-entrenado si se proporciona
+        # Load pre-trained model if provided
         model = None
         if args.model_path:
             model_path = Path(args.model_path)
             if model_path.exists():
-                logger.info(f"Cargando modelo pre-entrenado desde {model_path}")
+                logger.info(f"Loading pre-trained model from {model_path}")
                 try:
                     import joblib
                     model = joblib.load(model_path)
-                    logger.info("Modelo cargado exitosamente")
+                    logger.info("Model loaded successfully")
                 except Exception as e:
-                    logger.error(f"Error al cargar el modelo: {str(e)}")
-                    logger.warning("Continuando sin modelo pre-entrenado")
+                    logger.error(f"Error loading model: {str(e)}")
+                    logger.warning("Continuing without pre-trained model")
             else:
-                logger.warning(f"La ruta del modelo {model_path} no existe. Continuando sin modelo pre-entrenado")
+                logger.warning(f"The model path {model_path} does not exist. Continuing without pre-trained model")
         
-        # Crear el analizador SHAP
+        # Create the SHAP analyzer
         analyzer = ShapAnalyzer(output_dir=output_dir)
         
-        # Obtener lista de hojas si no se especifican
+        # Get list of sheets if not specified
         if args.sheets is None:
             try:
                 excel = pd.ExcelFile(input_path)
                 sheets = excel.sheet_names
-                logger.info(f"Hojas encontradas en el archivo: {', '.join(sheets)}")
+                logger.info(f"Sheets found in the file: {', '.join(sheets)}")
             except Exception as e:
-                logger.error(f"Error al leer hojas del archivo Excel: {str(e)}")
+                logger.error(f"Error reading Excel file sheets: {str(e)}")
                 sys.exit(1)
         else:
             sheets = args.sheets
-            logger.info(f"Analizando hojas especificadas: {', '.join(sheets)}")
+            logger.info(f"Analyzing specified sheets: {', '.join(sheets)}")
         
-        # Ejecutar el análisis
+        # Execute the analysis
         results = analyzer.analyze_multiple_sheets(
             excel_path=input_path,
             sheet_names=sheets,
             model=model
         )
         
-        # Mostrar resumen de resultados
+        # Show summary of results
         if 'combined_importance' in results:
             combined_df = results['combined_importance']
             top_n = min(args.top_features, len(combined_df))
             
-            logger.info(f"\nTop {top_n} características más importantes (promedio):")
+            logger.info(f"\nTop {top_n} most important features (average):")
             for i, (_, row) in enumerate(combined_df.head(top_n).iterrows()):
                 if 'avg_importance' in row:
                     logger.info(f"{i+1}. {row['feature']}: {row['avg_importance']:.4f}")
         
-        logger.info(f"\nAnálisis SHAP completado con éxito.")
-        logger.info(f"Resultados guardados en: {output_dir}")
+        logger.info(f"\nSHAP analysis completed successfully.")
+        logger.info(f"Results saved in: {output_dir}")
         
     except Exception as e:
-        logger.error(f"Error durante el análisis SHAP: {str(e)}")
+        logger.error(f"Error during SHAP analysis: {str(e)}")
         raise
 
 if __name__ == "__main__":
