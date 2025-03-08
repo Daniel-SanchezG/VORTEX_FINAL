@@ -162,8 +162,8 @@ class ArchaeologicalPredictor:
         
         model_paths = {
             'full_model': os.path.join(self.models_dir, 'final_model'),
-            'VdHModel': os.path.join(self.models_dir, '20250227_VdHSpecific'),
-            'PQModel': os.path.join(self.models_dir, '20250227_QuiruelasSpecific'),
+            'VdHModel': os.path.join(self.models_dir, 'rf_VdH'),
+            'PQModel': os.path.join(self.models_dir, 'rf_Quiruelas'),
             'FrenchModel': os.path.join(self.models_dir, 'rf_French')
         }
         
