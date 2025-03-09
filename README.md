@@ -93,6 +93,182 @@ project/
 └── README.md                 # This file
 ```
 
+
+## Prerequisites
+
+Before installing VORTEX, you need to have Python (version 3.8 or higher), pip, and virtualenv installed on your system.
+
+### Installing Python
+
+#### Windows
+
+1. Download the latest Python installer from [python.org](https://www.python.org/downloads/)
+2. Run the installer and make sure to check "Add Python to PATH" during installation
+3. Verify the installation by opening Command Prompt and typing:
+
+    ```cmd
+    python --version
+    ```
+
+#### Linux/macOS
+
+Most Linux distributions and macOS come with Python pre-installed. To verify:
+
+```bash
+python3 --version
+```
+
+If Python is not installed or you need a newer version:
+
+**For Ubuntu/Debian:**
+
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+**For macOS (using Homebrew):**
+
+```bash
+brew install python
+```
+
+### Installing pip
+
+pip is the package installer for Python and usually comes bundled with Python installations.
+
+#### Windows
+
+If pip wasn't installed with Python:
+
+```cmd
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python get-pip.py
+```
+
+#### Linux/macOS
+
+**For Ubuntu/Debian:**
+
+```bash
+sudo apt install python3-pip
+```
+
+**For macOS:**
+
+```bash
+python3 -m ensurepip --upgrade
+```
+
+Verify pip installation:
+
+```bash
+pip --version
+# or
+pip3 --version
+```
+
+### Installing virtualenv
+
+virtualenv is a tool to create isolated Python environments.
+
+#### Windows
+
+```cmd
+pip install virtualenv
+```
+
+#### Linux/macOS
+
+```bash
+pip3 install virtualenv
+```
+
+Or using the system package manager on Ubuntu/Debian:
+
+```bash
+sudo apt install python3-venv
+```
+
+## Installation
+
+### Linux/macOS
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+cd VORTEX
+```
+
+2. Create and activate a virtual environment:
+
+```bash
+# Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Windows
+
+1. Clone the repository:
+
+```cmd
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+cd VORTEX
+```
+
+2. Create and activate a virtual environment:
+
+```cmd
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+venv\Scripts\activate
+```
+
+3. Install dependencies:
+
+```cmd
+pip install -r requirements_windows.txt
+```
+
+4. Windows-specific considerations:
+    - If you encounter issues with packages that require C++ compilation (like scikit-learn):
+        
+        - Install Microsoft C++ Build Tools from the [Microsoft website](https://visualstudio.microsoft.com/visual-cpp-build-tools/)
+        - Or use pre-compiled wheels: `pip install --only-binary :all: -r requirements-windows.txt`
+    - For path issues, use backslashes or raw strings when specifying paths in commands:
+
+```cmd
+   python main.py --input "DATA\raw\input_data.xlsx   
+```
+
+Or simply use forward slashes, which generally work in Windows as well:
+
+```cmd
+
+python main.py --input "DATA/raw/input_data.xlsx
+
+```
+
+- If you encounter PowerShell execution policy issues when activating the environment:
+
+  ```powershell
+ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   ```
+Then try activating the environment again.
+
+---
 ## Installation
 
 ### Linux/macOS
