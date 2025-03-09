@@ -266,6 +266,7 @@ python main.py --input "DATA/raw/input_data.xlsx
   ```powershell
  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    ```
+
 Then try activating the environment again.
 
 ---
