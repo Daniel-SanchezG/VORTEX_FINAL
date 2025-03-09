@@ -37,7 +37,8 @@ logging.basicConfig(
 logger = logging.getLogger("ArchaeologicalPipeline")
 
 # Configuration of paths - adjust according to the production structure
-BASE_DIR = '/home/dsg/VORTEX_FINAL/PRODUCTION'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) 
+#BASE_DIR = '/home/dsg/VORTEX_FINAL/VORTEX'
 DATA_PATH = os.path.join(BASE_DIR, 'DATA/real_world/real_world_data.xlsx')
 MODELS_DIR = os.path.join(BASE_DIR, 'models')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'real_world_results')
