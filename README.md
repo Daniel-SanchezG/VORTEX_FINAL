@@ -278,7 +278,7 @@ Then try activating the environment again.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/VORTEX.git
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
 cd VORTEX
 ```
 
@@ -300,7 +300,7 @@ pip install -r requirements.txt
 
 1. Clone the repository:
 ```cmd
-git clone https://github.com/your-username/VORTEX.git
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
 cd VORTEX
 ```
 
