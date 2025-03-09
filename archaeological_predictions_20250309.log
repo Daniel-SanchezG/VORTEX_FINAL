@@ -1,0 +1,20 @@
+2025-03-09 11:37:11,611 - ArchaeologicalPipeline - INFO - === STARTING PREDICTION PIPELINE ===
+2025-03-09 11:37:11,612 - ArchaeologicalPredictor - INFO - Starting prediction pipeline
+2025-03-09 11:37:11,612 - ArchaeologicalPredictor - INFO - Loading data from: /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx
+2025-03-09 11:37:11,897 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Quiruelas': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,897 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'V_higueras': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,898 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Alberite': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,898 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Paternanbidea': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,898 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Can_Gambus': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,899 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'La_Serreta': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,899 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Can_Sandurni': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,899 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Cova_Cassinmanya': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,900 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Roca_Livet': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,900 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Auverne': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,900 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Josseliere': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,901 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Kervilor': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,901 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Luffang': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,901 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'Plinchacourt': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,901 - ArchaeologicalPredictor - ERROR - Error cargando sitio 'SaintMichel': [Errno 2] No such file or directory: '/home/dsg/VORTEX_FINAL/PRODUCTION/DATA/real_world/real_world_data.xlsx'
+2025-03-09 11:37:11,902 - ArchaeologicalPredictor - ERROR - Data loading failed. Aborting pipeline.
+2025-03-09 11:37:11,902 - ArchaeologicalPipeline - ERROR - Failed the prediction process. Aborting pipeline.

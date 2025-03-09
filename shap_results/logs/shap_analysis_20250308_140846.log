@@ -1,0 +1,52 @@
+2025-03-08 14:08:46,650 - root - INFO - Starting independent SHAP analysis
+2025-03-08 14:08:46,651 - root - INFO - Input file: /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/raw/input_data.xlsx
+2025-03-08 14:08:46,651 - root - INFO - Output directory: shap_results
+2025-03-08 14:08:46,652 - src.analysis.shap_analyzer - INFO - Directorio de resultados configurado en: shap_results
+2025-03-08 14:08:46,652 - src.analysis.shap_analyzer - INFO - Los gráficos se guardarán en: shap_results/plots
+2025-03-08 14:08:46,653 - src.analysis.shap_analyzer - INFO - Las tablas se guardarán en: shap_results/tables
+2025-03-08 14:08:47,022 - root - INFO - Sheets found in the file: trainning_data, encinasola, can_tintorer, aliste
+2025-03-08 14:08:47,022 - src.analysis.shap_analyzer - INFO - Analizando valores SHAP para múltiples hojas en /home/dsg/VORTEX_FINAL/PRODUCTION/DATA/raw/input_data.xlsx
+2025-03-08 14:08:47,022 - src.analysis.shap_analyzer - INFO - Procesando hoja: trainning_data
+2025-03-08 14:08:47,022 - src.analysis.shap_analyzer - INFO - Procesando hoja: trainning_data
+2025-03-08 14:08:49,015 - src.analysis.shap_analyzer - INFO - Datos cargados. Forma: (1816, 67)
+2025-03-08 14:08:49,029 - src.analysis.shap_analyzer - WARNING - ¡Advertencia! Hay valores nulos en los datos
+2025-03-08 14:08:49,029 - src.analysis.shap_analyzer - WARNING - No se encontró un mapeo para la hoja trainning_data, buscando columnas 'target_'
+2025-03-08 14:08:49,029 - src.analysis.shap_analyzer - ERROR - Error procesando hoja trainning_data: No se encontró una columna objetivo para la hoja trainning_data
+2025-03-08 14:08:49,030 - src.analysis.shap_analyzer - INFO - Procesando hoja: encinasola
+2025-03-08 14:08:49,030 - src.analysis.shap_analyzer - INFO - Procesando hoja: encinasola
+2025-03-08 14:08:50,325 - src.analysis.shap_analyzer - INFO - Datos cargados. Forma: (1816, 51)
+2025-03-08 14:08:50,328 - src.analysis.shap_analyzer - WARNING - ¡Advertencia! Hay valores nulos en los datos
+2025-03-08 14:08:50,330 - src.analysis.shap_analyzer - INFO - Distribución del objetivo antes de SMOTE:
+target_PCM
+0    1369
+1     447
+Name: count, dtype: int64
+2025-03-08 14:08:50,340 - src.analysis.shap_analyzer - ERROR - Error procesando hoja encinasola: could not convert string to float: 'PDLC'
+2025-03-08 14:08:50,341 - src.analysis.shap_analyzer - INFO - Procesando hoja: can_tintorer
+2025-03-08 14:08:50,341 - src.analysis.shap_analyzer - INFO - Procesando hoja: can_tintorer
+2025-03-08 14:08:51,545 - src.analysis.shap_analyzer - INFO - Datos cargados. Forma: (1816, 51)
+2025-03-08 14:08:51,547 - src.analysis.shap_analyzer - WARNING - ¡Advertencia! Hay valores nulos en los datos
+2025-03-08 14:08:51,549 - src.analysis.shap_analyzer - INFO - Distribución del objetivo antes de SMOTE:
+target_CT
+0    986
+1    830
+Name: count, dtype: int64
+2025-03-08 14:08:51,559 - src.analysis.shap_analyzer - ERROR - Error procesando hoja can_tintorer: could not convert string to float: 'PDLC'
+2025-03-08 14:08:51,560 - src.analysis.shap_analyzer - INFO - Procesando hoja: aliste
+2025-03-08 14:08:51,560 - src.analysis.shap_analyzer - INFO - Procesando hoja: aliste
+2025-03-08 14:08:52,815 - src.analysis.shap_analyzer - INFO - Datos cargados. Forma: (1816, 51)
+2025-03-08 14:08:52,818 - src.analysis.shap_analyzer - WARNING - ¡Advertencia! Hay valores nulos en los datos
+2025-03-08 14:08:52,819 - src.analysis.shap_analyzer - INFO - Distribución del objetivo antes de SMOTE:
+target_PDLC
+0    1305
+1     511
+Name: count, dtype: int64
+2025-03-08 14:08:52,827 - src.analysis.shap_analyzer - ERROR - Error procesando hoja aliste: could not convert string to float: 'PDLC'
+2025-03-08 14:08:52,828 - src.analysis.shap_analyzer - INFO - Resumen del procesamiento:
+2025-03-08 14:08:52,828 - src.analysis.shap_analyzer - INFO - - Hojas procesadas correctamente: 0
+2025-03-08 14:08:52,828 - src.analysis.shap_analyzer - INFO - - Hojas con errores: 4
+2025-03-08 14:08:52,829 - src.analysis.shap_analyzer - INFO - - Total de hojas: 4
+2025-03-08 14:08:52,829 - src.analysis.shap_analyzer - WARNING - Advertencia: No se procesó correctamente ninguna hoja
+2025-03-08 14:08:52,829 - root - INFO - 
+SHAP analysis completed successfully.
+2025-03-08 14:08:52,829 - root - INFO - Results saved in: shap_results
