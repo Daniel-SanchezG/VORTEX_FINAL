@@ -1,54 +1,6 @@
-<<<<<<< HEAD
-# VORTEX_FINAL
-version de producción de Vortex
-=======
-## Troubleshooting
 
-### Common Issues
 
-1. **Dependency errors:**
-   - Ensure you have installed all dependencies: `pip install -r requirements.txt`
-   - For Windows users with compilation errors, install Microsoft C++ Build Tools
-   - Try using conda environment if pip installation fails: `conda env create -f environment.yml`
 
-2. **File path issues:**
-   - Windows: Use either backslashes (`\`) or forward slashes (`/`) consistently
-   - Be careful with spaces in file paths; enclose paths in quotes
-   - Use absolute paths if relative paths aren't working
-
-3. **Memory errors:**
-   - For large datasets, ensure your system has enough RAM
-   - If using random forest on large data, adjust n_jobs parameter in the code to limit parallelization
-
-4. **Model loading issues:**
-   - Ensure the model file exists in the specified directory
-   - Model files should be compatible with your scikit-learn version
-   - If loading models between different OS platforms, be aware of potential compatibility issues
-
-### Windows-Specific Issues
-
-1. **Path length limitations:**
-   - Windows has a 260-character path length limit
-   - Use shorter paths or enable long paths in Windows 10/11:
-     - Run `regedit` and navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`
-     - Set `LongPathsEnabled` to `1`
-
-2. **Permission issues:**
-   - Run Command Prompt or PowerShell as Administrator for writing to system directories
-   - Check Windows Defender or antivirus if files are being blocked
-
-3. **Anaconda/Conda environment:**
-   ```cmd
-   conda create -n vortex python=3.8
-   conda activate vortex
-   pip install -r requirements.txt
-   ```
-
-4. **Jupyter notebook integration on Windows:**
-   - If using Jupyter notebooks:
-     ```cmd
-     conda install jupyter
-     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)"
      ```
    - Navigate to the `notebooks` directory and run: `jupyter notebook`# VORTEX
 
@@ -350,7 +302,7 @@ VORTEX includes several specialized models:
 1. **Main models:**
    - `final_model.pkl`: Main model trained on all data
    - `tuned_model.pkl`: Optimized version of the main model
-   - - `rf_Destilled.pkl`: Destilled model using a reduced feature set: 
+   -  `rf_Destilled.pkl`: Destilled model using a reduced feature set: 
      - Ca, S, K, Ti, V, Cr, Cu, Zn, As, Se, Sr, Mo, Ba, Ta
 
 1. **Region-specific models:**
@@ -375,6 +327,55 @@ Main dependencies include:
 
 For a complete list, see `requirements.txt`.
 
+=======
+## Troubleshooting
+
+### Common Issues
+
+1. **Dependency errors:**
+   - Ensure you have installed all dependencies: `pip install -r requirements.txt`
+   - For Windows users with compilation errors, install Microsoft C++ Build Tools
+   - Try using conda environment if pip installation fails: `conda env create -f environment.yml`
+
+2. **File path issues:**
+   - Windows: Use either backslashes (`\`) or forward slashes (`/`) consistently
+   - Be careful with spaces in file paths; enclose paths in quotes
+   - Use absolute paths if relative paths aren't working
+
+3. **Memory errors:**
+   - For large datasets, ensure your system has enough RAM
+   - If using random forest on large data, adjust n_jobs parameter in the code to limit parallelization
+
+4. **Model loading issues:**
+   - Ensure the model file exists in the specified directory
+   - Model files should be compatible with your scikit-learn version
+   - If loading models between different OS platforms, be aware of potential compatibility issues
+
+### Windows-Specific Issues
+
+1. **Path length limitations:**
+   - Windows has a 260-character path length limit
+   - Use shorter paths or enable long paths in Windows 10/11:
+     - Run `regedit` and navigate to `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem`
+     - Set `LongPathsEnabled` to `1`
+
+2. **Permission issues:**
+   - Run Command Prompt or PowerShell as Administrator for writing to system directories
+   - Check Windows Defender or antivirus if files are being blocked
+
+3. **Anaconda/Conda environment:**
+   ```cmd
+   conda create -n vortex python=3.8
+   conda activate vortex
+   pip install -r requirements.txt
+   ```
+
+4. **Jupyter notebook integration on Windows:**
+   - If using Jupyter notebooks:
+     ```cmd
+     conda install jupyter
+     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)"
+
 ## License
 
 [Your License]
@@ -392,4 +393,4 @@ For a complete list, see `requirements.txt`.
 Your Name - your.email@example.com
 
 Project Link: [https://github.com/your-username/VORTEX](https://github.com/your-username/VORTEX)
->>>>>>> editando rutas relativas en real_world.py
+
