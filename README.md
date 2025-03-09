@@ -263,9 +263,11 @@ python main.py --input "DATA/raw/input_data.xlsx
 
 - If you encounter PowerShell execution policy issues when activating the environment:
 
-  ```powershell
+```powershell
+
  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   ```
+ 
+```
 
 Then try activating the environment again.
 
