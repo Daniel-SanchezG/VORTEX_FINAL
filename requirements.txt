@@ -367,7 +367,6 @@ zope.event==5.0
 zope.interface==6.1
 
 # Main packages
-pycaret==3.2.0
 pandas>=1.5.0
 numpy>=1.21.0
 scikit-learn>=1.0.2

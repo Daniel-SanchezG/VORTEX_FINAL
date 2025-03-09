@@ -1,7 +1,7 @@
 
 
 # Main packages
-pycaret==3.2.0
+pycaret==3.3.2
 pandas>=1.5.0
 numpy>=1.21.0
 scikit-learn>=1.0.2
