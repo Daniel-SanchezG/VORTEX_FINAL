@@ -1,10 +1,5 @@
+**VORTEX** (Variscite ORigin Technology X-ray based) is a modular tool designed to source archaeological variscites samples using machine learning. The system makes predictions about the provenance of archaeological artifacts, evaluates the uncertainty of these predictions, determines provenance consensus by site, and visualizes the results.
 
-
-
-     ```
-   - Navigate to the `notebooks` directory and run: `jupyter notebook`# VORTEX
-
-VORTEX (Variscite ORigin Technology X-ray based) is a modular tool designed to source archaeological variscites samples using machine learning. The system makes predictions about the provenance of archaeological artifacts, evaluates the uncertainty of these predictions, determines provenance consensus by site, and visualizes the results.
 
 Authors:
 
@@ -374,8 +369,11 @@ For a complete list, see `requirements.txt`.
    - If using Jupyter notebooks:
      ```cmd
      conda install jupyter
-     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)"
+     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)" 
+   - ```
+   - Navigate to the `notebooks` directory and run: `jupyter notebook`
 
+---
 ## License
 
 [Your License]
