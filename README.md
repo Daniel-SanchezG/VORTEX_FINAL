@@ -21,7 +21,7 @@ Authors:
 ## Project Structure
 
 ```
-project/
+VORTEX/
 │
 ├── DATA/
 │   ├── raw/                  # Raw input data
