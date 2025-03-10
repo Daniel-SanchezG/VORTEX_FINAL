@@ -15,7 +15,7 @@ Authors:
 - Timestamped experiments and logging
 - Reproducible results with fixed random seeds
 - SHAP analysis for feature importance interpretation
-- Real-world archaeological artifact prediction
+- Real-world proof-of-concept
 - Uncertainty quantification and visualization
 
 ## Project Structure
@@ -64,7 +64,7 @@ VORTEX/
 │   ├── rf_Quiruelas.pkl      # Quiruelas-specific model
 │   └── rf_VdH.pkl            # VdH-specific model
 │
-├── notebooks/                # Jupyter notebooks for analysis
+├── notebooks/                # Jupyter notebooks
 │   ├── preprocessing.ipynb
 │   ├── training.ipynb
 │   ├── Feature_importance.ipynb
@@ -474,9 +474,9 @@ Real-world prediction results are stored in the specified output directory and i
 VORTEX includes several specialized models:
 
 1. **Main models:**
-   - `final_model.pkl`: Main model trained on all data
+   - `final_model.pkl`: Main model trained on all features
    - `tuned_model.pkl`: Optimized version of the main model
-   -  `rf_Destilled.pkl`: Destilled model using a reduced feature set: 
+   -  `rf_Destilled.pkl`: Destilled model using only the most important features: 
      - Ca, S, K, Ti, V, Cr, Cu, Zn, As, Se, Sr, Mo, Ba, Ta
 
 1. **Region-specific models:**
@@ -492,7 +492,7 @@ Each specialized model is trained on a specific subset of features that have sho
 ## Dependencies
 
 Main dependencies include:
-- pycaret==3.2.0
+- pycaret==3.3.2
 - pandas>=1.5.0
 - scikit-learn>=1.0.2
 - imbalanced-learn>=0.10.1
@@ -567,7 +567,7 @@ For a complete list, see `requirements.txt`.
 
 ## Contact
 
-Your Name - your.email@example.com
+Daniel SG - daniel-sanchez-gomez@edu.ulisboa.pt
 
-Project Link: [https://github.com/your-username/VORTEX](https://github.com/your-username/VORTEX)
+ZENODO Link: [https://github.com/your-username/VORTEX](https://github.com/your-username/VORTEX)
 
