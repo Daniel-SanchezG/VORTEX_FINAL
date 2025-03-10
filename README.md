@@ -431,7 +431,7 @@ The real-world analysis pipeline consists of four main steps:
 The local Shap analyses require a specific process of training binary classification models for each source. The result is a plot of the influence of the features for each of the three sources considered, which is presented in section 3 of the article.
 
 
-To run SHAP analysis for model interpretability:
+To run Local SHAP analysis:
 ```bash
 python run_shap_analysis.py --model "models/final_model.pkl" --data "DATA/processed/final_input_data.xlsx"
 ```
