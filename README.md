@@ -1,6 +1,8 @@
 
 [![GitHub License](https://img.shields.io/github/license/Daniel-SanchezG/VORTEX_FINAL)](https://github.com/Daniel-SanchezG/VORTEX_FINAL/blob/main/LICENSE)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10155404.svg)](https://doi.org/10.5281/zenodo.15000069)
+
 
 **VORTEX** (Variscite ORigin Technology X-ray based) is a modular tool designed to source archaeological variscites samples using machine learning. The system makes predictions about the provenance of archaeological artifacts, evaluates the uncertainty of these predictions, determines provenance consensus by site, and visualizes the results.
 
