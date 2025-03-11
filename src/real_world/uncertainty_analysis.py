@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 """
-Módulo de Análisis de Incertidumbre
+Uncertainty Analysis Module
 -----------------------------------
-Complemento para el sistema de predicción arqueológica que añade
-análisis de incertidumbre a las predicciones generadas.
+Complement to the archaeological prediction system that adds
+uncertainty analysis to the generated predictions.
 """
 
 import pandas as pd
@@ -15,119 +15,119 @@ import logging
 import os
 import datetime
 
-# Configuración de logging
+# Logging configuration
 logger = logging.getLogger("Uncertainty")
 
 def analyze_uncertainty(prediction_df, confidence_threshold=0.7):
     """
-    Realiza análisis de incertidumbre sobre un DataFrame de predicciones.
+    Performs uncertainty analysis on a DataFrame of predictions.
 
     Args:
-        prediction_df (pd.DataFrame): DataFrame con predicciones y puntuaciones.
-        confidence_threshold (float): Umbral de confianza para marcar como incierta.
+        prediction_df (pd.DataFrame): DataFrame with predictions and scores.
+        confidence_threshold (float): Confidence threshold to mark as uncertain.
 
     Returns:
-        pd.DataFrame: DataFrame con resultados del análisis.
+        pd.DataFrame: DataFrame with analysis results.
     """
-    logger.info("Iniciando análisis de incertidumbre...")
+    logger.info("Starting uncertainty analysis...")
     
     try:
-        # Copiar DataFrame para no modificar el original
+        # Copy DataFrame to avoid modifying the original
         df = prediction_df.copy()
         
-        # Identificar columnas de puntuación
+        # Identify score columns
         score_cols = [col for col in df.columns if col.startswith('prediction_score_')]
         
         if not score_cols:
-            logger.warning("No se encontraron columnas de puntuación.")
+            logger.warning("No score columns found.")
             return None
         
-        logger.info(f"Usando columnas de puntuación: {score_cols}")
+        logger.info(f"Using score columns: {score_cols}")
         
-        # Convertir score_cols a números si son strings
+        # Convert score_cols to numbers if they are strings
         for col in score_cols:
-            if df[col].dtype == object:  # Si es string
+            if df[col].dtype == object:  # If it's a string
                 df[col] = df[col].astype(str).str.replace(',', '.').astype(float)
         
-        # Obtener probabilidades
+        # Get probabilities
         probas = df[score_cols].values
         
-        # Obtener etiquetas de predicción y confianza
-        prediction_col = 'Prediction' if 'Prediction' in df.columns else 'predicciones'
+        # Get prediction labels and confidence
+        prediction_col = 'Prediction' if 'Prediction' in df.columns else 'predictions'
         predictions = df[prediction_col].values
         confidences = np.max(probas, axis=1)
         
-        # Marcar predicciones bajo el umbral como inciertas
+        # Mark predictions below the threshold as uncertain
         uncertain_mask = confidences < confidence_threshold
         predictions_with_uncertainty = predictions.copy()
         predictions_with_uncertainty[uncertain_mask] = 'uncertain'
         
-        # Calcular entropía
+        # Calculate entropy
         entropies = np.array([entropy(probs, base=2) for probs in probas])
         
-        # Crear DataFrame con resultados
+        # Create DataFrame with results
         results_df = df.copy()
         
-        # Añadir nuevas columnas de análisis
+        # Add new analysis columns
         results_df['Original_predictions'] = predictions
         results_df['Confidence'] = confidences
         results_df['Uncertainty_threshold_predictions'] = predictions_with_uncertainty
         results_df['Entropy'] = entropies
         
-        # Calcular métricas globales
+        # Calculate global metrics
         n_uncertain = np.sum(uncertain_mask)
         uncertain_percent = (n_uncertain / len(df) * 100)
         mean_entropy = entropies.mean()
         
-        logger.info(f"Predicciones inciertas: {n_uncertain}/{len(df)} ({uncertain_percent:.1f}%)")
-        logger.info(f"Entropía media: {mean_entropy:.3f}")
+        logger.info(f"Uncertain predictions: {n_uncertain}/{len(df)} ({uncertain_percent:.1f}%)")
+        logger.info(f"Mean entropy: {mean_entropy:.3f}")
         
-        # Calcular entropía mediana por sitio si existe la columna Site
+        # Calculate median entropy by site if the Site column exists
         if 'Site' in results_df.columns:
             entropy_median_by_site = results_df.groupby('Site')['Entropy'].median()
             for site, median in entropy_median_by_site.items():
-                logger.info(f"Entropía mediana para {site}: {median:.3f}")
+                logger.info(f"Median entropy for {site}: {median:.3f}")
         
         return results_df
         
     except Exception as e:
-        logger.error(f"Error en análisis de incertidumbre: {str(e)}")
+        logger.error(f"Error in uncertainty analysis: {str(e)}")
         return None
 
 def save_uncertainty_results(results_df, output_path=None):
     """
-    Guarda los resultados del análisis en archivos Excel y CSV.
+    Saves the analysis results in Excel and CSV files.
 
     Args:
-        results_df (pd.DataFrame): DataFrame con resultados del análisis.
-        output_path (str, optional): Ruta base para los archivos de resultados.
-            Si es None, se genera automáticamente.
+        results_df (pd.DataFrame): DataFrame with analysis results.
+        output_path (str, optional): Base path for result files.
+            If None, it is generated automatically.
 
     Returns:
-        dict: Diccionario con rutas a los archivos generados o None si falló.
+        dict: Dictionary with paths to the generated files or None if failed.
     """
     if results_df is None:
-        logger.error("No hay resultados para guardar.")
+        logger.error("No results to save.")
         return None
     
     try:
-        # Generar ruta base si no se proporciona
+        # Generate base path if not provided
         if output_path is None:
             current_date = datetime.datetime.now().strftime("%Y%m%d")
             output_path = f"uncertainty_analysis_{current_date}"
         else:
             output_path = os.path.splitext(output_path)[0]
-        
-        # Rutas de salida
+
+        # Output paths
         excel_path = f"{output_path}.xlsx"
         csv_path = f"{output_path}.csv"
         
-        # Guardar resultados
+        # Save results
         results_df.to_excel(excel_path, index=False)
         results_df.to_csv(csv_path, index=False)
         
-        logger.info(f"Resultados guardados en Excel: {excel_path}")
-        logger.info(f"Resultados guardados en CSV: {csv_path}")
+        logger.info(f"Results saved in Excel: {excel_path}")
+        logger.info(f"Results saved in CSV: {csv_path}")
         
         return {
             'excel': excel_path,
@@ -135,24 +135,24 @@ def save_uncertainty_results(results_df, output_path=None):
         }
         
     except Exception as e:
-        logger.error(f"Error guardando resultados: {str(e)}")
+        logger.error(f"Error saving results: {str(e)}")
         return None
 
 def process_predictions_with_uncertainty(prediction_df=None, prediction_path=None, 
                                         output_path=None, confidence_threshold=0.7):
     """
-    Procesa las predicciones y realiza análisis de incertidumbre.
+    Processes predictions and performs uncertainty analysis.
 
     Args:
-        prediction_df (pd.DataFrame, optional): DataFrame con predicciones.
-        prediction_path (str, optional): Ruta al archivo con predicciones.
-        output_path (str, optional): Ruta para guardar resultados.
-        confidence_threshold (float): Umbral de confianza.
+        prediction_df (pd.DataFrame, optional): DataFrame with predictions.
+        prediction_path (str, optional): Path to the file with predictions.
+        output_path (str, optional): Path to save results.
+        confidence_threshold (float): Confidence threshold.
 
     Returns:
-        pd.DataFrame: DataFrame con resultados de incertidumbre.
+        pd.DataFrame: DataFrame with uncertainty results.
     """
-    # Cargar predicciones si se proporciona ruta
+    # Load predictions if path is provided
     if prediction_df is None and prediction_path:
         try:
             file_ext = os.path.splitext(prediction_path)[1].lower()
@@ -161,31 +161,31 @@ def process_predictions_with_uncertainty(prediction_df=None, prediction_path=Non
             elif file_ext in ['.xlsx', '.xls']:
                 prediction_df = pd.read_excel(prediction_path)
             else:
-                logger.error(f"Formato de archivo no soportado: {file_ext}")
+                logger.error(f"Unsupported file format: {file_ext}")
                 return None
                 
-            logger.info(f"Cargadas {len(prediction_df)} predicciones desde {prediction_path}")
+            logger.info(f"Loaded {len(prediction_df)} predictions from {prediction_path}")
         except Exception as e:
-            logger.error(f"Error cargando predicciones: {str(e)}")
+            logger.error(f"Error loading predictions: {str(e)}")
             return None
     
-    # Verificar que tenemos un DataFrame para analizar
+    # Verify that we have a DataFrame to analyze
     if prediction_df is None:
-        logger.error("No se proporcionó un DataFrame ni una ruta válida")
+        logger.error("No DataFrame or valid path provided")
         return None
     
-    # Realizar análisis de incertidumbre
+    # Perform uncertainty analysis
     results_df = analyze_uncertainty(prediction_df, confidence_threshold)
     
-    # Guardar resultados si se proporciona ruta
+    # Save results if path is provided
     if results_df is not None and output_path:
         save_uncertainty_results(results_df, output_path)
     
     return results_df
 
-# Para pruebas directas del módulo
+# For direct module testing
 if __name__ == "__main__":
-    # Configurar logging
+    # Configure logging
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -204,8 +204,8 @@ if __name__ == "__main__":
         )
         
         if results is not None:
-            print(f"Análisis completado. Registradas {len(results)} filas.")
+            print(f"Analysis completed. {len(results)} rows registered.")
         else:
-            print("Error en el análisis de incertidumbre.")
+            print("Error in uncertainty analysis.")
     else:
-        print("Uso: python uncertainty_analysis.py <archivo_predicciones> [archivo_salida] [umbral_confianza]")
+        print("Usage: python uncertainty_analysis.py <predictions_file> [output_file] [confidence_threshold]")

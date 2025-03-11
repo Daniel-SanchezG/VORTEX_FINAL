@@ -2,33 +2,33 @@
 # -*- coding: utf-8 -*-
 
 """
-Script para ejecutar predicciones arqueológicas
+Script to run archaeological predictions
 -----------------------------------------------
-Script sencillo para ejecutar el sistema de predicción en producción.
+Simple script to run the prediction system in production.
 
-Ejemplo de uso:
+Example of use:
     python run_predictions.py
 """
 
 import os
 import sys
 
-# Asegurarse de que el directorio actual esté en el path de Python
+# Ensure the current directory is in the Python path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Importar la clase del módulo
+# Import the class from the module
 from archaeological_predictor import ArchaeologicalPredictor
 
-# Configuración de rutas - ajustar según la estructura en producción
+# Configure paths - adjust according to production structure
 BASE_DIR = '/home/dsg/VORTEX_FINAL/PRODUCTION'
 DATA_PATH = os.path.join(BASE_DIR, 'DATA/real_world/real_world_data.xlsx')
 MODELS_DIR = os.path.join(BASE_DIR, 'models')
 OUTPUT_DIR = os.path.join(BASE_DIR, 'results')
 
-# Crear directorio de resultados si no existe
+# Create results directory if it doesn't exist
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-# Generar ruta de salida
+# Generate output path
 import datetime
 output_file = os.path.join(
     OUTPUT_DIR, 
@@ -36,28 +36,28 @@ output_file = os.path.join(
 )
 
 def run_predictions():
-    """Ejecuta el proceso de predicción completo"""
-    print(f"Iniciando proceso de predicción arqueológica...")
-    print(f"Datos: {DATA_PATH}")
-    print(f"Modelos: {MODELS_DIR}")
-    print(f"Salida: {output_file}")
+    """Run the complete prediction process"""
+    print(f"Starting archaeological prediction process...")
+    print(f"Data: {DATA_PATH}")
+    print(f"Models: {MODELS_DIR}")
+    print(f"Output: {output_file}")
     
     try:
-        # Inicializar y ejecutar el predictor
+        # Initialize and run the predictor
         predictor = ArchaeologicalPredictor(DATA_PATH, MODELS_DIR)
         result_path = predictor.run_prediction_pipeline(output_file)
         
         if result_path:
-            print(f"\n✅ Proceso completado con éxito.")
-            print(f"📊 Resultados guardados en: {result_path}")
+            print(f"\n✅ Process completed successfully.")
+            print(f"📊 Results saved in: {result_path}")
             return True
         else:
-            print(f"\n❌ El proceso de predicción falló.")
-            print("   Consulta los logs para más detalles.")
+            print(f"\n❌ The prediction process failed.")
+            print("   Check the logs for more details.")
             return False
             
     except Exception as e:
-        print(f"\n❌ Error ejecutando el proceso: {str(e)}")
+        print(f"\n❌ Error running the process: {str(e)}")
         return False
 
 if __name__ == "__main__":
