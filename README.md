@@ -555,11 +555,15 @@ For a complete list, see `requirements.txt`.
    ```
 
 4. **Jupyter notebook integration on Windows:**
+   
    - If using Jupyter notebooks:
-     ```cmd
+
+     
+   ```cmd
      conda install jupyter
-     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)" 
-   - ```
+     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)"
+   ```
+
    - Navigate to the `notebooks` directory and run: `jupyter notebook`
 
 ---
