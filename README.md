@@ -567,9 +567,6 @@ For a complete list, see `requirements.txt`.
    - Navigate to the `notebooks` directory and run: `jupyter notebook`
 
 ---
-## License
-
-[License](https://github.com/Daniel-SanchezG/VORTEX_FINAL/blob/main/LICENSE)
 
 ## Contributing
 
