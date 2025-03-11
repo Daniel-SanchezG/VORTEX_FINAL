@@ -117,7 +117,7 @@ Before installing VORTEX, you need to have Python (version 3.8 or higher), pip, 
 3. Verify the installation by opening Command Prompt and typing:
 
     ```cmd
-    python --version
+    python3 --version
     ```
 
 #### Linux/macOS
@@ -185,7 +185,7 @@ virtualenv is a tool to create isolated Python environments.
 #### Windows
 
 ```cmd
-pip install virtualenv
+pip3 install virtualenv
 ```
 
 #### Linux/macOS
@@ -224,7 +224,7 @@ source venv/bin/activate
 3. Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Windows
@@ -232,7 +232,7 @@ pip install -r requirements.txt
 1. Clone the repository:
 
 ```cmd
-git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL
 cd VORTEX
 ```
 
@@ -240,7 +240,7 @@ cd VORTEX
 
 ```cmd
 # Create virtual environment
-python -m venv venv
+python3 -m venv venv
 
 # Activate virtual environment
 venv\Scripts\activate
@@ -249,7 +249,7 @@ venv\Scripts\activate
 3. Install dependencies:
 
 ```cmd
-pip install -r requirements_windows.txt
+pip3 install -r requirements_windows.txt
 ```
 
 4. Windows-specific considerations:
@@ -260,14 +260,14 @@ pip install -r requirements_windows.txt
     - For path issues, use backslashes or raw strings when specifying paths in commands:
 
 ```cmd
-   python main.py --input "DATA\raw\input_data.xlsx   
+   python3 main.py --input "DATA\raw\input_data.xlsx   
 ```
 
 Or simply use forward slashes, which generally work in Windows as well:
 
 ```cmd
 
-python main.py --input "DATA/raw/input_data.xlsx
+python3 main.py --input "DATA/raw/input_data.xlsx
 
 ```
 
@@ -288,14 +288,14 @@ Then try activating the environment again.
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL
 cd VORTEX
 ```
 
 2. Create and activate a virtual environment:
 ```bash
 # Create virtual environment
-python -m venv venv
+python3 -m venv venv
 
 # Activate virtual environment
 source venv/bin/activate
@@ -303,21 +303,21 @@ source venv/bin/activate
 
 3. Install dependencies:
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ### Windows
 
 1. Clone the repository:
 ```cmd
-git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL
 cd VORTEX
 ```
 
 2. Create and activate a virtual environment:
 ```cmd
 # Create virtual environment
-python -m venv venv
+python3 -m venv venv
 
 # Activate virtual environment
 venv\Scripts\activate
@@ -325,7 +325,7 @@ venv\Scripts\activate
 
 3. Install dependencies:
 ```cmd
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 4. Windows-specific considerations:
@@ -335,11 +335,11 @@ pip install -r requirements.txt
    
    - For path issues, use backslashes or raw strings when specifying paths in commands:
      ```cmd
-     python main.py --input "DATA\raw\input_data.xlsx"
+     python3 main.py --input "DATA\raw\input_data.xlsx"
      ```
      Or simply use forward slashes, which generally work in Windows as well:
      ```cmd
-     python main.py --input "DATA/raw/input_data.xlsx"
+     python3 main.py --input "DATA/raw/input_data.xlsx"
      ```
 
 ## Usage
@@ -348,7 +348,7 @@ pip install -r requirements.txt
 
 Run the model training pipeline with default parameters:
 ```bash
-python main.py --input "DATA/raw/input_data.xlsx"
+python3 main.py --input "DATA/raw/input_data.xlsx"
 ```
 
 #### Available Arguments:
@@ -363,7 +363,7 @@ python main.py --input "DATA/raw/input_data.xlsx"
 
 **Linux/macOS:**
 ```bash
-python main.py \
+python3 main.py \
     --input "DATA/raw/input_data.xlsx" \
     --output-dir "my_experiments" \
     --min-class-size 15 \
@@ -373,7 +373,7 @@ python main.py \
 
 **Windows:**
 ```cmd
-python main.py ^
+python3 main.py ^
     --input "DATA\raw\input_data.xlsx" ^
     --output-dir "my_experiments" ^
     --min-class-size 15 ^
@@ -404,7 +404,7 @@ python real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "mod
 
 **Linux/macOS:**
 ```bash
-python real_world.py \
+python3 real_world.py \
     --data "DATA/real_world/real_world_data.xlsx" \
     --models "models" \
     --output "real_world_results" \
@@ -413,7 +413,7 @@ python real_world.py \
 
 **Windows:**
 ```cmd
-python real_world.py ^
+python3 real_world.py ^
     --data "DATA\real_world\real_world_data.xlsx" ^
     --models "models" ^
     --output "real_world_results" ^
@@ -433,7 +433,7 @@ The local Shap analyses require a specific process of training binary classifica
 
 To run Local SHAP analysis:
 ```bash
-python run_shap_analysis.py --model "models/final_model.pkl" --data "DATA/processed/final_input_data.xlsx"
+python3 run_shap_analysis.py --model "models/final_model.pkl" --data "DATA/processed/final_input_data.xlsx"
 ```
 
 ## Output Structure
@@ -551,7 +551,7 @@ For a complete list, see `requirements.txt`.
    ```cmd
    conda create -n vortex python=3.8
    conda activate vortex
-   pip install -r requirements.txt
+   pip3 install -r requirements.txt
    ```
 
 4. **Jupyter notebook integration on Windows:**
@@ -561,7 +561,7 @@ For a complete list, see `requirements.txt`.
      
    ```cmd
      conda install jupyter
-     python -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)"
+     python3 -m ipykernel install --user --name=vortex --display-name="Python (VORTEX)"
    ```
 
    - Navigate to the `notebooks` directory and run: `jupyter notebook`
@@ -580,5 +580,5 @@ For a complete list, see `requirements.txt`.
 
 Daniel SG - daniel-sanchez-gomez@edu.ulisboa.pt
 
-ZENODO Link: [https://github.com/your-username/VORTEX](https://github.com/your-username/VORTEX)
+ZENODO Link: [https://github.com/your-username/VORTEX](https://zenodo.org/records/15000069)
 
