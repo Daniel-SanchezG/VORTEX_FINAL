@@ -52,9 +52,9 @@ class ShapAnalyzer:
         self.plots_dir.mkdir(parents=True, exist_ok=True)
         self.tables_dir.mkdir(parents=True, exist_ok=True)
         
-        self.log(f"Directorio de resultados configurado en: {self.output_dir}")
-        self.log(f"Los gráficos se guardarán en: {self.plots_dir}")
-        self.log(f"Las tablas se guardarán en: {self.tables_dir}")
+        self.log(f"Results directory set up in: {self.output_dir}")
+        self.log(f"Plots will be saved in: {self.plots_dir}")
+        self.log(f"Tables will be saved in: {self.tables_dir}")
     
     def log(self, message, level='info'):
         """Helper method to log or print messages"""
@@ -70,33 +70,33 @@ class ShapAnalyzer:
     
     def process_excel_sheet(self, excel_path, sheet_name, train_existing_model=None):
         """
-        Procesa una hoja de Excel para análisis SHAP:
-        - Carga datos
-        - Preprocesamiento
-        - Balanceo con SMOTE
-        - Entrenamiento de modelo Random Forest (o uso de modelo existente)
-        - Análisis SHAP
-        - Guarda gráfico SHAP
+        Process an Excel sheet for SHAP analysis:
+        - Load data
+        - Preprocessing
+        - Balance with SMOTE
+        - Training of Random Forest model (or use existing model)
+        - SHAP analysis
+        - Save SHAP plot
         
         Args:
-            excel_path (str): Ruta al archivo Excel
-            sheet_name (str): Nombre de la hoja a procesar
-            train_existing_model: Modelo pre-entrenado (opcional)
+            excel_path (str): Path to Excel file
+            sheet_name (str): Name of the sheet to process
+            train_existing_model: Pre-trained model (optional)
             
         Returns:
             Dictionary with analysis results
         """
-        self.log(f"Procesando hoja: {sheet_name}")
+        self.log(f"Processing sheet: {sheet_name}")
         
         # 1. Cargar datos
         try:
             df = pd.read_excel(excel_path, sheet_name=sheet_name, engine='openpyxl')
-            self.log(f"Datos cargados. Forma: {df.shape}")
+            self.log(f"Data loaded. Shape: {df.shape}")
         except Exception as e:
-            self.log(f"Error al cargar la hoja {sheet_name}: {str(e)}", level='error')
+            self.log(f"Error loading sheet {sheet_name}: {str(e)}", level='error')
             raise
         
-        # 2. Preprocesamiento básico
+        # 2. Basic preprocessing
         if 'Site' in df.columns:
             df = df.drop(['Site'], axis=1)
         if 'suma' in df.columns:
@@ -104,56 +104,56 @@ class ShapAnalyzer:
         
         # Verificar que no hay valores nulos
         if df.isnull().any().any():
-            self.log("¡Advertencia! Hay valores nulos en los datos", level='warning')
+            self.log("Warning! There are null values in the data", level='warning')
         
         # 3. Determinar la columna objetivo
         target_column = self.target_column_map.get(sheet_name)
         if target_column is None:
-            self.log(f"No se encontró un mapeo para la hoja {sheet_name}, buscando columnas 'target_'", level='warning')
+            self.log(f"No mapping found for sheet {sheet_name}, searching for columns 'target_'", level='warning')
             # Buscar cualquier columna que comience con 'target_'
             target_columns = [col for col in df.columns if col.startswith('target_')]
             if target_columns:
                 target_column = target_columns[0]
-                self.log(f"Se usará la columna {target_column} como objetivo")
+                self.log(f"Using column {target_column} as target")
             else:
-                raise ValueError(f"No se encontró una columna objetivo para la hoja {sheet_name}")
+                raise ValueError(f"No target column found for sheet {sheet_name}")
         
         if target_column not in df.columns:
-            self.log(f"Columna objetivo {target_column} no encontrada en la hoja {sheet_name}", level='error')
+            self.log(f"Target column {target_column} not found in sheet {sheet_name}", level='error')
             # Mostrar las columnas disponibles para ayudar a depurar
-            self.log(f"Columnas disponibles: {', '.join(df.columns)}")
-            raise ValueError(f"Columna objetivo {target_column} no encontrada")
+            self.log(f"Available columns: {', '.join(df.columns)}")
+            raise ValueError(f"Target column {target_column} not found")
         
         # 4. Separar características y objetivo
         X = df.drop([target_column], axis=1)
         y = df[target_column]
         
-        # Mostrar distribución del objetivo
+        # Show target distribution
         target_counts = y.value_counts()
-        self.log(f"Distribución del objetivo antes de SMOTE:\n{target_counts}")
+        self.log(f"Target distribution before SMOTE:\n{target_counts}")
         
-        # 5. Balanceo con SMOTE
+        # 5. Balance with SMOTE
         smote = SMOTE(random_state=42)
         X_smote, y_smote = smote.fit_resample(X, y)
         
-        self.log(f"Distribución del objetivo después de SMOTE:\n{y_smote.value_counts()}")
+        self.log(f"Target distribution after SMOTE:\n{y_smote.value_counts()}")
         
-        # 6. División en conjuntos de entrenamiento y prueba
+        # 6. Split into training and test sets
         X_train, X_test, y_train, y_test = train_test_split(
             X_smote, y_smote, test_size=0.2, random_state=self.random_state, stratify=y_smote
         )
         
-        # 7. Entrenamiento de RandomForestClassifier o uso de modelo existente
+        # 7. Training of RandomForestClassifier or use existing model
         if train_existing_model is None:
-            # Si no hay modelo pre-entrenado, entrenamos uno nuevo
-            self.log("Entrenando nuevo modelo Random Forest...")
+            # If no pre-trained model, train a new one
+            self.log("Training new Random Forest model...")
             rf_model = RandomForestClassifier(
                 n_estimators=200,
                 min_samples_leaf=5,
                 class_weight="balanced",
                 criterion='entropy',
                 random_state=self.random_state,
-                n_jobs=-1  # Usar todos los núcleos disponibles
+                n_jobs=-1  # Use all available cores
             )
             
             rf_model.fit(X_train, y_train)
@@ -161,56 +161,56 @@ class ShapAnalyzer:
             # Evaluación del modelo
             y_pred = rf_model.predict(X_test)
             report = classification_report(y_test, y_pred)
-            self.log(f"Evaluación del modelo:\n{report}")
+            self.log(f"Model evaluation:\n{report}")
             
-            # Mostrar importancia de características nativa del modelo
+            # Show feature importance of native model
             if hasattr(rf_model, 'feature_importances_'):
                 importance_df_rf = pd.DataFrame({
                     'feature': X_train.columns,
                     'importance': rf_model.feature_importances_
                 }).sort_values('importance', ascending=False)
-                self.log(f"Top 10 características según importancia del modelo:\n{importance_df_rf.head(10)}")
+                self.log(f"Top 14 features according to model importance:\n{importance_df_rf.head(14)}")
         else:
-            # Si hay un modelo pre-entrenado, lo usamos
+            # If there is a pre-trained model, use it
             rf_model = train_existing_model
-            self.log("Usando modelo pre-entrenado para análisis SHAP")
+            self.log("Using pre-trained model for SHAP analysis")
         
-        # 8. Análisis SHAP
-        self.log("Calculando valores SHAP...")
+        # 8. SHAP analysis
+        self.log("Calculating SHAP values...")
         try:
-            # Usar TreeExplainer que es específico para modelos basados en árboles como Random Forest
+            # Use TreeExplainer that is specific to tree-based models like Random Forest
             explainer = shap.TreeExplainer(rf_model)
             shap_values = explainer.shap_values(X_train)
             
-            # Verificar si shap_values es una lista (formato antiguo de shap) o un objeto Explanation
+            # Check if shap_values is a list (old shap format) or an Explanation object
             if isinstance(shap_values, list):
-                self.log(f"Valores SHAP en formato lista con {len(shap_values)} elementos")
-                # Para clasificación binaria, shap_values es una lista con 2 elementos (uno para cada clase)
+                self.log(f"SHAP values in list format with {len(shap_values)} elements")
+                # For binary classification, shap_values is a list with 2 elements (one for each class)
                 if len(shap_values) == 2:
-                    # Usamos shap_values[1] para la clase positiva (1)
+                    # We use shap_values[1] for the positive class (1)
                     shap_data = shap_values[1]
-                    self.log(f"Usando valores SHAP para clase positiva, forma: {shap_data.shape}")
+                    self.log(f"Using SHAP values for positive class, shape: {shap_data.shape}")
                 else:
-                    # Si solo hay un elemento, usamos ese
+                    # If there is only one element, we use that
                     shap_data = shap_values[0]
-                    self.log(f"Usando valores SHAP para clase única, forma: {shap_data.shape}")
+                    self.log(f"Using SHAP values for single class, shape: {shap_data.shape}")
             else:
-                # Formato más reciente (objeto Explanation)
-                self.log(f"Valores SHAP en formato Explanation, forma: {shap_values.shape}")
-                # Para objetos tipo Explanation, extracto de los valores
+                # New format (Explanation object)
+                self.log(f"SHAP values in Explanation format, shape: {shap_values.shape}")
+                # For Explanation objects, extract the values
                 shap_data = shap_values
         except Exception as e:
-            self.log(f"Error al calcular valores SHAP: {str(e)}", level='error')
+            self.log(f"Error calculating SHAP values: {str(e)}", level='error')
             raise
         
-        # 9. Generar y guardar plot SHAP
-        self.log("Generando visualización SHAP...")
+        # 9. Generate and save SHAP plot
+        self.log("Generating SHAP plot...")
         plt.figure(figsize=(14, 10))
         
         try:
             # Intentar generar el gráfico beeswarm
             if isinstance(shap_values, list):
-                # Para formato antiguo de SHAP (lista de arrays)
+                # For old SHAP format (list of arrays)
                 shap.summary_plot(
                     shap_values[1] if len(shap_values) > 1 else shap_values[0],
                     X_train,
@@ -221,34 +221,34 @@ class ShapAnalyzer:
                 )
             else:
                 
-                # Para formato más reciente (objeto Explanation)
-               beeswarm(shap_data, max_display=20, color=plt.get_cmap("viridis"), show=False)
+                # For new SHAP format (Explanation object)
+                beeswarm(shap_data, max_display=20, color=plt.get_cmap("viridis"), show=False)
             
             plt.title(f"SHAP Values - {sheet_name} ({target_column})")
             plt.tight_layout()
             
-            # Forzar actualización para mostrar datos
+            # Force update to show data
             plt.draw()
-            plt.pause(0.5)  # Pausa más larga para asegurar renderizado
+            plt.pause(0.5)  # Pause longer to ensure rendering
             
-            # Guardar gráfico con alta calidad
+            # Save plot with high quality
             output_path = self.plots_dir / f"SHAP_local_{sheet_name}.{self.img_format}"
             plt.savefig(output_path, dpi=self.dpi, bbox_inches='tight')
-            self.log(f"Gráfico guardado en: {output_path}")
+            self.log(f"Plot saved in: {output_path}")
         except Exception as e:
-            self.log(f"Error al generar visualización SHAP: {str(e)}", level='error')
+            self.log(f"Error generating SHAP plot: {str(e)}", level='error')
             
-            # Intentar un enfoque alternativo
-            plt.cla()  # Limpiar eje actual
-            plt.clf()  # Limpiar figura
+            # Try an alternative approach
+            plt.cla()  # Clear current axis
+            plt.clf()  # Clear figure
             
-            # Crear un gráfico de barras simple con importancias
+            # Create a simple bar plot with importances
             try:
                 if isinstance(shap_values, list):
-                    # Formato antiguo (lista)
+                    # Old format (list)
                     feature_imp = np.abs(shap_values[1] if len(shap_values) > 1 else shap_values[0]).mean(0)
                 else:
-                    # Formato nuevo (Explanation)
+                    # New format (Explanation)
                     if hasattr(shap_values, 'values'):
                         if len(shap_values.shape) == 3:
                             feature_imp = np.abs(shap_values.values[:,:,1]).mean(0)
@@ -257,7 +257,7 @@ class ShapAnalyzer:
                     else:
                         feature_imp = np.abs(shap_values).mean(0)
                 
-                # Ordenar importancias
+                # Sort importances
                 indices = np.argsort(feature_imp)[-20:]  # Top 20
                 features = X_train.columns[indices]
                 importances = feature_imp[indices]
@@ -269,28 +269,28 @@ class ShapAnalyzer:
                 plt.xlabel('Mean |SHAP value|')
                 plt.tight_layout()
                 
-                # Guardar gráfico alternativo
+                # Save alternative plot
                 output_path = self.plots_dir / f"SHAP_alt_{sheet_name}.{self.img_format}"
                 plt.savefig(output_path, dpi=self.dpi, bbox_inches='tight')
-                self.log(f"Gráfico alternativo guardado en: {output_path}")
+                self.log(f"Alternative plot saved in: {output_path}")
             except Exception as e2:
-                self.log(f"Error al generar visualización alternativa: {str(e2)}", level='error')
-                plt.text(0.5, 0.5, f"Error en visualización SHAP:\n{str(e)}\n\nError en alternativa:\n{str(e2)}", 
+                self.log(f"Error generating alternative plot: {str(e2)}", level='error')
+                plt.text(0.5, 0.5, f"Error in SHAP visualization:\n{str(e)}\n\nError in alternative plot:\n{str(e2)}", 
                         ha='center', va='center', fontsize=12, wrap=True)
                 output_path = self.plots_dir / f"SHAP_error_{sheet_name}.{self.img_format}"
                 plt.savefig(output_path, dpi=self.dpi)
-                self.log(f"Imagen de error guardada en: {output_path}")
+                self.log(f"Error plot saved in: {output_path}")
         
-        # Cerrar todas las figuras para liberar memoria
+        # Close all figures to free memory
         plt.close('all')
         
-        # 10. Calcular y guardar importancia de características
+        # 10. Calculate and save feature importance
         try:
             if isinstance(shap_values, list):
-                # Para formato antiguo (lista)
+                # For old format (list)
                 feature_importance = np.abs(shap_values[1] if len(shap_values) > 1 else shap_values[0]).mean(0)
             else:
-                # Para formato nuevo (Explanation)
+                # For new format (Explanation)
                 if hasattr(shap_values, 'values'):
                     if len(shap_values.shape) == 3 and shap_values.shape[2] > 1:
                         feature_importance = np.abs(shap_values.values[:,:,1]).mean(0)
@@ -299,24 +299,24 @@ class ShapAnalyzer:
                 else:
                     feature_importance = np.abs(shap_values).mean(0)
             
-            # Crear DataFrame de importancia
+            # Create DataFrame of importance
             importance_df = pd.DataFrame({
                 'feature': X_train.columns,
                 'importance': feature_importance
             }).sort_values('importance', ascending=False)
             
-            # Guardar tabla de importancia en la carpeta tables
+            # Save importance table in the tables folder
             importance_path = self.tables_dir / f"shap_importance_{sheet_name}.csv"
             importance_df.to_csv(importance_path, index=False)
             
-            self.log(f"Tabla de importancia guardada en: {importance_path}")
-            self.log(f"Top 14 características según SHAP:\n{importance_df.head(14)}")
+            self.log(f"Importance table saved in: {importance_path}")
+            self.log(f"Top 14 features according to SHAP:\n{importance_df.head(14)}")
         except Exception as e:
-            self.log(f"Error al calcular importancia de características: {str(e)}", level='error')
+            self.log(f"Error calculating feature importance: {str(e)}", level='error')
             importance_df = pd.DataFrame()
             importance_path = None
         
-        # 11. Retornar resultados
+        # 11. Return results
         result = {
             'model': rf_model,
             'shap_values': shap_values,
@@ -326,7 +326,7 @@ class ShapAnalyzer:
             'importance_path': importance_path if 'importance_path' in locals() else None
         }
         
-        # Añadir elementos adicionales si se entrenó un nuevo modelo
+        # Add additional elements if a new model was trained
         if train_existing_model is None:
             result.update({
                 'X_test': X_test,
@@ -352,10 +352,10 @@ class ShapAnalyzer:
         excel_path = Path(excel_path) if isinstance(excel_path, str) else excel_path
         self.log(f"Analizando valores SHAP para múltiples hojas en {excel_path}")
         
-        # Verificar que el archivo existe
+        # Check if the file exists
         if not excel_path.exists():
-            self.log(f"Error: El archivo {excel_path} no existe", level='error')
-            raise FileNotFoundError(f"El archivo {excel_path} no existe")
+            self.log(f"Error: The file {excel_path} does not exist", level='error')
+            raise FileNotFoundError(f"The file {excel_path} does not exist")
         
         try:
             # If no sheet names provided, get all sheets
@@ -363,16 +363,16 @@ class ShapAnalyzer:
                 try:
                     xls = pd.ExcelFile(excel_path)
                     sheet_names = xls.sheet_names
-                    self.log(f"Hojas encontradas: {', '.join(sheet_names)}")
+                    self.log(f"Found sheets: {', '.join(sheet_names)}")
                 except Exception as e:
-                    self.log(f"Error al leer las hojas del archivo: {str(e)}", level='error')
+                    self.log(f"Error reading sheets from file: {str(e)}", level='error')
                     raise
             
             # Corregir el nombre de "encinsasola" a "encinasola" si es necesario
             corrected_sheet_names = []
             for sheet in sheet_names:
                 if sheet == "encinsasola":
-                    self.log("Corrigiendo nombre de hoja 'encinsasola' a 'encinasola'")
+                    self.log("Correcting sheet name 'encinsasola' to 'encinasola'")
                     corrected_sheet_names.append("encinasola")
                 else:
                     corrected_sheet_names.append(sheet)
@@ -384,7 +384,7 @@ class ShapAnalyzer:
             
             for sheet in corrected_sheet_names:
                 try:
-                    self.log(f"Procesando hoja: {sheet}")
+                    self.log(f"Processing sheet: {sheet}")
                     sheet_result = self.process_excel_sheet(
                         excel_path=excel_path,
                         sheet_name=sheet,
@@ -392,15 +392,15 @@ class ShapAnalyzer:
                     )
                     results[sheet] = sheet_result
                     successful_sheets += 1
-                    self.log(f"Completado procesamiento de {sheet}")
+                    self.log(f"Completed processing of {sheet}")
                 except Exception as e:
                     failed_sheets += 1
-                    self.log(f"Error procesando hoja {sheet}: {str(e)}", level='error')
-                    # Continuamos con la siguiente hoja
+                    self.log(f"Error processing sheet {sheet}: {str(e)}", level='error')
+                    # Continue with the next sheet
             
             # Create a combined importance table if at least one sheet was processed successfully
             if results:
-                self.log("Generando tabla de importancia combinada...")
+                self.log("Generating combined importance table...")
                 try:
                     combined_importance = pd.DataFrame()
                     for sheet, result in results.items():
@@ -425,54 +425,54 @@ class ShapAnalyzer:
                     combined_table_path = self.tables_dir / "shap_importance_combined.csv"
                     combined_importance.to_csv(combined_table_path, index=False)
                     
-                    self.log(f"Tabla de importancia combinada guardada en: {combined_table_path}")
-                    self.log(f"Top 10 características promedio:\n{combined_importance.head(10)}")
+                    self.log(f"Combined importance table saved in: {combined_table_path}")
+                    self.log(f"Top 10 average features:\n{combined_importance.head(10)}")
                     results['combined_importance'] = combined_importance
                 except Exception as e:
-                    self.log(f"Error al generar tabla combinada: {str(e)}", level='error')
+                    self.log(f"Error generating combined table: {str(e)}", level='error')
             
-            self.log(f"Resumen del procesamiento:")
-            self.log(f"- Hojas procesadas correctamente: {successful_sheets}")
-            self.log(f"- Hojas con errores: {failed_sheets}")
-            self.log(f"- Total de hojas: {len(corrected_sheet_names)}")
+            self.log(f"Summary of processing:")
+            self.log(f"- Correctly processed sheets: {successful_sheets}")
+            self.log(f"- Sheets with errors: {failed_sheets}")
+            self.log(f"- Total sheets: {len(corrected_sheet_names)}")
             
             if successful_sheets == 0:
-                self.log("Advertencia: No se procesó correctamente ninguna hoja", level='warning')
+                self.log("Warning: No sheets were processed correctly", level='warning')
             
             return results
             
         except Exception as e:
-            self.log(f"Error en análisis SHAP de múltiples hojas: {str(e)}", level='error')
+            self.log(f"Error in SHAP analysis of multiple sheets: {str(e)}", level='error')
             raise
 
 def setup_logging(output_dir=None, level=logging.INFO):
     """
-    Configura el sistema de logging.
+    Configures the logging system.
     
     Args:
-        output_dir: Directorio para guardar el archivo de log
-        level: Nivel de logging
+        output_dir: Directory to save the log file
+        level: Logging level
     
     Returns:
-        Logger configurado
+        Configured logger
     """
-    # Crear formateador
+    # Create formatter
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     
-    # Configurar logger raíz
+    # Configure root logger
     logger = logging.getLogger()
     logger.setLevel(level)
     
-    # Limpiar handlers existentes
+    # Clean existing handlers
     for handler in logger.handlers[:]:
         logger.removeHandler(handler)
     
-    # Handler para consola
+    # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
     
-    # Handler para archivo (si se proporciona output_dir)
+    # File handler (if output_dir is provided)
     if output_dir:
         output_dir = Path(output_dir)
         log_dir = output_dir / 'logs'
@@ -489,44 +489,44 @@ def setup_logging(output_dir=None, level=logging.INFO):
     
     return logger
 
-# Este bloque solo se ejecuta si se llama directamente al script
+# This block only runs if the script is called directly
 if __name__ == "__main__":
     try:
-        # Obtener directorio raíz del proyecto (2 niveles arriba del script actual)
+        # Get the project root directory (2 levels above the current script)
         current_script_dir = Path(__file__).resolve().parent
-        project_root = current_script_dir.parent.parent  # Subir dos niveles desde src/analysis
+        project_root = current_script_dir.parent.parent  # Go up two levels from src/analysis
         
-        # Configuración básica de argumentos
+        # Basic argument configuration
         import argparse
-        parser = argparse.ArgumentParser(description='Análisis SHAP para modelos de clasificación.')
+        parser = argparse.ArgumentParser(description='SHAP analysis for classification models.')
         parser.add_argument('--input', type=str, 
                           default=str(project_root / 'DATA/processed/training_data.xlsx'),
-                          help='Ruta al archivo Excel de entrada (por defecto: DATA/processed/training_data.xlsx)')
+                          help='Path to the input Excel file (default: DATA/processed/training_data.xlsx)')
         parser.add_argument('--output-dir', type=str, 
-                          default=str(project_root / 'resultados_shap'),
-                          help='Directorio para guardar resultados (por defecto: resultados_shap en la raíz)')
+                          default=str(project_root / 'shap_results'),
+                          help='Directory to save results (default: shap_results in the root)')
         parser.add_argument('--sheets', nargs='+', 
                           default=['aliste', 'can_tintorer', 'encinasola'],
-                          help='Hojas a procesar (por defecto: aliste, can_tintorer, encinasola)')
+                          help='Sheets to process (default: aliste, can_tintorer, encinasola)')
         parser.add_argument('--format', type=str, default='png',
-                          help='Formato de imágenes (png, jpg, svg) (por defecto: png)')
+                          help='Image format (png, jpg, svg) (default: png)')
         parser.add_argument('--dpi', type=int, default=300,
-                          help='Resolución de imágenes (por defecto: 300)')
+                          help='Image resolution (default: 300)')
         
         args = parser.parse_args()
         
-        # Configurar logging
+        # Configure logging
         logger = setup_logging(args.output_dir)
         
-        # Mostrar parámetros
-        logger.info(f"Ejecutando análisis SHAP con los siguientes parámetros:")
-        logger.info(f"- Archivo Excel: {args.input}")
-        logger.info(f"- Directorio de salida: {args.output_dir}")
-        logger.info(f"- Hojas a procesar: {args.sheets}")
-        logger.info(f"- Formato de imágenes: {args.format}")
-        logger.info(f"- Resolución (DPI): {args.dpi}")
+        # Show parameters
+        logger.info(f"Running SHAP analysis with the following parameters:")
+        logger.info(f"- Excel file: {args.input}")
+        logger.info(f"- Output directory: {args.output_dir}")
+        logger.info(f"- Sheets to process: {args.sheets}")
+        logger.info(f"- Image format: {args.format}")
+        logger.info(f"- Image resolution (DPI): {args.dpi}")
         
-        # Crear analizador
+        # Create analyzer
         output_dir = Path(args.output_dir)
         analyzer = ShapAnalyzer(
             output_dir=output_dir,
@@ -534,17 +534,17 @@ if __name__ == "__main__":
             dpi=args.dpi
         )
         
-        # Procesar cada hoja
+        # Process each sheet
         results = analyzer.analyze_multiple_sheets(
             excel_path=args.input,
             sheet_names=args.sheets
         )
         
-        logger.info(f"Proceso completado con éxito. Resultados guardados en {output_dir}")
+        logger.info(f"Process completed successfully. Results saved in {output_dir}")
         
     except Exception as e:
         if 'logger' in locals():
-            logger.error(f"Error durante la ejecución: {str(e)}", exc_info=True)
+                logger.error(f"Error during execution: {str(e)}", exc_info=True)
         else:
-            print(f"Error durante la ejecución: {str(e)}")
+            print(f"Error during execution: {str(e)}")
         sys.exit(1)
