@@ -207,7 +207,7 @@ sudo apt install python3-venv
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL
 cd VORTEX
 ```
 
