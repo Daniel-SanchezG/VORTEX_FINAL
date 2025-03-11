@@ -200,6 +200,37 @@ Or using the system package manager on Ubuntu/Debian:
 sudo apt install python3-venv
 ```
 
+### Installing and Configuring Git (optional)
+
+Git is useful for cloning the repository directly from the command line. Here's how to install it:
+
+#### Windows
+
+1. Download the official Git installer from [git-scm.com](https://git-scm.com/download/win)
+2. Run the installer with default options (you can customize if needed)
+3. Verify the installation by opening Command Prompt or PowerShell and typing:
+    
+    ```cmd
+    git --version
+    ```
+
+#### Linux/macOS
+
+**For Ubuntu/Debian:**
+
+```bash
+sudo apt update
+sudo apt install git
+```
+
+**For macOS (using Homebrew):**
+
+```bash
+brew install git
+```
+
+---
+
 ## Installation
 
 ### Linux/macOS
