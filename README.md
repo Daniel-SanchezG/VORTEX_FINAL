@@ -580,5 +580,5 @@ For a complete list, see `requirements.txt`.
 
 Daniel SG - daniel-sanchez-gomez@edu.ulisboa.pt
 
-ZENODO Link: [https://github.com/your-username/VORTEX](https://zenodo.org/records/15000069)
+ZENODO Link: [https://zenodo.org/records/15000069](https://zenodo.org/records/15000069)
 
