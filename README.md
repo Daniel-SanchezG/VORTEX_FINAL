@@ -569,7 +569,7 @@ For a complete list, see `requirements.txt`.
 ---
 ## License
 
-[Your License]
+[License](https://github.com/Daniel-SanchezG/VORTEX_FINAL/blob/main/LICENSE)
 
 ## Contributing
 
