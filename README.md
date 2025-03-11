@@ -74,7 +74,7 @@ VORTEX/
 │   ├── rf_Quiruelas      # Quiruelas-specific model
 │   └── rf_VdH            # VdH-specific model
 │
-├── notebooks/                # Jupyter development notebooks
+├── development_notebooks/                # Jupyter development notebooks
 │   ├── preprocessing.ipynb
 │   ├── training.ipynb
 │   ├── Feature_importance.ipynb
