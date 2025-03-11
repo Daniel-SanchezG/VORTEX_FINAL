@@ -200,7 +200,7 @@ Or using the system package manager on Ubuntu/Debian:
 sudo apt install python3-venv
 ```
 
-### Installing and Configuring Git (optional)
+### Installing Git (optional)
 
 Git is useful for cloning the repository directly from the command line. Here's how to install it:
 
