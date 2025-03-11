@@ -260,14 +260,14 @@ pip3 install -r requirements_windows.txt
     - For path issues, use backslashes or raw strings when specifying paths in commands:
 
 ```cmd
-   python3 main.py --input "DATA\raw\input_data.xlsx   
+   python3 main.py --input "DATA\raw\input_data.xlsx"   
 ```
 
 Or simply use forward slashes, which generally work in Windows as well:
 
 ```cmd
 
-python3 main.py --input "DATA/raw/input_data.xlsx
+python3 main.py --input "DATA/raw/input_data.xlsx"
 
 ```
 
@@ -413,10 +413,10 @@ python3 real_world.py \
 
 **Windows:**
 ```cmd
-python3 real_world.py ^
-    --data "DATA\real_world\real_world_data.xlsx" ^
-    --models "models" ^
-    --output "real_world_results" ^
+python3 real_world.py 
+    --data "DATA\real_world\real_world_data.xlsx" 
+    --models "models" 
+    --output "real_world_results" 
     --threshold 0.7
 ```
 
