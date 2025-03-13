@@ -16,7 +16,7 @@ Authors:
 **Daniel Sanchez-Gomez , José Ángel Garrido-Cordero, José María Martínez-Blanes, Rodrigo Villalobos García, Manuel Edo i Benaigues, Ana Catarina Sousa, María Dolores Zambrana Vega, Rosa Barroso Bermejo, Primitiva Bueno Ramírez, Carlos P. Odriozola**
 
 
-![[images/image-2-x37-y542.png]] 
+![[development_notebooks/Model_schema-PáginaFINAL.png]] 
 
 ---
 ## Features
