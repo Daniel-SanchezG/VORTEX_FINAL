@@ -16,7 +16,7 @@ Authors:
 **Daniel Sanchez-Gomez , José Ángel Garrido-Cordero, José María Martínez-Blanes, Rodrigo Villalobos García, Manuel Edo i Benaigues, Ana Catarina Sousa, María Dolores Zambrana Vega, Rosa Barroso Bermejo, Primitiva Bueno Ramírez, Carlos P. Odriozola**
 
 
-![[development_notebooks/Model_schema-PáginaFINAL.png]] 
+![[[development_notebooks/Model_schema-PáginaFINAL.png](https://github.com/Daniel-SanchezG/VORTEX_FINAL/blob/main/development_notebooks/Model_schema-P%C3%A1ginaFINAL.png)]] 
 
 ---
 ## Features
