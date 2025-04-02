@@ -51,7 +51,7 @@ current_date = datetime.datetime.now().strftime("%Y%m%d")
 prediction_file = os.path.join(OUTPUT_DIR, f"archaeological_predictions_{current_date}.xlsx")
 uncertainty_file = os.path.join(OUTPUT_DIR, f"uncertainty_analysis_{current_date}.xlsx")
 provenance_file = os.path.join(OUTPUT_DIR, f"provenance_analysis_{current_date}.xlsx")
-visualization_file = os.path.join(OUTPUT_DIR, f"site_entropy_distribution_{current_date}.png")
+visualization_file = os.path.join(OUTPUT_DIR, f"site_entropy_distribution_{current_date}.pdf")
 statistics_file = os.path.join(OUTPUT_DIR, f"site_statistics_{current_date}")
 
 def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False, 
@@ -182,7 +182,7 @@ def run_complete_pipeline(skip_uncertainty=False, skip_provenance=False,
                     print(f"   Plot: {vis_results['visualization']}")
                 
                 if 'statistics' in vis_results and 'excel' in vis_results['statistics']:
-                    print(f"   Statistics: {vis_results['statistics']['excel']}")
+                    print(f" Statistics: {vis_results['statistics']['excel']}")
         
         print("\n🏆 COMPLETE PIPELINE EXECUTED SUCCESSFULLY!")
         return True

@@ -72,7 +72,7 @@ def plot_site_entropy_distribution(uncertainty_df, output_file=None,
         x = np.arange(len(site_medians.index))
 
         class_names = {
-        'CT': 'Can Tintorer',
+        'CT': 'Gavà',
         'PCM': 'Terena',
         'PDLC': 'Aliste'
         }
@@ -114,7 +114,7 @@ def plot_site_entropy_distribution(uncertainty_df, output_file=None,
         if output_file is None:
             import datetime
             current_date = datetime.datetime.now().strftime("%Y%m%d")
-            output_file = f"site_entropy_distribution_{current_date}.png"
+            output_file = f"site_entropy_distribution_{current_date}.pdf"
         
         # Save plot
         plt.savefig(output_file, bbox_inches='tight')
@@ -228,7 +228,7 @@ def generate_visualization(uncertainty_df=None, uncertainty_path=None,
         os.makedirs(output_dir, exist_ok=True)
         import datetime
         current_date = datetime.datetime.now().strftime("%Y%m%d")
-        vis_file = os.path.join(output_dir, f"site_entropy_distribution_{current_date}.png")
+        vis_file = os.path.join(output_dir, f"site_entropy_distribution_{current_date}.pdf")
         stats_file = os.path.join(output_dir, f"site_statistics_{current_date}")
     else:
         vis_file = None
