@@ -34,7 +34,7 @@ Authors:
 ## Project Structure
 
 ```
-VORTEX_FINAL/
+VORTEX/
 │
 ├── DATA/
 │   ├── raw/                  # Raw input data
