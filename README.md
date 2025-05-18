@@ -240,11 +240,15 @@ Once the programme has finished (this could take several minutes), the results w
 
 This folder contains your results organised into:
 
-**plots**: Graphs and visualisations
-**tables**: Data in Excel tables
-**models**: Trained models
-**logs**: Detailed records of the process
+- **plots**: Graphs and visualisations
 
+- **tables**: Data in Excel tables
+
+- **models**: Trained models
+
+- **logs**: Detailed records of the process
+
+`The results are the same as those presented in the paper`
 
 
 
