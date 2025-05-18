@@ -65,10 +65,6 @@ VORTEX/
 │   │   ├── run_predictions_with_uncertainty.py
 │   │   ├── uncertainty_analysis.py
 │   │   └── visualization.py
-│   │
-│   ├── utils/                # Utility functions
-│   ├── visualization/        # Visualization modules
-│   └── __init__.py
 │
 ├── models/                   # Saved trained models
 │   ├── final_model       # Main prediction model
