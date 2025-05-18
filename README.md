@@ -141,7 +141,7 @@ sudo systemctl enable docker
 # Verify installation
 sudo docker run hello-world
 ```
-### Running VORTEX with Docker:
+### Installing and running VORTEX with Docker:
 
 You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972) and extract it to a folder of your choice.
 
