@@ -147,6 +147,8 @@ You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.
 
 Alternatively you can clone the GitHub repository:
 
+---
+
 ### Installing Git (optional)
 
 Git is useful for cloning the repository directly from the command line. Here's how to install it:
@@ -175,6 +177,7 @@ sudo apt install git
 ```bash
 brew install git
 ```
+---
 
 
 #### Windows
