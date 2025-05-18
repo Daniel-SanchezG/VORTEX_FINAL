@@ -93,6 +93,15 @@ VORTEX/
 │   ├── plots/                # SHAP visualizations
 │   └── tables/               # SHAP importance values
 │
+│── Dockerfile                #  Docker configuration
+├── .dockerignore             #  Docker ignore file
+├── build_docker.sh           #  Script to build Docker image (Linux/Mac)
+├── build_docker.bat          #  Script to build Docker image (Windows)
+├── docker_run.sh             #  Script to run with Docker (Linux/Mac)
+├── docker_run.bat            #  Script to run with Docker (Windows)
+├── check_environment.py      #  Environment compatibility checker
+├── environment.yml           #  Conda environment specification
+│
 ├── real_world_results/       # Results from real-world analyses
 ├── main.py                   # Main training pipeline script
 ├── real_world.py             # Real-world prediction script
