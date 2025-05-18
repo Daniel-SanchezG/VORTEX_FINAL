@@ -57,15 +57,15 @@ VORTEX/
 │   │   └── shap_analyzer.py
 │   │
 │   ├── real_world/           # Real-world prediction modules
-│   │   ├── __init__.py
-│   │   ├── archaeological_predictor.py
-│   │   ├── provenance_determination.py
-│   │   ├── run_predictions.py
-│   │   ├── run_predictions_with_uncertainty.py
-│   │   ├── uncertainty_analysis.py
-│   │   └── visualization.py
+│       ├── __init__.py
+│       ├── archaeological_predictor.py
+│       ├── provenance_determination.py
+│       ├── run_predictions.py
+│       ├── run_predictions_with_uncertainty.py
+│       ├── uncertainty_analysis.py
+│       └── visualization.py
 │
-├── models/                   # Saved trained models
+├── models/                # Saved trained models
 │   ├── final_model       # Main prediction model
 │   ├── rf_Destilled      # Destilled model
 │   ├── rf_French         # French-specific model
