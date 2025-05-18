@@ -230,6 +230,21 @@ The`--full` flag activates the feature importance analysis through RFECV, which 
 docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DATA:/app/DATA" -v "$(pwd)/models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
 ```
 
+5. Find the results
+
+Once the programme has finished (this could take several minutes), the results will be available:
+
+- Open the VORTEX folder
+- Find a new folder called "outputs"
+- Inside you will find another folder with date and time (for example "experiment_20250518_123456")
+
+This folder contains your results organised into:
+
+**plots**: Graphs and visualisations
+**tables**: Data in Excel tables
+**models**: Trained models
+**logs**: Detailed records of the process
+
 
 
 
