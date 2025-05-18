@@ -47,7 +47,6 @@ VORTEX/
 │   │   └── data_processor.py
 │   │
 │   ├── training/             # Model training modules
-│   │   ├── __init__.py
 │   │   ├── model_trainer.py
 │   │   ├── specific_models_trainer.py
 │   │   └── specific_models_trainer_pycaret.py
