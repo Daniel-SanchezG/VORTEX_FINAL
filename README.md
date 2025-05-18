@@ -335,7 +335,7 @@ python3 main.py --input "DATA/raw/input_data.xlsx"
 ```bash
 python3 main.py \
     --input "DATA/raw/input_data.xlsx" \
-    --output-dir "my_experiments" \
+    --output-dir "outputs" \
     --min-class-size 15 \
     --validation-split 0.2 \
     --full
