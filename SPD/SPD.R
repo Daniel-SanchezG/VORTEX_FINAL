@@ -2,8 +2,9 @@
 library(rcarbon)
 
 # Leer los datos
-datos <- read.csv("2024114_C14VortexSitesOnly_forSPD.csv", 
-                  stringsAsFactors = FALSE)
+datos <- read.csv("20250318_C14forSPD_Pub.csv", 
+                  stringsAsFactors = FALSE,
+                  encoding = "latin1")
 
 # Verificar las columnas disponibles
 print(names(datos))
@@ -34,7 +35,7 @@ par(mar = c(0.5, 0.5, 1.5, 0.5))
 par(oma = c(5, 5, 1, 1))  # Márgenes externos
 
 # Preparar para almacenar límites de x
-all_xlim <- c(7000, 1)
+all_xlim <- c(8000, 1)
 
 # Crear gráficos
 for(i in 1:length(sites)) {
