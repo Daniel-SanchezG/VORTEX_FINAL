@@ -99,8 +99,6 @@ VORTEX/
 ├── build_docker.bat          #  Script to build Docker image (Windows)
 ├── docker_run.sh             #  Script to run with Docker (Linux/Mac)
 ├── docker_run.bat            #  Script to run with Docker (Windows)
-├── check_environment.py      #  Environment compatibility checker
-├── environment.yml           #  Conda environment specification
 │
 ├── real_world_results/       # Results from real-world analyses
 ├── main.py                   # Main training pipeline script
