@@ -179,3 +179,8 @@ venv/
 # PyPI configuration file
 .pypirc
 
+#notebooks
+
+BinaryCalibration.ipynb
+training.ipynb
+

@@ -1,0 +1,59 @@
+Experiment Information
+=====================
+
+Timestamp: 20250517_205702
+Input file: DATA/raw/input_data.xlsx
+Minimum class size: 15
+Validation split: 0.2
+Full analysis: Yes
+Number of training samples: 2031
+Number of validation samples: 356
+
+Model Configuration
+===================
+Random state (preprocessing): 786
+Random state (training): 123
+
+Top Features by Importance
+========================
+- Ca: 0.2115
+- As: 0.1162
+- Ba: 0.0722
+- V: 0.0720
+- Sr: 0.0656
+- Cr: 0.0559
+- Mo: 0.0400
+- Ta: 0.0376
+- Cu: 0.0334
+- K: 0.0318
+- Ti: 0.0313
+- S: 0.0201
+- Se: 0.0190
+- Zr: 0.0154
+
+Specific Models Performance
+==========================
+
+Model: rf_Destilled
+Accuracy: 0.9635
+F1-score (macro avg): 0.9625
+F1-score (weighted avg): 0.9635
+------------------------------
+
+Model: rf_French
+Accuracy: 0.9719
+F1-score (macro avg): 0.9717
+F1-score (weighted avg): 0.9719
+------------------------------
+
+Model: rf_Quiruelas
+Accuracy: 0.9607
+F1-score (macro avg): 0.9581
+F1-score (weighted avg): 0.9606
+------------------------------
+
+Model: rf_VdH
+Accuracy: 0.9466
+F1-score (macro avg): 0.9454
+F1-score (weighted avg): 0.9463
+------------------------------
