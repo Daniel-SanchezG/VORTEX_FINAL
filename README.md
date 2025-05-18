@@ -143,6 +143,10 @@ sudo docker run hello-world
 ```
 ### Running VORTEX with Docker:
 
+You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972) and extract it to a folder of your choice.
+
+Alternatively you can clone the GitHub repository:
+
 #### Windows
 
 1. Clone the repository
@@ -155,8 +159,9 @@ cd VORTEX_FINAL
 ```
 
 
-
 #### Linux/macOS
+
+
 
 1.Clone the repository and navigate to the project folder:
 
@@ -164,6 +169,8 @@ cd VORTEX_FINAL
 git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
 cd VORTEX_FINAL
 ```
+
+
 2. Build the Docker image:
 
 ```bash
@@ -181,7 +188,7 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex --
 
 4. For real-world analysis:
 
-   ```bash
+```bash
 docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DATA:/app/DATA" -v "$(pwd)/models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
 ```
 
