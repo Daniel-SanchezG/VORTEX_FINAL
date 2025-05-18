@@ -118,9 +118,6 @@ There are two ways to run VORTEX:
 
 ## 1. Docker Instructions (Recommended for Reproducibility)
 
-For maximum reproducibility on different systems, we recommend using Docker.  
-This ensures that all dependencies and environment settings are identical regardless of the operating system.
-
 ### Installing Docker
 
 #### Windows
