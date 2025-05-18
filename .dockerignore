@@ -1,0 +1,32 @@
+# Environments
+venv/
+.env
+.venv
+env/
+ENV/
+
+# Outputs
+outputs/
+real_world_results/
+resultados_shap/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+
+# Local development settings
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Jupyter Notebook
+.ipynb_checkpoints
