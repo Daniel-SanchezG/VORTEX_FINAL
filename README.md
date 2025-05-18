@@ -101,10 +101,59 @@ VORTEX/
 └── README.md                 # This file
 ```
 
+## Installation and Setup
+
+There are two ways to run VORTEX:
+
+1. **Using Docker (Recommended for reproducibility)**: A simple approach that works on any system without worrying about dependencies
+2. **Direct installation**: Using Python virtual environments
+
+### Choose Your Setup Method:
+
+- **If you choose Docker**: You can avoid the Python installation, virtual environment setup, and dependency installation steps. Just follow the Docker Instructions section.
+  
+- **If you prefer direct installation**: Skip Docker instructions and junp to the complete installation process below.
+
+---
+
+## 1. Docker Instructions (Recommended for Reproducibility)
+
+For maximum reproducibility on different systems, we recommend using Docker.  
+This ensures that all dependencies and environment settings are identical regardless of the operating system.
+
+### Installing Docker
+
+#### Windows
+1. Download Docker Desktop for Windows from [docker.com](https://www.docker.com/products/docker-desktop)
+2. Run the installer and follow the instructions
+
+#### macOS
+1. Download Docker Desktop for Mac from [docker.com](https://www.docker.com/products/docker-desktop)
+2. Drag and drop Docker.app to your Applications folder
+3. Open Docker from your Applications folder
+4. When you see the Docker whale in the menu bar, the installation is complete
+
+#### Ubuntu/Debian
+
+```bash
+sudo apt-get update
+sudo apt-get install docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Verify installation
+sudo docker run hello-world
+```
+
 
 ## Prerequisites
 
-Before installing VORTEX, you need to have Python (version 3.8 or higher), pip, and virtualenv installed on your system.
+Before installing VORTEX, you need to have Python (version 3.10), pip, and virtualenv installed on your system.
+
+
+
+
+
 
 ### Installing Python
 
