@@ -110,7 +110,7 @@ There are two ways to run VORTEX:
 
 ### Choose Your Setup Method:
 
-- **If you choose Docker**: You can avoid the Python installation, virtual environment setup, and dependency installation steps. Just follow the Docker Instructions section.
+- **If you choose Docker**: You can avoid the Python installation, virtual environment setup and dependency installation steps. Just follow the Docker Instructions section and run the pipeline.
   
 - **If you prefer direct installation**: Skip Docker instructions and junp to the complete installation process below.
 
@@ -144,6 +144,53 @@ sudo systemctl enable docker
 # Verify installation
 sudo docker run hello-world
 ```
+### Running VORTEX with Docker:
+
+#### Windows
+
+1. Clone the repository
+
+Using Git Bash or Command Prompt:
+
+```bash
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+cd VORTEX_FINAL
+```
+
+
+
+#### Linux/macOS
+
+1.Clone the repository and navigate to the project folder:
+
+```bash
+git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
+cd VORTEX_FINAL
+```
+2.Build the Docker image:
+
+```bash
+docker build -t vortex . 
+```
+3. Run the training pipeline:
+
+```bash
+# Basic usage
+docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex
+
+# With full analysis
+docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
+```
+
+4. For real-world analysis:
+
+   ```bash
+docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DATA:/app/DATA" -v "$(pwd)/models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
+```
+
+
+
+
 
 
 ## Prerequisites
