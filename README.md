@@ -147,6 +147,36 @@ You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.
 
 Alternatively you can clone the GitHub repository:
 
+### Installing Git (optional)
+
+Git is useful for cloning the repository directly from the command line. Here's how to install it:
+
+#### Windows
+
+1. Download the official Git installer from [git-scm.com](https://git-scm.com/download/win)
+2. Run the installer with default options (you can customize if needed)
+3. Verify the installation by opening Command Prompt or PowerShell and typing:
+    
+    ```cmd
+    git --version
+    ```
+
+#### Linux/macOS
+
+**For Ubuntu/Debian:**
+
+```bash
+sudo apt update
+sudo apt install git
+```
+
+**For macOS (using Homebrew):**
+
+```bash
+brew install git
+```
+
+
 #### Windows
 
 1. Clone the repository
@@ -197,13 +227,11 @@ docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DAT
 
 
 
-## Prerequisites
+## 2. Direct installation
+
+### Prerequisites
 
 Before installing VORTEX, you need to have Python (version 3.10), pip, and virtualenv installed on your system.
-
-
-
-
 
 
 ### Installing Python
@@ -298,38 +326,13 @@ Or using the system package manager on Ubuntu/Debian:
 sudo apt install python3-venv
 ```
 
-### Installing Git (optional)
-
-Git is useful for cloning the repository directly from the command line. Here's how to install it:
-
-#### Windows
-
-1. Download the official Git installer from [git-scm.com](https://git-scm.com/download/win)
-2. Run the installer with default options (you can customize if needed)
-3. Verify the installation by opening Command Prompt or PowerShell and typing:
-    
-    ```cmd
-    git --version
-    ```
-
-#### Linux/macOS
-
-**For Ubuntu/Debian:**
-
-```bash
-sudo apt update
-sudo apt install git
-```
-
-**For macOS (using Homebrew):**
-
-```bash
-brew install git
-```
-
 ---
 
 ## Installation
+
+You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972) and extract it to a folder of your choice.
+
+Alternatively you can clone the GitHub repository:
 
 ### Linux/macOS
 
