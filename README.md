@@ -164,7 +164,7 @@ cd VORTEX_FINAL
 git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
 cd VORTEX_FINAL
 ```
-2.Build the Docker image:
+2. Build the Docker image:
 
 ```bash
 docker build -t vortex . 
