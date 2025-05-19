@@ -330,17 +330,6 @@ class FeatureImportanceAnalyzer:
             )
             plt.close()
             
-            # Save SHAP values for each class
-            for i, class_name in enumerate(self.class_names):
-                shap_df = pd.DataFrame({
-                    'feature': X.columns,
-                    f'mean_shap_value_{class_name}': np.mean(np.abs(shap_values[i]), axis=0)
-                }).sort_values(f'mean_shap_value_{class_name}', ascending=False)
-                
-                shap_df.to_csv(
-                    self.output_dir / f'tables/shap_values_{class_name}.csv',
-                    index=False
-                )
             
             # Save overall SHAP values
             mean_shap = np.mean([np.abs(sv) for sv in shap_values], axis=0)
