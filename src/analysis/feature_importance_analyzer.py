@@ -331,49 +331,78 @@ class FeatureImportanceAnalyzer:
             plt.close()
 
             
-            logger.info("Creating SHAP summary DataFrame...")
+            # Crear robust SHAP summary DataFrame después de guardar el gráfico
+            logger.info("Creating robust SHAP summary DataFrame...")
             
-            # Obtaining features names
+            # Obtener los nombres de características
             feature_names = list(X.columns)
             n_features = len(feature_names)
             
-            # Creating array for feature importance
-            feature_importance = np.zeros(n_features)
-            
-            # Accumulate average importance for each class
-            for i in range(len(shap_values)):
-
-                # Average importance per class
-                class_importance = np.abs(shap_values[i]).mean(axis=0)
+            # Asegurarse de que los datos sean unidimensionales
+            try:
+                # Crear array para almacenar la importancia de cada característica
+                feature_importance = np.zeros(n_features)
                 
-                # Si el resultado tiene la longitud incorrecta, ajustar
-                if len(class_importance) != n_features:
-                    logger.warning(f"SHAP dimension mismatch for class {i}: expected {n_features}, got {len(class_importance)}")
+                # Para cada clase, acumular la importancia promedio de cada característica
+                for i in range(len(shap_values)):
+                    # Promedio absoluto para cada característica (a través de todas las muestras)
+                    class_importance = np.abs(shap_values[i]).mean(axis=0)
                     
-                    # Use only common dimmensions
-                    min_len = min(len(class_importance), n_features)
-                    feature_importance[:min_len] += class_importance[:min_len]
-                else:
-                    # Dimensiones correctas
-                    feature_importance += class_importance
+                    # Verificar si class_importance es un array unidimensional
+                    if not isinstance(class_importance, np.ndarray) or class_importance.ndim != 1:
+                        logger.warning(f"Expected 1D array for class {i}, got shape: {getattr(class_importance, 'shape', 'not an array')}")
+                        # Intentar aplanar si es posible
+                        try:
+                            class_importance = np.ravel(class_importance)
+                        except:
+                            logger.warning(f"Could not flatten class_importance for class {i}")
+                    
+                    # Si el resultado tiene la longitud incorrecta, ajustar
+                    if len(class_importance) != n_features:
+                        logger.warning(f"SHAP dimension mismatch for class {i}: expected {n_features}, got {len(class_importance)}")
+                        # Usar solo las dimensiones comunes
+                        min_len = min(len(class_importance), n_features)
+                        feature_importance[:min_len] += class_importance[:min_len]
+                    else:
+                        # Dimensiones correctas
+                        feature_importance += class_importance
+                
+                # Promediar entre todas las clases
+                feature_importance /= len(shap_values)
+                
+                # Asegurar que feature_importance es 1D
+                if feature_importance.ndim != 1:
+                    logger.warning(f"feature_importance is not 1D, flattening. Shape: {feature_importance.shape}")
+                    feature_importance = feature_importance.ravel()
+                
+                # Verificar y asegurar que tanto feature_names como feature_importance son listas/arrays 1D
+                if len(feature_names) != len(feature_importance):
+                    logger.warning(f"Length mismatch: feature_names ({len(feature_names)}) vs feature_importance ({len(feature_importance)})")
+                    # Ajustar a la longitud mínima común
+                    min_len = min(len(feature_names), len(feature_importance))
+                    feature_names = feature_names[:min_len]
+                    feature_importance = feature_importance[:min_len]
+                
+                # Crear DataFrame con columnas unidimensionales verificadas
+                shap_df = pd.DataFrame({
+                    'feature': feature_names,
+                    'mean_shap_value': list(feature_importance)  # Convertir explícitamente a lista para asegurar 1D
+                })
+                
+                # Ordenar por importancia
+                shap_df = shap_df.sort_values('mean_shap_value', ascending=False)
+                
+                # Guardar a CSV
+                shap_df.to_csv(
+                    self.output_dir / 'tables/shap_values_summary.csv',
+                    index=False
+                )
             
-            # Promediar entre todas las clases
-            feature_importance /= len(shap_values)
-            
-            # Crear DataFrame con lengths controladas
-            shap_df = pd.DataFrame({
-                'feature': feature_names,
-                'mean_shap_value': feature_importance
-            })
-            
-            # Ordenar por importancia
-            shap_df = shap_df.sort_values('mean_shap_value', ascending=False)
-            
-            # Guardar a CSV
-            shap_df.to_csv(
-                self.output_dir / 'tables/shap_values_summary.csv',
-                index=False
-            )
+                logger.info("SHAP summary DataFrame created and saved successfully")
+            except Exception as inner_e:
+                logger.warning(f"Error creating SHAP summary DataFrame: {str(inner_e)}")
+                logger.warning(traceback.format_exc())
+                # El error en la creación del DataFrame no debería interrumpir toda la función
             
             logger.info("SHAP summary DataFrame created and saved successfully")
             logger.info("SHAP analysis completed successfully")
