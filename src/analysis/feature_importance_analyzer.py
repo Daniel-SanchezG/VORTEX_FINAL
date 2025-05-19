@@ -331,7 +331,6 @@ class FeatureImportanceAnalyzer:
             plt.close()
             
             
-            
             logger.info("SHAP analysis completed successfully")
             
         except Exception as e:
