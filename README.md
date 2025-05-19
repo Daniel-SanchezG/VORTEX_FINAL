@@ -466,7 +466,7 @@ python3 main.py --input "DATA/raw/input_data.xlsx"
 python3 main.py \
     --input "DATA/raw/input_data.xlsx" \
     --output-dir "outputs" \
-    --min-class-size 15 \
+    --min-class-size 10 \
     --validation-split 0.2 \
     --full
 ```
@@ -476,7 +476,7 @@ python3 main.py \
 python3 main.py ^
     --input "DATA\raw\input_data.xlsx" ^
     --output-dir "outputs" ^
-    --min-class-size 15 ^
+    --min-class-size 10 ^
     --validation-split 0.2 ^
     --full
 ```
