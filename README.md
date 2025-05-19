@@ -274,7 +274,7 @@ Once the programme has finished (this could take several minutes), the results w
 
 - Open the VORTEX folder
 - Find a new folder called "outputs"
-- Inside you will find another folder with date and time (for example "experiment_20250518_123456")
+- Inside you will find another folder with date and time (for example "experiment_AAAAMMDD_HHMMSS")
 
 This folder contains your results organised into:
 
