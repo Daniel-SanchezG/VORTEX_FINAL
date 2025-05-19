@@ -329,7 +329,8 @@ class FeatureImportanceAnalyzer:
                 bbox_inches='tight'
             )
             plt.close()
-
+            
+            
             
             logger.info("SHAP analysis completed successfully")
             
@@ -337,4 +338,3 @@ class FeatureImportanceAnalyzer:
             logger.error(f"Error in SHAP analysis: {str(e)}")
             logger.error(traceback.format_exc())
             raise
-
