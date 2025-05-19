@@ -150,7 +150,7 @@ sudo docker run hello-world
 ```
 ### Installing and running VORTEX with Docker:
 
-You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972), extract it to a folder of your choice and navigate to the project folder.
+You can download the ZIP file from this repository or from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972), extract it to a folder of your choice and navigate to the project folder.
 
 Alternatively you can clone the GitHub repository:
 
@@ -214,15 +214,39 @@ docker build -t vortex .
 ```
 3. Run the training pipeline:
 
+
+Windows
+
+```cmd
+#Basic usage
+docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" 
+
+#Full process
+docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
+```
+
+or if you are using PowerShell:
+
+```powershell
+docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
+```
+
+The`--full` flag activates the feature importance analysis through RFECV, which identifies and ranks the most important features. The process can be computationally intensive depending on the available resources, so it is disabled by default.
+
+
+Linux/macOS
 ```bash
 # Basic usage
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex
+```
+or
 
+```bash
 # With full analysis
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
-The`--full` flag activates the feature importance analysis through RFECV, which identifies and ranks the most important features. The process can be computationally intensive depending on the available resources, so it is disabled by default.
+
 
 4. For real-world analysis:
 
