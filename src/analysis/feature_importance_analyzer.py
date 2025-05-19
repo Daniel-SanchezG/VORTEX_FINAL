@@ -329,7 +329,28 @@ class FeatureImportanceAnalyzer:
                 bbox_inches='tight'
             )
             plt.close()
+
+             # Save overall SHAP values
+            mean_shap = np.mean([np.abs(sv) for sv in shap_values], axis=0)
+            overall_shap_df = pd.DataFrame({
+                'feature': X.columns,
+                'mean_shap_value': mean_shap
+            }).sort_values('mean_shap_value', ascending=False)
             
+            overall_shap_df.to_csv(
+                self.output_dir / 'tables/shap_values_overall.csv',
+                index=False
+            )
+
+
+
+
+
+
+
+
+
+
             logger.info("SHAP analysis completed successfully")
             
         except Exception as e:
