@@ -330,30 +330,56 @@ class FeatureImportanceAnalyzer:
             )
             plt.close()
 
-             # Save overall SHAP values
-            mean_shap = np.mean([np.abs(sv) for sv in shap_values], axis=0)
-            overall_shap_df = pd.DataFrame({
-                'feature': X.columns,
-                'mean_shap_value': mean_shap
-            }).sort_values('mean_shap_value', ascending=False)
             
-            overall_shap_df.to_csv(
-                self.output_dir / 'tables/shap_values_overall.csv',
+            logger.info("Creating SHAP summary DataFrame...")
+            
+            # Obtaining features names
+            feature_names = list(X.columns)
+            n_features = len(feature_names)
+            
+            # Creating array for feature importance
+            feature_importance = np.zeros(n_features)
+            
+            # Accumulate average importance for each class
+            for i in range(len(shap_values)):
+
+                # Average importance per class
+                class_importance = np.abs(shap_values[i]).mean(axis=0)
+                
+                # Si el resultado tiene la longitud incorrecta, ajustar
+                if len(class_importance) != n_features:
+                    logger.warning(f"SHAP dimension mismatch for class {i}: expected {n_features}, got {len(class_importance)}")
+                    
+                    # Use only common dimmensions
+                    min_len = min(len(class_importance), n_features)
+                    feature_importance[:min_len] += class_importance[:min_len]
+                else:
+                    # Dimensiones correctas
+                    feature_importance += class_importance
+            
+            # Promediar entre todas las clases
+            feature_importance /= len(shap_values)
+            
+            # Crear DataFrame con lengths controladas
+            shap_df = pd.DataFrame({
+                'feature': feature_names,
+                'mean_shap_value': feature_importance
+            })
+            
+            # Ordenar por importancia
+            shap_df = shap_df.sort_values('mean_shap_value', ascending=False)
+            
+            # Guardar a CSV
+            shap_df.to_csv(
+                self.output_dir / 'tables/shap_values_summary.csv',
                 index=False
             )
-
-
-
-
-
-
-
-
-
-
+            
+            logger.info("SHAP summary DataFrame created and saved successfully")
             logger.info("SHAP analysis completed successfully")
             
         except Exception as e:
             logger.error(f"Error in SHAP analysis: {str(e)}")
             logger.error(traceback.format_exc())
             raise
+
