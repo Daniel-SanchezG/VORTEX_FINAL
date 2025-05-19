@@ -146,7 +146,7 @@ sudo docker run hello-world
 ```
 ### Installing and running VORTEX with Docker:
 
-You can download the ZIP file from this repository (look for the green button that says ‘Code’ at the top :point_up::point_up: and select ‘Download ZIP’. or from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972), extract it to a folder of your choice and navigate to the project folder.
+You can download the ZIP file from this repository (look for the green button that says ‘Code’(:point_up:) and select ‘Download ZIP’. or from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972), extract it to a folder of your choice and navigate to the project folder.
 
 Alternatively you can clone the GitHub repository:
 
