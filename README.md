@@ -235,17 +235,13 @@ Linux/macOS
 ```bash
 # Basic usage
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
-```
-or
 
-```bash
-# With full analysis
+# Full analysis
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
 
-
-4. For real-world analysis:
+#### Run real-world analysis:
 
 Windows
 
@@ -264,8 +260,7 @@ Linux/macOS
 ```bash
 docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DATA:/app/DATA" -v "$(pwd)/models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
 ```
-
-5. Find the results
+#### Find the results
 
 Once the programme has finished (this could take several minutes), the results will be available:
 
@@ -273,7 +268,7 @@ Once the programme has finished (this could take several minutes), the results w
 - Find a new folder called "outputs"
 - Inside you will find another folder with date and time (for example "experiment_AAAAMMDD_HHMMSS")
 
-This folder contains your results organised into:
+This folder contains the trianing results organised into:
 
 - **plots**: Graphs and visualisations
 
@@ -282,6 +277,10 @@ This folder contains your results organised into:
 - **models**: Trained models
 
 - **logs**: Detailed records of the process
+
+For Real-world analysis:
+- Find a new folder called "real_world_results"
+- Inside you will find all tables and visualization generated
 
 `The results are the same as those presented in the paper`
 
