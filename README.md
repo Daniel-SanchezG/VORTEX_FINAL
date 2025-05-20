@@ -243,7 +243,7 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 
 #### Run real-world analysis:
 
-Windows
+**Windows**
 
 Command Prompt (CMD)
 
@@ -255,7 +255,7 @@ PowerShell
 ```powershell
 docker run -v "${PWD}\real_world_results:/app/real_world_results" -v "${PWD}\DATA:/app/DATA" -v "${PWD}\models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
 ```
-Linux/macOS
+**Linux/macOS**
 
 ```bash
 docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DATA:/app/DATA" -v "$(pwd)/models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
