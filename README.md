@@ -29,7 +29,7 @@ Authors:
 - Reproducible results with fixed random seeds
 - SHAP analysis for feature importance interpretation
 - Real-world proof-of-concept
-- Uncertainty quantification and visualization
+
 
 ## Project Structure
 
