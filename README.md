@@ -215,16 +215,16 @@ Windows
 
 ```cmd
 #Basic usage
-docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" 
+docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" 
 
 #Full process
-docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
+docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
 or if you are using PowerShell:
 
 ```powershell
-docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
+docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
 The`--full` flag activates the feature importance analysis through RFECV, which identifies and ranks the most important features. The process can be computationally intensive depending on the available resources, so it is disabled by default.
@@ -233,13 +233,13 @@ The`--full` flag activates the feature importance analysis through RFECV, which 
 Linux/macOS
 ```bash
 # Basic usage
-docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex
+docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
 ```
 or
 
 ```bash
 # With full analysis
-docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
+docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
 
@@ -256,7 +256,7 @@ docker run -v "%cd%\real_world_results:/app/real_world_results" -v "%cd%\DATA:/a
 PowerShell
 
 ```powershell
-docker run -v "%cd%\real_world_results:/app/real_world_results" -v "%cd%\DATA:/app/DATA" -v "%cd%\models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
+docker run -v "${PWD}\real_world_results:/app/real_world_results" -v "${PWD}\DATA:/app/DATA" -v "${PWD}\models:/app/models" vortex python3 real_world.py --data "DATA/real_world/real_world_data.xlsx" --models "models" --output "real_world_results"
 ```
 Linux/macOS
 
