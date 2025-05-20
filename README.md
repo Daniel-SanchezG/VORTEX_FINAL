@@ -144,13 +144,6 @@ sudo systemctl enable docker
 # Verify installation
 sudo docker run hello-world
 ```
-### Installing and running VORTEX with Docker:
-
-- You can download the ZIP file from this repository -look for the green button that says ‘Code’ :point_up:   and select ‘Download ZIP’ or from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972)
-- Extract it to a folder of your choice and navigate to the project folder.
-
-Alternatively you can clone the GitHub repository:
-
 ---
 
 ### Installing Git (optional)
@@ -181,7 +174,14 @@ sudo apt install git
 ```bash
 brew install git
 ```
+---
 
+### Installing and running VORTEX with Docker:
+
+- You can download the ZIP file from this repository -look for the green button that says ‘Code’ :point_up:   and select ‘Download ZIP’ or from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972)
+- Extract it to a folder of your choice and navigate to the project folder.
+
+Alternatively you can clone the GitHub repository (Git must be installed):
 
 #### Windows
 
@@ -202,6 +202,7 @@ git clone https://github.com/Daniel-SanchezG/VORTEX_FINAL.git
 cd VORTEX_FINAL
 ```
 ---
+Once in the project folder
 
 #### Build the Docker image:
 
