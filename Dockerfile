@@ -1,4 +1,3 @@
-#  Python 3.10 as a base (pycaret compatible)
 FROM python:3.10-slim
 
 # Proyect Information
@@ -28,6 +27,5 @@ COPY . .
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app
 
-# Default command to run the complete pipeline
-ENTRYPOINT ["python3", "main.py"]
-CMD ["--input", "DATA/raw/input_data.xlsx", "--output-dir", "outputs"]
+# Default command (can be overridden)
+CMD ["python3", "main.py", "--input", "DATA/raw/input_data.xlsx", "--output-dir", "outputs"]
