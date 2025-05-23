@@ -282,7 +282,7 @@ This folder contains the trianing results organised into:
 
 For Real-world analysis:
 - Find a new folder called "real_world_results"
-- Inside you will find all tables and visualization generated
+- Inside you will find all the tables and visualisations generated (especially table 3 and figure 6 presented in section 3.3 of the paper).
 
 `The results are the same as those presented in the paper`
 
