@@ -210,7 +210,7 @@ Once in the project folder
 docker build -t vortex . 
 ```
 
-#### Run the training pipeline:
+### Run the training pipeline:
 
 The`--full` flag activates the feature importance analysis through RFECV, which identifies and ranks the most important features. The process can be computationally intensive depending on the available resources, so it is disabled by default.
 
@@ -241,7 +241,7 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 ```
 
 
-#### Run real-world analysis:
+### Run real-world analysis:
 
 Real-world analysis uses the trained model to predict the geological source of n=571 artefacts from 15 archaeological sites. It is a proof of concept with real data whose result is presented in section 3.3 of the article.
 
