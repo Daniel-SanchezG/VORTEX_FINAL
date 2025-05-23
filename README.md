@@ -272,9 +272,9 @@ Once the programme has finished (this could take several minutes), the results w
 
 This folder contains the trianing results organised into:
 
-- **plots**: Graphs and visualisations
+- **plots**: Graphs and visualisations (figures 3 and 4 in the paper) 
 
-- **tables**: Data in Excel tables
+- **tables**: Data in Excel tables (presented as a summary table 1 in the paper)
 
 - **models**: Trained models
 
