@@ -243,6 +243,8 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 
 #### Run real-world analysis:
 
+Real-world analysis uses the trained model to predict the geological source of n=571 artefacts from 15 archaeological sites. It is a proof of concept with real data whose result is presented in section 3.3 of the article.
+
 **Windows**
 
 Command Prompt (CMD)
