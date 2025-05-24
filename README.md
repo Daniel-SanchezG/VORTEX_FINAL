@@ -178,7 +178,8 @@ brew install git
 
 ### Installing and running VORTEX with Docker:
 
-- You can download the ZIP file from this repository -look for the green button that says ‘Code’ :point_up:   and select ‘Download ZIP’ or from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972)
+- You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972)  or  from the project's Github repository -look for the green button that says ‘Code’   and select ‘Download ZIP’.
+
 - Extract it to a folder of your choice and navigate to the project folder.
 
 Alternatively you can clone the GitHub repository (Git must be installed):
