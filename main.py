@@ -184,11 +184,11 @@ def main():
                 n_runs=10
             )
             
-            # Guardar información de top features para incluir en resumen
+            # Save information on top features to include in experiment report
             importance_df = results['feature_importance']
             top_features = importance_df.head(14)
             
-            # Preparar información para el resumen
+            # Prepare information for the report
             feature_importance_info = f"\nTop Features by Importance\n"
             feature_importance_info += f"========================\n"
             for _, row in top_features.iterrows():
