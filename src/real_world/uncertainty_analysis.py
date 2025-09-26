@@ -124,7 +124,7 @@ def save_uncertainty_results(results_df, output_path=None):
         
         # Save results
         results_df.to_excel(excel_path, index=False)
-        results_df.to_csv(csv_path, index=False)
+        #results_df.to_csv(csv_path, index=False)
         
         logger.info(f"Results saved in Excel: {excel_path}")
         logger.info(f"Results saved in CSV: {csv_path}")

@@ -171,14 +171,14 @@ def save_statistics(stats_df, output_path=None):
         
         # Save results
         stats_df.to_excel(excel_path)
-        stats_df.to_csv(csv_path)
+        #stats_df.to_csv(csv_path)
         
         logger.info(f"Statistics saved in Excel: {excel_path}")
-        logger.info(f"Statistics saved in CSV: {csv_path}")
+        #logger.info(f"Statistics saved in CSV: {csv_path}")
         
         return {
             'excel': excel_path,
-            'csv': csv_path
+            #'csv': csv_path
         }
         
     except Exception as e:

@@ -333,9 +333,9 @@ class ArchaeologicalPredictor:
             logger.info(f"Results saved in: {output_path}")
             
             # Also save as CSV
-            csv_path = output_path.replace('.xlsx', '.csv')
-            results.to_csv(csv_path, index=False)
-            logger.info(f"Results also saved in: {csv_path}")
+            #csv_path = output_path.replace('.xlsx', '.csv')
+            #results.to_csv(csv_path, index=False)
+            #logger.info(f"Results also saved in: {csv_path}")
             
             return output_path
         except Exception as e:

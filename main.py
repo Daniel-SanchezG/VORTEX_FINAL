@@ -3,6 +3,7 @@
 import argparse
 from pathlib import Path
 import logging
+import platform
 from datetime import datetime
 from src.preprocessing.data_processor import DataPreprocessor
 from src.training.model_trainer import ModelTrainer
@@ -252,6 +253,12 @@ def main():
             f.write(f"Number of training samples: {len(train_data)}\n")
             f.write(f"Number of validation samples: {len(val_data)}\n")
             f.write(f"\nModel Configuration\n")
+            f.write(f"\nSystem Information\n")
+            f.write(f"==================\n")
+            f.write(f"Operating System: {platform.system()}\n")
+            f.write(f"OS Release: {platform.release()}\n")
+            f.write(f"Architecture: {platform.machine()}\n")
+            f.write(f"Python Version: {platform.python_version()}\n")
             f.write(f"===================\n")
             f.write(f"Random state (preprocessing): 786\n")
             f.write(f"Random state (training): 123\n")
