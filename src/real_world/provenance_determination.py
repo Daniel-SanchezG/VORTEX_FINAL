@@ -134,7 +134,7 @@ def save_provenance_results(provenance_df, output_path=None):
         
         # Output paths
         excel_path = f"{output_path}.xlsx"
-        csv_path = f"{output_path}.csv"
+        #csv_path = f"{output_path}.csv"
         
         # Save results
         provenance_df.to_excel(excel_path, index=False)

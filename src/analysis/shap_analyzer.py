@@ -88,7 +88,7 @@ class ShapAnalyzer:
         """
         self.log(f"Processing sheet: {sheet_name}")
         
-        # 1. Cargar datos
+        # 1. Load data
         try:
             df = pd.read_excel(excel_path, sheet_name=sheet_name, engine='openpyxl')
             self.log(f"Data loaded. Shape: {df.shape}")
@@ -102,15 +102,15 @@ class ShapAnalyzer:
         if 'suma' in df.columns:
             df = df.drop(['suma'], axis=1)
         
-        # Verificar que no hay valores nulos
+        # Verify null vlaues
         if df.isnull().any().any():
             self.log("Warning! There are null values in the data", level='warning')
         
-        # 3. Determinar la columna objetivo
+        # 3. Determine target column
         target_column = self.target_column_map.get(sheet_name)
         if target_column is None:
             self.log(f"No mapping found for sheet {sheet_name}, searching for columns 'target_'", level='warning')
-            # Buscar cualquier columna que comience con 'target_'
+            # Search any column that starts with 'target_'
             target_columns = [col for col in df.columns if col.startswith('target_')]
             if target_columns:
                 target_column = target_columns[0]
@@ -120,11 +120,11 @@ class ShapAnalyzer:
         
         if target_column not in df.columns:
             self.log(f"Target column {target_column} not found in sheet {sheet_name}", level='error')
-            # Mostrar las columnas disponibles para ayudar a depurar
+            # Show available columns to help debug
             self.log(f"Available columns: {', '.join(df.columns)}")
             raise ValueError(f"Target column {target_column} not found")
         
-        # 4. Separar características y objetivo
+        # 4. Split features and target
         X = df.drop([target_column], axis=1)
         y = df[target_column]
         
@@ -158,7 +158,7 @@ class ShapAnalyzer:
             
             rf_model.fit(X_train, y_train)
             
-            # Evaluación del modelo
+            # Model evaluation
             y_pred = rf_model.predict(X_test)
             report = classification_report(y_test, y_pred)
             self.log(f"Model evaluation:\n{report}")
@@ -209,6 +209,7 @@ class ShapAnalyzer:
         
         try:
             # Intentar generar el gráfico beeswarm
+
             if isinstance(shap_values, list):
                 # For old SHAP format (list of arrays)
                 shap.summary_plot(
@@ -239,6 +240,7 @@ class ShapAnalyzer:
             self.log(f"Error generating SHAP plot: {str(e)}", level='error')
             
             # Try an alternative approach
+            
             plt.cla()  # Clear current axis
             plt.clf()  # Clear figure
             
