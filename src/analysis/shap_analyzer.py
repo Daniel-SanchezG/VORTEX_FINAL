@@ -1,3 +1,9 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+SHAP Analyzer module for feature importance analysis.
+Contains the ShapAnalyzer class for analyzing ML models.
+"""
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
@@ -7,7 +13,6 @@ from imblearn.over_sampling import SMOTE
 import matplotlib.pyplot as plt
 import shap
 from shap.plots import beeswarm
-import os
 from pathlib import Path
 import logging
 import sys
@@ -68,20 +73,19 @@ class ShapAnalyzer:
         else:
             print(message)
     
-    def process_excel_sheet(self, excel_path, sheet_name, train_existing_model=None):
+    def process_excel_sheet(self, excel_path, sheet_name):
         """
         Process an Excel sheet for SHAP analysis:
         - Load data
         - Preprocessing
         - Balance with SMOTE
-        - Training of Random Forest model (or use existing model)
+        - Training of Random Forest model
         - SHAP analysis
         - Save SHAP plot
         
         Args:
             excel_path (str): Path to Excel file
             sheet_name (str): Name of the sheet to process
-            train_existing_model: Pre-trained model (optional)
             
         Returns:
             Dictionary with analysis results
@@ -102,7 +106,7 @@ class ShapAnalyzer:
         if 'suma' in df.columns:
             df = df.drop(['suma'], axis=1)
         
-        # Verify null vlaues
+        # Verify null values
         if df.isnull().any().any():
             self.log("Warning! There are null values in the data", level='warning')
         
@@ -143,37 +147,31 @@ class ShapAnalyzer:
             X_smote, y_smote, test_size=0.2, random_state=self.random_state, stratify=y_smote
         )
         
-        # 7. Training of RandomForestClassifier or use existing model
-        if train_existing_model is None:
-            # If no pre-trained model, train a new one
-            self.log("Training new Random Forest model...")
-            rf_model = RandomForestClassifier(
-                n_estimators=200,
-                min_samples_leaf=5,
-                class_weight="balanced",
-                criterion='entropy',
-                random_state=self.random_state,
-                n_jobs=-1  # Use all available cores
-            )
-            
-            rf_model.fit(X_train, y_train)
-            
-            # Model evaluation
-            y_pred = rf_model.predict(X_test)
-            report = classification_report(y_test, y_pred)
-            self.log(f"Model evaluation:\n{report}")
-            
-            # Show feature importance of native model
-            if hasattr(rf_model, 'feature_importances_'):
-                importance_df_rf = pd.DataFrame({
-                    'feature': X_train.columns,
-                    'importance': rf_model.feature_importances_
-                }).sort_values('importance', ascending=False)
-                self.log(f"Top 14 features according to model importance:\n{importance_df_rf.head(14)}")
-        else:
-            # If there is a pre-trained model, use it
-            rf_model = train_existing_model
-            self.log("Using pre-trained model for SHAP analysis")
+        # 7. Train Random Forest model
+        self.log("Training Random Forest model...")
+        rf_model = RandomForestClassifier(
+            n_estimators=200,
+            min_samples_leaf=5,
+            class_weight="balanced",
+            criterion='entropy',
+            random_state=self.random_state,
+            n_jobs=-1  # Use all available cores
+        )
+        
+        rf_model.fit(X_train, y_train)
+        
+        # Model evaluation
+        y_pred = rf_model.predict(X_test)
+        report = classification_report(y_test, y_pred)
+        self.log(f"Model evaluation:\n{report}")
+        
+        # Show feature importance of native model
+        if hasattr(rf_model, 'feature_importances_'):
+            importance_df_rf = pd.DataFrame({
+                'feature': X_train.columns,
+                'importance': rf_model.feature_importances_
+            }).sort_values('importance', ascending=False)
+            self.log(f"Top 14 features according to model importance:\n{importance_df_rf.head(14)}")
         
         # 8. SHAP analysis
         self.log("Calculating SHAP values...")
@@ -208,8 +206,7 @@ class ShapAnalyzer:
         plt.figure(figsize=(14, 10))
         
         try:
-            # Intentar generar el gráfico beeswarm
-
+            # Generate beeswarm plot
             if isinstance(shap_values, list):
                 # For old SHAP format (list of arrays)
                 shap.summary_plot(
@@ -221,7 +218,6 @@ class ShapAnalyzer:
                     show=False
                 )
             else:
-                
                 # For new SHAP format (Explanation object)
                 beeswarm(shap_data, max_display=20, color=plt.get_cmap("viridis"), show=False)
             
@@ -240,7 +236,6 @@ class ShapAnalyzer:
             self.log(f"Error generating SHAP plot: {str(e)}", level='error')
             
             # Try an alternative approach
-            
             plt.cla()  # Clear current axis
             plt.clf()  # Clear figure
             
@@ -323,36 +318,30 @@ class ShapAnalyzer:
             'model': rf_model,
             'shap_values': shap_values,
             'X_train': X_train,
+            'X_test': X_test,
+            'y_train': y_train,
+            'y_test': y_test,
             'feature_importance': importance_df,
             'plot_path': output_path if 'output_path' in locals() else None,
-            'importance_path': importance_path if 'importance_path' in locals() else None
+            'importance_path': importance_path if 'importance_path' in locals() else None,
+            'classification_report': report if 'report' in locals() else None
         }
-        
-        # Add additional elements if a new model was trained
-        if train_existing_model is None:
-            result.update({
-                'X_test': X_test,
-                'y_train': y_train,
-                'y_test': y_test,
-                'classification_report': report if 'report' in locals() else None
-            })
             
         return result
     
-    def analyze_multiple_sheets(self, excel_path, sheet_names=None, model=None):
+    def analyze_multiple_sheets(self, excel_path, sheet_names=None):
         """
         Analyze SHAP values for multiple sheets in an Excel file.
         
         Args:
             excel_path: Path to Excel file
             sheet_names: List of sheet names to analyze (if None, all sheets)
-            model: Pre-trained model to use for all sheets (optional)
             
         Returns:
             Dictionary of results for each sheet
         """
         excel_path = Path(excel_path) if isinstance(excel_path, str) else excel_path
-        self.log(f"Analizando valores SHAP para múltiples hojas en {excel_path}")
+        self.log(f"Analyzing SHAP values for multiple sheets in {excel_path}")
         
         # Check if the file exists
         if not excel_path.exists():
@@ -370,7 +359,7 @@ class ShapAnalyzer:
                     self.log(f"Error reading sheets from file: {str(e)}", level='error')
                     raise
             
-            # Corregir el nombre de "encinsasola" a "encinasola" si es necesario
+            # Correct the name of "encinsasola" to "encinasola" if necessary
             corrected_sheet_names = []
             for sheet in sheet_names:
                 if sheet == "encinsasola":
@@ -389,8 +378,7 @@ class ShapAnalyzer:
                     self.log(f"Processing sheet: {sheet}")
                     sheet_result = self.process_excel_sheet(
                         excel_path=excel_path,
-                        sheet_name=sheet,
-                        train_existing_model=model
+                        sheet_name=sheet
                     )
                     results[sheet] = sheet_result
                     successful_sheets += 1

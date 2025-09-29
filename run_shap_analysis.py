@@ -74,12 +74,6 @@ def parse_arguments():
         help='Sheet names to analyze (default: all)'
     )
     parser.add_argument(
-        '--model-path',
-        type=str,
-        default=None,
-        help='Path to a pre-trained model saved (optional)'
-    )
-    parser.add_argument(
         '--top-features',
         type=int,
         default=20,
@@ -111,22 +105,6 @@ def main():
             logger.error(f"The input file {input_path} does not exist")
             sys.exit(1)
         
-        # Load pre-trained model if provided
-        model = None
-        if args.model_path:
-            model_path = Path(args.model_path)
-            if model_path.exists():
-                logger.info(f"Loading pre-trained model from {model_path}")
-                try:
-                    import joblib
-                    model = joblib.load(model_path)
-                    logger.info("Model loaded successfully")
-                except Exception as e:
-                    logger.error(f"Error loading model: {str(e)}")
-                    logger.warning("Continuing without pre-trained model")
-            else:
-                logger.warning(f"The model path {model_path} does not exist. Continuing without pre-trained model")
-        
         # Create the SHAP analyzer
         analyzer = ShapAnalyzer(output_dir=output_dir)
         
@@ -146,8 +124,7 @@ def main():
         # Execute the analysis
         results = analyzer.analyze_multiple_sheets(
             excel_path=input_path,
-            sheet_names=sheets,
-            model=model
+            sheet_names=sheets
         )
         
         # Show summary of results
