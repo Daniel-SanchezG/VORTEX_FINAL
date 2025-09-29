@@ -105,7 +105,7 @@ def main():
     logger.info(f"Output directory: {output_dir}")
     
     try:
-        # Verificar que el archivo de entrada existe
+        # Verify that the input file exists
         input_path = Path(args.input)
         if not input_path.exists():
             logger.error(f"The input file {input_path} does not exist")
