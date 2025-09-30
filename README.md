@@ -218,7 +218,7 @@ docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python
 ```
 
 ```cmd
-#Full process
+#Full analysis
 docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
