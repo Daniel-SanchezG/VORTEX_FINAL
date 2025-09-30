@@ -12,8 +12,8 @@
 
 The framework is based in the following study and data:
 
-- **Paper (preprint)**:[Read the paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5214878)
-- **Data**:[Dataset](https://www.sciencedirect.com/science/article/pii/S2352340925006857) (Datapaper) 
+- **Paper (preprint)**: [Read the paper](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5214878)
+- **Data**: [Dataset](https://www.sciencedirect.com/science/article/pii/S2352340925006857) (Datapaper) 
 
 Authors:
 
