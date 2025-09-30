@@ -214,7 +214,7 @@ docker build -t vortex .
 
 When running the training, the`--full` flag activates feature importance analysis through Recursive Feature Elimination (RFECV), which identifies and ranks the most important features and displays them in two plots. The process can be computationally intensive depending on the available resources.
 
-Windows
+#### Windows
 
 ```cmd
 #Basic usage
@@ -240,7 +240,8 @@ docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex py
 ```
 
 
-Linux/macOS
+#### Linux/macOS
+
 ```bash
 # Basic usage
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
@@ -252,6 +253,7 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 ```
 
 ---
+
 ### Run real-world analysis:
 
 The real-world analysis uses the trained model to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
