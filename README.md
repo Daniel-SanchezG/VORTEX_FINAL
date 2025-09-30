@@ -92,7 +92,7 @@ VORTEX/
 │       ├── tables/           # Metrics and results
 │       └── logs/             # Experiment logs
 │
-├── resultados_shap/          # SHAP analysis results
+├── shap_results/          # SHAP analysis results
 │   ├── logs/                 # SHAP analysis logs
 │   ├── plots/                # SHAP visualizations
 │   └── tables/               # SHAP importance values
@@ -212,9 +212,9 @@ docker build -t vortex .
 
 ### Run the training pipeline:
 
-The`--full` flag activates the feature importance analysis through Recursive Feature Elimination (RFECV), which identifies and ranks the most important features and and displays them in two plots. The process can be computationally intensive depending on the available resources.
+When running the training, the`--full` flag activates feature importance analysis through Recursive Feature Elimination (RFECV), which identifies and ranks the most important features and displays them in two plots. The process can be computationally intensive depending on the available resources.
 
-Windows
+#### Windows
 
 ```cmd
 #Basic usage
@@ -240,7 +240,8 @@ docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex py
 ```
 
 
-Linux/macOS
+#### Linux/macOS
+
 ```bash
 # Basic usage
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
@@ -252,9 +253,10 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 ```
 
 ---
+
 ### Run real-world analysis:
 
-The real-world analysis uses the trained model to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
+The real-world analysis uses the trained model in the previous step to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
 
 The analysis  consists of four main steps:
 1. **Prediction**: Generates predictions for archaeological samples
@@ -262,6 +264,7 @@ The analysis  consists of four main steps:
 3. **Provenance Determination**: Determines provenance per site by majority vote
 4. **Visualization**: Creates plot for uncertainty interpretation
 
+To run the analysis:
 
 **Windows**
 
