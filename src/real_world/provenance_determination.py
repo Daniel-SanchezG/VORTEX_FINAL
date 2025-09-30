@@ -14,7 +14,7 @@ import logging
 import os
 import datetime
 
-# Configuración de logging
+# Logging configuration
 logger = logging.getLogger("Provenance")
 
 def determine_provenance(uncertainty_df, confidence_threshold=0.7):
@@ -183,7 +183,7 @@ def process_provenance_determination(uncertainty_df=None, uncertainty_path=None,
             logger.error(f"Error loading uncertainty results: {str(e)}")
             return None
     
-    # Verificar que tenemos un DataFrame para analizar
+    # Verify that we have a DataFrame to analyse
     if uncertainty_df is None:
         logger.error("No provided a DataFrame or a valid path")
         return None

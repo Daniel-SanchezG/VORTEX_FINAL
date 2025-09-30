@@ -153,11 +153,11 @@ def main():
             validation_data=val_data
         )
   
-        # Variables para guardar información sobre el análisis de features
+        # Variables for storing information about feature analysis
         top_features = None
         feature_importance_info = ""
         
-        # 3. Feature Importance Analysis (solo si se especifica --full)
+        # 3. Feature Importance Analysis (only if --full is enabled)
         if args.full:
             logger.info("Starting feature importance analysis...")
             
@@ -165,7 +165,7 @@ def main():
             X = train_data.drop(['Site', 'id'] if 'id' in train_data.columns else ['Site'], axis=1)
             y = train_data['Site']
             
-            # Ahora podemos obtener el modelo tunificado con seguridad
+            # Now we can obtain the tuned model.
             logger.info("Retrieving tuned model for feature importance analysis...")
             tuned_model = trainer.get_tuned_model()
             
