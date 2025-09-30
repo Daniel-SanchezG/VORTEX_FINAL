@@ -92,7 +92,7 @@ VORTEX/
 │       ├── tables/           # Metrics and results
 │       └── logs/             # Experiment logs
 │
-├── resultados_shap/          # SHAP analysis results
+├── shap_results/          # SHAP analysis results
 │   ├── logs/                 # SHAP analysis logs
 │   ├── plots/                # SHAP visualizations
 │   └── tables/               # SHAP importance values
