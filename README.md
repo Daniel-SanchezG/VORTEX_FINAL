@@ -208,14 +208,16 @@ docker build -t vortex .
 
 ### Run the training pipeline:
 
-The`--full` flag activates the feature importance analysis through RFECV, which identifies and ranks the most important features and and displays them in two plots. The process can be computationally intensive depending on the available resources, so it is disabled by default.
+The`--full` flag activates the feature importance analysis through Recursive Feature Elimination (RFECV), which identifies and ranks the most important features and and displays them in two plots. The process can be computationally intensive depending on the available resources.
 
 Windows
 
 ```cmd
 #Basic usage
-docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" 
+docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
+```
 
+```cmd
 #Full process
 docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
@@ -226,7 +228,9 @@ or if you are using PowerShell:
 
 #Basic usage
 docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" 
+```
 
+```powershell
 # Full analysis
 docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
@@ -236,7 +240,9 @@ Linux/macOS
 ```bash
 # Basic usage
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
+```
 
+```bash
 # Full analysis
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
