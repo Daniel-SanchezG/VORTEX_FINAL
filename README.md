@@ -264,6 +264,7 @@ The analysis  consists of four main steps:
 3. **Provenance Determination**: Determines provenance per site by majority vote
 4. **Visualization**: Creates plot for uncertainty interpretation
 
+To run the analysis:
 
 **Windows**
 
