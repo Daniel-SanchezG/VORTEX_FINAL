@@ -8,7 +8,7 @@
 
 
 
-**VORTEX** (Variscite ORigin Technology X-ray based) is a framework designed to source archaeological variscites . The machine learning-based model makes predictions about the provenance of archaeological artifacts, address uncertainty using Feature Importance and Shapley values, determines provenance by site through majority voting  and visualises the results.
+## **VORTEX** (Variscite ORigin Technology X-ray based) is a framework designed to source archaeological variscites . The machine learning-based model makes predictions about the provenance of archaeological artifacts, address uncertainty using Feature Importance and Shapley values, determines provenance by site through majority voting  and visualises the results.
 
 
 Authors:
