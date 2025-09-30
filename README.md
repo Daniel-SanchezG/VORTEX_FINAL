@@ -256,7 +256,7 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 
 ### Run real-world analysis:
 
-The real-world analysis uses the trained model to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
+The real-world analysis uses the trained model in the previous step to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
 
 The analysis  consists of four main steps:
 1. **Prediction**: Generates predictions for archaeological samples
