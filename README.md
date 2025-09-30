@@ -212,7 +212,7 @@ docker build -t vortex .
 
 ### Run the training pipeline:
 
-The`--full` flag activates the feature importance analysis through Recursive Feature Elimination (RFECV), which identifies and ranks the most important features and and displays them in two plots. The process can be computationally intensive depending on the available resources.
+When running the training, the`--full` flag activates feature importance analysis through Recursive Feature Elimination (RFECV), which identifies and ranks the most important features and displays them in two plots. The process can be computationally intensive depending on the available resources.
 
 Windows
 
