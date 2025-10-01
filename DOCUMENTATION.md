@@ -106,7 +106,7 @@ sudo apt install python3-venv
 
 ##  VORTEX Installation
 
-You can download the ZIP file from [DOI 10.5281/zenodo.15000068](https://zenodo.org/records/15162972) or from the project's Github [repository](https://github.com/Daniel-SanchezG/VORTEX_FINAL) (look for the green button that says 'Code') and select 'Download ZIP'.
+You can download the ZIP file from [ZENODO](https://zenodo.org/records/17242039) or from the project's Github [repository](https://github.com/Daniel-SanchezG/VORTEX_FINAL) (look for the green button that says 'Code') and select 'Download ZIP'.
 
 Alternatively you can clone the GitHub repository:
 
