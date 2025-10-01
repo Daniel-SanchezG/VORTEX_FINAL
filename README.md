@@ -216,39 +216,37 @@ When running the training, the`--full` flag activates feature importance analysi
 
 #### Windows
 
+Basic usage
 ```cmd
-#Basic usage
 docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
 ```
-
+Full analysis
 ```cmd
-#Full analysis
 docker run -v "%cd%\outputs:/app/outputs" -v "%cd%\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
 or if you are using PowerShell:
 
+Basic usage
 ```powershell
-
-#Basic usage
 docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" 
 ```
 
+Full analysis
 ```powershell
-# Full analysis
 docker run -v "${PWD}\outputs:/app/outputs" -v "${PWD}\DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
 
 #### Linux/macOS
 
+Basic usage
 ```bash
-# Basic usage
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs"
 ```
 
+Full analysis
 ```bash
-# Full analysis
 docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex python3 main.py --input "DATA/raw/input_data.xlsx" --output-dir "outputs" --full
 ```
 
