@@ -113,7 +113,7 @@ VORTEX/
 There are two ways to run VORTEX:
 
 1. **Using Docker (Recommended for reproducibility)**: A simple approach that works on any system without worrying about dependencies
-2. **Direct installation**: Using Python virtual environments. follow [this Documentation](https://github.com/Daniel-SanchezG/VORTEX_FINAL/blob/main/DOCUMENTATION.md). 
+2. **Direct installation**: Using Python virtual environments. Follow [this Documentation](https://github.com/Daniel-SanchezG/VORTEX_FINAL/blob/main/DOCUMENTATION.md). 
 
 
 ---
