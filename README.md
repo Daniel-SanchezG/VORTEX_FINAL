@@ -254,7 +254,7 @@ docker run -v "$(pwd)/outputs:/app/outputs" -v "$(pwd)/DATA:/app/DATA" vortex py
 
 ### Run real-world analysis:
 
-The real-world analysis uses the trained model in the previous step to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
+The real-world analysis uses the model trained in the previous step to predict the geological origin of n=571 artefacts from 15 archaeological sites. This is a proof of concept of the framework with real-world data presented in the article.
 
 The analysis  consists of four main steps:
 1. **Prediction**: Generates predictions for archaeological samples
@@ -286,7 +286,7 @@ docker run -v "$(pwd)/real_world_results:/app/real_world_results" -v "$(pwd)/DAT
 ---
 ### **Local SHAP Analysis**
 
-Local Shap analyses visualise the influence of each characteristic within each of the green phosphate deposits considered in the study. These are executed by an independent module called`run_shap_analysis.py` . To run the analysis, simply copy and paste according to your system:
+Local Shap analyses visualise the influence of each characteristic within each of the green phosphate deposits considered in the study. These are executed by an independent module called`run_shap_analysis.py` . To run the analysis, simply copy and paste according to your system. A new folder called ‘shap_results’ will be created at the root of the project, which will contain the graphs.
 
 **Windows**
 
@@ -307,8 +307,9 @@ PowerShell
 docker run -v "$(pwd)/shap_results:/app/shap_results" -v "$(pwd)/DATA:/app/DATA" vortex python3 run_shap_analysis.py --input "DATA/processed/training_data.xlsx" --sheets aliste can_tintorer encinasola
 ```
 
+
 ---
-### **Find the results**
+## **Find the results**
 
 Once the programme has finished (this could take several minutes), the results will be available:
 
@@ -331,11 +332,6 @@ This directory contains the model training results organised into:
 - `site_entropy_distribution_YYYYMMDD.png`: Visualization of uncertainty assessment
 - `site_statistics_YYYYMMDD.xlsx`: Statistical summary of provenance by site
 - `archaeological_pipeline_YYYYMMDD.log`: Detailed pipeline execution log
-
-
-**Local SHAP Analysis results are located in a new folder called "shap_results" in the root of the project**
-
-` When running real_world_analysis results should be the same as those presented in the paper`
 
 ---
 ### R Analysis for Summed Probability Distribution (SPD)
