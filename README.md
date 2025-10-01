@@ -177,7 +177,7 @@ brew install git
 
 ### Installing and running VORTEX:
 
-- You can download the ZIP file from [ZENODO](https://zenodo.org/records/17242039)  or  from the project's [Github repository](https://github.com/Daniel-SanchezG/VORTEX_FINAL) **(look for the green button that says ‘Code’)  and select ‘Download ZIP’**.
+- You can download the ZIP file from [ZENODO](https://zenodo.org/records/17242039)  or  from the project's Github [repository](https://github.com/Daniel-SanchezG/VORTEX_FINAL) (look for the green button that says ‘Code’)  and select ‘Download ZIP’.
 
 - Extract it to a folder of your choice and navigate to the project folder.
 
