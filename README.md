@@ -78,7 +78,7 @@ VORTEX/
 │
 ├── development_notebooks/                # Jupyter development notebooks
 │   ├── preprocessing.ipynb
-│   ├── training.ipynb
+│   ├── workflow.ipynb
 │   ├── Feature_importance.ipynb
 │   ├── SHAP_local.ipynb
 │   ├── Uncertainty_analysis.ipynb
