@@ -79,10 +79,12 @@ VORTEX/
 ├── development_notebooks/                # Jupyter development notebooks
 │   ├── preprocessing.ipynb
 │   ├── workflow.ipynb
-│   ├── Feature_importance.ipynb
+│   ├── Full_model+feature_importance.ipynb
 │   ├── SHAP_local.ipynb
-│   ├── Uncertainty_analysis.ipynb
-│   └── real_world_predictions.ipynb
+│   ├── SpecificModels.ipynb
+│   ├── real_world+uncertainty_analysis.ipynb
+│   ├── DestilledVortex.ipynb
+│   └── Feature_Importance_plots.ipynb
 │
 ├── outputs/                  # Experiment outputs
 │   └── experiment_YYYYMMDD_HHMMSS/
